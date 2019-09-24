@@ -18,7 +18,7 @@
 
 	<ul>
 		<li>김명훈</li>
-		<li></li>
+		<li>김형준</li>
 		<li></li>
 		<li></li>
 	</ul>
