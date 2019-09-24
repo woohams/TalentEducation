@@ -15,7 +15,7 @@
 	</bean>
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
-		<property name="configuration" value="WEB-INF/spring/sqls/config.xml"/>
+		<property name="configLocation" value="WEB-INF/spring/sqls/config.xml"/>
 	</bean>
 	
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">

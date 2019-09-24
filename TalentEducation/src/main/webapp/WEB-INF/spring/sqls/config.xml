@@ -21,7 +21,7 @@
 		<mapper resource="/sqls/boardVod-mapper.xml"/>
 		<mapper resource="/sqls/review-mapper.xml"/>
 		<mapper resource="/sqls/calendar-mapper.xml"/>
-		<mapper resource="/sqls/roomlecture-mapper.xml"/>
+		<mapper resource="/sqls/roomLecture-mapper.xml"/>
 		<mapper resource="/sqls/payment-mapper.xml"/>
 		<mapper resource="/sqls/map-mapper.xml"/>
 	</mappers>
