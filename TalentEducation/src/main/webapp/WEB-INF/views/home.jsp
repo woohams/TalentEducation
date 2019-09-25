@@ -20,7 +20,7 @@
 		<li>김명훈</li>
 		<li>김형준</li>
 		<li>이동규</li>
-		<li></li>
+		<li>홍준성</li>
 	</ul>
 
 </body>
