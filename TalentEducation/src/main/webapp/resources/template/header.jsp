@@ -13,7 +13,7 @@
 		
 		<div class="TE_header_right">
 			<p><a href="">LOGIN</a></p>
-			<img alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg">
+			<img id="TE_header_menu" alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg">
 		</div>
 		
 	</div>

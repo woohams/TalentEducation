@@ -2,13 +2,15 @@ header {
     position: fixed;
     width: 100vw;
     height: 70px;
-    background: white;
+    background: rgba(0,0,0,0.1);
     z-index: 100;
+    transition: 1s;
 }
 header a {
     text-decoration: none;
     color: rgb(50,50,50);
     font-weight: bold;
+    transition: 400ms;
 }
 header img {
     float: left;
@@ -19,8 +21,9 @@ header img {
 header h3 {
     margin: 0 0 20 0;
     padding: 20 0;
-    border-bottom: 3px solid rgb(50,50,50);
+    border-bottom: 3px solid rgb(255,195,205);
     font-size: 20px;
+    color: rgb(220,220,220);
     cursor: default;
 }
 
@@ -53,7 +56,7 @@ header h3 {
     clear: both;
     width: 100vw;
     height: 300px;
-    background: rgb(100,100,100,0.8);
+    background: rgb(50,50,50,0.9);
 }
 
 .TE_header_slider_menus {
@@ -73,9 +76,14 @@ header h3 {
     margin-bottom: 5px;
     width: 100%;
     font-size: 14px;
+    color: rgb(220,220,220);
 }
 
 
 .TE_header_slider_menu > a:hover {
     color: tomato;
+}
+
+header:hover {
+    background: white;
 }

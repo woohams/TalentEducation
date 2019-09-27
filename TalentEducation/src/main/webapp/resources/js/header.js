@@ -1,5 +1,5 @@
 $(function() {
-	$("header").hover(function() {
+	$("#TE_header_menu").click(function() {
 		var slider = $(".TE_header_slider");
 		var display = slider.css('display');
 		
