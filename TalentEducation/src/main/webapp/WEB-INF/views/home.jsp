@@ -8,6 +8,7 @@
 <html>
 <head>
 	<title>Talent Education</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 </head>
 <body>
 
