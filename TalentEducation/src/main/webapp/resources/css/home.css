@@ -1,3 +1,20 @@
-body {
-	background: gray;
+section:nth-child(0) {
+	width: 100%;
+	height: 100%;
+	background: steelblue;
+}
+section:nth-child(1) {
+	width: 100%;
+	height: 100%;
+	background: tomato;
+}
+section:nth-child(2) {
+	width: 100%;
+	height: 100%;
+	background: lime;
+}
+section:nth-child(3) {
+	width: 100%;
+	height: 100%;
+	background: orange;
 }
