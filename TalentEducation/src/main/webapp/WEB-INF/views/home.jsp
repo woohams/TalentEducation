@@ -14,16 +14,12 @@
 	<%@ include file="/resources/template/header.jsp" %>
 	<div id="main" class="scroll-container">
 		<section>
-		<div class="section_back"></div>
 		</section>
 		<section>
-		<div class="section_back"></div>
 		</section>
 		<section>
-		<div class="section_back"></div>
 		</section>
 		<section>
-		<div class="section_back"></div>
 		</section>
 	</div>
 	
