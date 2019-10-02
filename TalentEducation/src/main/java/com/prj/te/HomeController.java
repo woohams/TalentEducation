@@ -30,4 +30,10 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/mypageinfo.do")
+	public String myPage() {
+		
+		return "mypageinfo";
+	}
+	
 }
