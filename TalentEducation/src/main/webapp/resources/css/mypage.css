@@ -27,6 +27,7 @@ section {
 	border: 5px solid rgba(0,0,0,0);
 	border-bottom: 3px solid rgb(80,80,80);
 }
+.TE_mypage_nav:nth-last-child(1) { border-bottom: 0px; }
 
 
 .TE_mypage_nav img {

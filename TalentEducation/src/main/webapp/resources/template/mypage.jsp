@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage.css">
+		<link rel="stylesheet" href="resources/css/mypage.css">
 	</head>
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
@@ -14,5 +14,6 @@
 			
 		</section>
 	</div>
+	<%@ include file="/resources/template/footer.jsp" %>
 	</body>
 </html>

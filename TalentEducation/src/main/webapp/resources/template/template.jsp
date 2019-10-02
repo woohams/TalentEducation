@@ -8,5 +8,6 @@
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
 	
+	<%@ include file="/resources/template/footer.jsp" %>
 	</body>
 </html>

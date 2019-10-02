@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <nav>
 	<div class="TE_mypage_nav">
-		<img alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg"/>
+		<img alt="" src="resources/images/sample.jpg"/>
 		<h3>닉네임</h3>
 		<a href="">id</a>
 		<div class="TE_mypage_nav_btn">

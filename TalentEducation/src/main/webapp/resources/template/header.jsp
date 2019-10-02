@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/header.js"></script>
+<link rel="stylesheet" href="resources/css/header.css">
+<script type="text/javascript" src="resources/js/header.js"></script>
 
 <header>
 	<div class="TE_header">
 		<div class="TE_header_left">
 			<p><a href="./home.do">Talent Education</a></p>
-			<img alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg">
+			<img alt="" src="resources/images/sample.jpg">
 		</div>
 		
 		<div class="TE_header_right">
 			<p><a href="">LOGIN</a></p>
-			<img id="TE_header_menu" alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg">
+			<img id="TE_header_menu" alt="" src="resources/images/sample.jpg">
 		</div>
 		
 	</div>
