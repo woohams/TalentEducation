@@ -1,0 +1,98 @@
+ul {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    list-style: none; 
+}
+
+#category_head {
+    position: relative;
+    top: 90px;
+    margin: 0px auto;
+    width: 1280px;
+    height: 70px;
+}
+
+#category_head ul {
+    background-color: rgb(220,220,220);
+}
+#category_head li {
+    float: left;
+    width: 141px;
+    text-align: center;
+}
+#category_head li:nth-child(1) {
+    padding-left: 0px;
+}
+#category_head li:nth-last-child(1) {
+    padding-right: 0px;
+}
+#category_head a {
+    display: block;
+    padding: 22px 0px;
+    border: 1px solid rgb(200, 200, 200);
+    border-right: 0px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    color: rgb(50,50,50);
+    transition: 1s;
+}
+#category_head a:nth-last-child(1) {
+    border-right: 1px solid rgb(200,200,200);
+}
+
+
+
+#boardlist_form {
+    margin: 120px auto;
+    width: 1280px;
+    height: 1000px;
+}
+
+#boardlist_form nav {
+    float: left;
+    padding: 0px 30px;
+    width: 170px;
+    height: 100%;
+    background:cornflowerblue;
+}
+#boardlist_form section {
+    position: relative;
+    left: 230px;
+    width: 1050px;
+    height: 100%;
+    background-color: turquoise;
+}
+
+
+
+#boardlist_form nav h3 {
+    padding-bottom: 20px;
+    border-bottom: 3px solid black;
+    font-size: 24px;
+}
+
+.boardlist_nav_ul li {
+    margin: 7px 0px;
+}
+.boardlist_nav_ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(70,70,70);
+}
+
+
+.board_image {
+    background-image: url('resources/images/sample.jpg');
+}
+
+
+
+#category_head a:hover {
+    border: 1px solid black;
+    background-color: white;
+}
+.boardlist_nav_ul li a:hover {
+    color: black;
+}
