@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%request.setCharacterEncoding("UTF-8"); %>
-<%response.setContentType("text/html; charset=UTF-8"); %>
 <html>
 <head>
-	<title>Talent Education</title>
-	<link rel="icon" type="image/png" sizes="32x32" href="${pageContext.request.contextPath}/resources/images/sample.jpg">
+	<%@ include file="/resources/template/head.jsp" %>
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/full-page-scroll.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css">
 </head>

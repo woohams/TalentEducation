@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/header.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/header.js"></script>
 
 <header>
 	<div class="TE_header">
 		<div class="TE_header_left">
-			<p><a href="">Talent Education</a></p>
+			<p><a href="./home.do">Talent Education</a></p>
 			<img alt="" src="${pageContext.request.contextPath}/resources/images/sample.jpg">
 		</div>
 		
@@ -21,7 +20,7 @@
 		<div class="TE_header_slider_menus">
 			<div class="TE_header_slider_menu">
 				<h3>마이 홈</h3>
-				<a href="">내 정보</a>
+				<a href="./mypageinfo.do">내 정보</a>
 				<a href="">게시판</a>
 				<a href="">VOD</a>
 				<a href="">도서구매</a>
