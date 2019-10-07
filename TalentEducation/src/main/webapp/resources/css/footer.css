@@ -2,14 +2,26 @@ footer {
     width: 100%;
     background: black;
     color: white;
+    text-align: center;
 }
 
+footer h2 {
+    margin: 0px 0px 10px 0px;
+    font-size: 36px;
+}
 .footer_img{
-    margin-right: 8px;
+    margin: 5px 8px 0px 0px;
     width: 32px;
     height: 32px;
 }
 
 footer p{
     margin: 0px;
+}
+footer p:nth-child(4){
+    padding-bottom: 15px;
+}
+
+footer span {
+    color: hotpink;
 }
