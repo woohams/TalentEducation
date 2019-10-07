@@ -35,5 +35,10 @@ public class HomeController {
 		
 		return "mypageinfo";
 	}
+	@RequestMapping(value = "/boardlist.do")
+	public String boardList() {
+		
+		return "boardlist";
+	}
 	
 }

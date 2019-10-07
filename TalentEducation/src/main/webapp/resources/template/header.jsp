@@ -27,7 +27,7 @@
 			</div>
 			<div class="TE_header_slider_menu">
 				<h3>인기수업</h3>
-				<a href="">메이크업</a>
+				<a href="./boardlist.do">메이크업</a>
 				<a href="">영상편집</a>
 				<a href="">포토샵/일러스트</a>
 				<a href="">방송댄스</a>
