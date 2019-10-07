@@ -4,6 +4,9 @@ body, html{
     width: 100%;
     height: 100%;
 }
+
+
+
 header {
     position: fixed;
     width: 100%;
@@ -12,49 +15,47 @@ header {
     z-index: 100;
     transition: 1s;
 }
-header a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 400ms;
-}
-header img {
-    float: left;
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-}
-header h3 {
-    margin: 0 0 20 0;
-    padding: 20 0;
-    border-bottom: 3px solid rgb(255,195,205);
-    font-size: 20px;
-    color: rgb(220,220,220);
-    cursor: default;
-}
+	header a {
+	    text-decoration: none;
+	    color: white;
+	    font-weight: bold;
+	    transition: 400ms;
+	}
+	
+	header img {
+	    float: left;
+	    width: 70px;
+	    height: 70px;
+	    cursor: pointer;
+	}
+	
+	header h3 {
+	    margin: 0px 0px 20px 0px;
+	    padding: 20px 0px;
+	    border-bottom: 3px solid rgb(255,195,205);
+	    font-size: 20px;
+	    color: rgb(220,220,220);
+	    cursor: default;
+	}
 
-.TE_header {
-    margin: 0px auto;
-    width: 1280px;
-}
-.TE_header_left {
-    float: left;
-    height: 70px;
-}
-.TE_header_left p {
-    float: right;
-    margin: 2px 0px 0px 20px;
-    font-size: 42px;
-}
 
-.TE_header_right {
-    float: right;
-}
-.TE_header_right p {
-    float: left;
-    margin: 25px 20px 0px 0px;
-    font-size: 12px;
-}
+
+.TE_header { margin: 0px auto;  width: 1280px; }
+	.TE_header_left { float: left; height: 70px; }
+		.TE_header_left p {
+		    float: right;
+		    margin: 2px 0px 0px 20px;
+		    font-size: 42px;
+		}
+
+	.TE_header_right { float: right; }
+		.TE_header_right p {
+		    float: left;
+		    margin: 25px 20px 0px 0px;
+		    font-size: 12px;
+		}
+
+
 
 .TE_header_slider {
     display: none;
@@ -64,26 +65,27 @@ header h3 {
     height: 300px;
     background: rgb(50,50,50,0.9);
 }
+	.TE_header_slider_menus { margin: 0px auto; width: 1280px; }
 
-.TE_header_slider_menus {
-    margin: 0px auto;
-    width: 1280px;
-}
+	.TE_header_slider_menu {
+	    float: left;
+	    margin: 0px 16px;
+	    width: 150px;
+	    height: 100%;
+	    text-align: center;
+	}
+		.TE_header_slider_menu > a {
+		    display: inline-block;
+		    margin-bottom: 5px;
+		    width: 100%;
+		    font-size: 14px;
+		    color: rgb(220,220,220);
+		}
 
-.TE_header_slider_menu {
-    float: left;
-    margin: 0px 16px;
-    width: 150px;
-    height: 100%;
-    text-align: center;
-}
-.TE_header_slider_menu > a {
-    display: inline-block;
-    margin-bottom: 5px;
-    width: 100%;
-    font-size: 14px;
-    color: rgb(220,220,220);
-}
+
+
+
+
 
 
 .TE_header_slider_menu > a:hover {

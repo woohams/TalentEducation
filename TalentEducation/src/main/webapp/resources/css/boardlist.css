@@ -5,42 +5,36 @@ ul {
     list-style: none; 
 }
 
+
 #category_head {
     position: relative;
     top: 90px;
     margin: 0px auto;
-    width: 1280px;
+    width: 1270px;
     height: 70px;
 }
-
-#category_head ul {
-    background-color: rgb(220,220,220);
-}
-#category_head li {
-    float: left;
-    width: 141px;
-    text-align: center;
-}
-#category_head li:nth-child(1) {
-    padding-left: 0px;
-}
-#category_head li:nth-last-child(1) {
-    padding-right: 0px;
-}
-#category_head a {
-    display: block;
-    padding: 22px 0px;
-    border: 1px solid rgb(200, 200, 200);
-    border-right: 0px;
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: none;
-    color: rgb(50,50,50);
-    transition: 1s;
-}
-#category_head a:nth-last-child(1) {
-    border-right: 1px solid rgb(200,200,200);
-}
+	#category_head ul { background-color: rgb(220,220,220); }
+	
+	#category_head li {
+	    float: left;
+	    width: 141px;
+	    text-align: center;
+	}
+		#category_head li:nth-child(1) { padding-left: 0px; }
+		#category_head li:nth-last-child(1) { padding-right: 0px; }
+		
+	#category_head a {
+	    display: block;
+	    padding: 22px 0px;
+	    border: 1px solid rgb(200, 200, 200);
+	    border-right: 0px;
+	    font-weight: bold;
+	    font-size: 18px;
+	    text-decoration: none;
+	    color: rgb(50,50,50);
+	    transition: 1s;
+	}
+		#category_head a:nth-last-child(1) { border-right: 1px solid rgb(200,200,200); }
 
 
 
@@ -49,43 +43,103 @@ ul {
     width: 1280px;
     height: 1000px;
 }
+	#boardlist_form nav {
+	    float: left;
+	    padding: 0px 30px;
+	    width: 230px;
+	    height: 100%;
+	}
+		#boardlist_form nav h3 {
+		    padding-bottom: 20px;
+		    border-bottom: 3px solid black;
+		    font-size: 24px;
+		}
+	
+	#boardlist_form section {
+	    margin-left: 250px;
+	    width: 1030px;
+	    height: 100%;
+	}
 
-#boardlist_form nav {
+
+
+.boardlist_nav_ul li { margin: 7px 0px; }
+	.boardlist_nav_ul li a {
+	    text-decoration: none;
+	    font-weight: bold;
+	    color: rgb(100,100,100);
+	}
+
+
+
+#select_board {
+    margin-bottom: 30px;
+    height: 80px;
+    background-color: rgb(200,200,200);
+}
+	#select_board h4 {
+	    float: left;
+	    margin: 25px;
+	    font-size: 24px;
+	}
+	
+	#select_board select {
+	    margin: 25px 0px;
+	    width: 200px;
+	    height: 30px;
+	}
+	
+	
+	
+.board {
+    margin: 0px 0px 60px 35px;
     float: left;
-    padding: 0px 30px;
-    width: 170px;
-    height: 100%;
-    background:cornflowerblue;
+    width: 320px;
+    height: 330px;
+    background-color: rgb(220,220,220);
+	transition: 1s;
 }
-#boardlist_form section {
+	.board:nth-child(3n + 1) { margin-left: 0px; }
+	
+	
+	
+.board_img {
     position: relative;
-    left: 230px;
-    width: 1050px;
-    height: 100%;
-    background-color: turquoise;
+    width: 320px;
+    height: 250px;
+    background-image: url("/te/resources/images/sample.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
+	.board_img div { position: relative; }
 
 
 
-#boardlist_form nav h3 {
-    padding-bottom: 20px;
-    border-bottom: 3px solid black;
-    font-size: 24px;
-}
-
-.boardlist_nav_ul li {
-    margin: 7px 0px;
-}
-.boardlist_nav_ul li a {
-    text-decoration: none;
+.tag_box {
+    width: 80px;
+    height: 22px;
+    text-align: center;
+    color: rgb(240,240,240);
     font-weight: bold;
-    color: rgb(70,70,70);
+    border-radius: 0px 10px 10px 0px;
 }
+	.vod { background-color: red; }
+	.onoff { background-color: steelblue; }
 
 
-.board_image {
-    background-image: url('resources/images/sample.jpg');
-}
+
+.board_content { margin: 10px; }
+	.board_content p { margin: 0px; }
+	
+	.board_content div p { float: left; }
+	
+	.board_content div a { float: right; text-decoration: none; }
+
+
+.board_title { height: 40px; }
+
+
+
 
 
 
@@ -93,6 +147,15 @@ ul {
     border: 1px solid black;
     background-color: white;
 }
+
 .boardlist_nav_ul li a:hover {
     color: black;
+}
+
+.board:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+.board_content div p:hover {
+	color: yellow;
 }
