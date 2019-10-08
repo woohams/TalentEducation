@@ -7,7 +7,7 @@
 	<div class="TE_header">
 		<div class="TE_header_left">
 			<p><a href="./home.do">Talent Education</a></p>
-			<img alt="" src="resources/images/sample.jpg">
+			<img alt="" src="resources/images/logo.png">
 		</div>
 		
 		<div class="TE_header_right">
