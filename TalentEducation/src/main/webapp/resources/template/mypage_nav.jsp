@@ -13,7 +13,7 @@
 	<div class="TE_mypage_nav">
 		<h3>내정보</h3>
 		<a href="">내 정보</a>
-		<a href="">스케쥴</a>
+		<a href="calendar.do">스케쥴</a>
 	</div>
 	<div class="TE_mypage_nav">
 		<h3>VOD</h3>
