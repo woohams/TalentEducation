@@ -31,7 +31,7 @@
 						<p class="board_title">대충맛</p>
 						<div>
 							<p>★★★☆☆</p>
-							<a href="">글쓴이</a>
+							<a href="">홍준성</a>
 						</div>
 					</div>
 				</div>

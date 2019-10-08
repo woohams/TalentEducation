@@ -45,8 +45,8 @@ ul {
 }
 	#boardlist_form nav {
 	    float: left;
-	    padding: 0px 30px;
-	    width: 230px;
+	    padding: 0px 15px;
+	    width: 220px;
 	    height: 100%;
 	}
 		#boardlist_form nav h3 {
