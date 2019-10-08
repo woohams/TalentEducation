@@ -32,7 +32,7 @@ public class MemberController {
 		int res = Mbiz.insert(dto);
 		System.out.println("111");
 		if(res>0) {
-			return "index";
+			return "home";
 		}else {
 			return "regist";
 		}
