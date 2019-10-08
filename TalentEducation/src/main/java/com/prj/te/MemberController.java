@@ -30,7 +30,6 @@ public class MemberController {
 	@RequestMapping(value ="/insert.do" , method = RequestMethod.POST)
 	public String memberJoin(MemberDto dto) {
 		int res = Mbiz.insert(dto);
-		System.out.println("111");
 		if(res>0) {
 			return "home";
 		}else {

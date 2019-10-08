@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,26 +18,38 @@
 				<tr>
 					<th>ID</th>
 					<td>
-						<input type="text" name="id" onchange="" >
+						<input type="text" name="id" onchange="" placeholder="ID" required autofocus>
+						<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+				    <font color="red">
+				        <p>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+				        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
+				    </font>
+				    	</c:if>
 					</td>
 				</tr>
 				<tr>
 					<th>PW</th>
 					<td>
-						<input type="password" name="pw" onchange="">
+						<input type="password" name="pw" onchange="" placeholder="Password" required autofocus>
+						<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+				    <font color="red">
+				        <p>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+				        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
+				    </font>
+				    	</c:if>
 					</td>
 				</tr>
 				<tr>
 					<th>EMAIL</th>
 					<td>
-						<input type="text" name="email">
-						<button type="button" onclick="">인증</button>
+						<input type="text" name="email"placeholder="Email" required autofocus>
+						<input type="button" onclick="" >인증</input>
 					</td>
 				</tr>
 				<tr>
 					<th>NICKNAME</th>
 					<td>
-						<input type="text" name="nickname">
+						<input type="text" name="nickname" placeholder="Nickname" required autofocus>
 					</td>
 				</tr>
 				<tr>
