@@ -11,7 +11,16 @@
 		</div>
 		
 		<div class="TE_header_right">
-			<p><a href="">LOGIN</a></p>
+			<sec:authorize access="isAuthenticated()">
+				<form id="logout" action='./logout' method="post">
+					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+					
+				</form>
+				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
+			</sec:authorize>
+			<sec:authorize access="isAnonymous()">
+				<p><a href="./loginform.do">LOGIN</a></p>
+			</sec:authorize>
 			<img id="TE_header_menu" alt="" src="resources/images/sample.jpg">
 		</div>
 		

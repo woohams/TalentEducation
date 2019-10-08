@@ -1,40 +1,90 @@
 package com.prj.te.dto;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
-public class MemberDto {
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+@SuppressWarnings("serial")
+public class MemberDto implements UserDetails{
 	
+	private int member_seq;
 	private String id;
 	private String pw;
-	private String name;
+	private boolean enable;
+	private String authority;
 	private String nickname;
-	private String birth;
-	private String gender;
 	private String email;
-	private String location;
 	private String categorys;
 	private String profile_img;
 	private Date end_date;
 	
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		ArrayList<GrantedAuthority> auth = new ArrayList<GrantedAuthority>();
+		auth.add(new SimpleGrantedAuthority(authority));
+		return auth;
+	}
+
+	@Override
+	public String getPassword() {
+		return pw;
+	}
+
+	@Override
+	public String getUsername() {
+		return id;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enable;
+	}
+
 	public MemberDto() {
 		
 	}
 
-	public MemberDto(String id, String pw, String name, String nickname, String birth, String gender, String email,
-			String location, String categorys, String profile_img, Date end_date) {
+	public MemberDto(int member_seq, String id, String pw, boolean enable,  String authority, String nickname, String birth,
+			 String email, String categorys, String profile_img, Date end_date) {
+		this.member_seq = member_seq;
 		this.id = id;
 		this.pw = pw;
-		this.name = name;
+		this.enable = enable;
+		this.authority = authority;
 		this.nickname = nickname;
-		this.birth = birth;
-		this.gender = gender;
 		this.email = email;
-		this.location = location;
 		this.categorys = categorys;
 		this.profile_img = profile_img;
 		this.end_date = end_date;
 	}
 
+	@Override
+	public String toString() {
+		return "MemberDto [seq"+member_seq+ ",id=" + id + ", pw=" + pw + ", enable=" + enable +  ", authority="
+				+ authority + ", nickname=" + nickname + ", email=" + email
+				+ ", categorys=" + categorys + ", profile_img=" + profile_img + ", end_date="
+				+ end_date + "]";
+	}
+	
 	public String getId() {
 		return id;
 	}
@@ -51,14 +101,30 @@ public class MemberDto {
 		this.pw = pw;
 	}
 
-	public String getName() {
-		return name;
+	public boolean isEnable() {
+		return enable;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEnable(boolean enable) {
+		this.enable = enable;
 	}
 
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+
+	public int getMember_seq() {
+		return member_seq;
+	}
+	
+	public void setMember_seq(int member_seq) {
+		this.member_seq = member_seq;
+	}
+	
 	public String getNickname() {
 		return nickname;
 	}
@@ -67,36 +133,12 @@ public class MemberDto {
 		this.nickname = nickname;
 	}
 
-	public String getBirth() {
-		return birth;
-	}
-
-	public void setBirth(String birth) {
-		this.birth = birth;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
 	}
 
 	public String getCategorys() {
@@ -123,4 +165,7 @@ public class MemberDto {
 		this.end_date = end_date;
 	}
 
+	
+
+	
 }
