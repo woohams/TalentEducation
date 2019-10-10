@@ -40,5 +40,10 @@ public class HomeController {
 		
 		return "boardlist";
 	}
+	@RequestMapping(value = "/selectone.do")
+	public String selectOne() {
+		
+		return "boardselectone";
+	}
 	
 }

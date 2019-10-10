@@ -1,7 +1,5 @@
 #mypage_form {
-	position: relative;
-	top: 70px;
-	margin: 0px auto;
+	margin: 70px auto 120px auto;
 	width: 1280px;
 	height: 1000px;
 }
@@ -12,8 +10,7 @@ nav {
 	height: 100%;
 }
 section {
-	position: absolute;
-	left: 230px;
+	float: right;
 	width: 1050px;
 	height: 100%;
 }

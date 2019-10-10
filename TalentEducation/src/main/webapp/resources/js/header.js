@@ -16,4 +16,25 @@ $(function() {
 			slider.slideUp(200);			
 		}
 	});
+	
+	var didScroll = false;
+	var lastScroll = 0;
+	var scroll = 0;
+	$(window).scroll(function(event) {
+		didScroll = true;
+		scroll = $(window).scrollTop();
+	});
+	
+	setInterval(function() {
+		if(didScroll) {
+			if(scroll > lastScroll && scroll > 70) {
+				$("header").css("opacity", 0);
+				$("header").css("top", -70);
+			}else {
+				$("header").css("opacity", 1);
+				$("header").css("top", 0);
+			}
+			didScroll = false;
+		}
+	}, 250);
 });
