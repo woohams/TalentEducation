@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.prj.te.dto.MemberDto;
 import com.prj.te.model.biz.MemberBiz;
@@ -40,6 +42,12 @@ public class MemberController {
 	public String registf(MemberDto dto) {
 		
 			return "regist";
+		
+	}
+	@RequestMapping(value = "/idchk.do" , method = {RequestMethod.POST,RequestMethod.GET})
+	@ResponseBody
+	public int idChk(String id) {
+		return Mbiz.idChk(id);
 		
 	}
 }

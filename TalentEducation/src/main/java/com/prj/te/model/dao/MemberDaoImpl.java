@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +16,9 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
+	@Autowired 
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
 	public MemberDto login(String id) {
@@ -98,4 +103,42 @@ public class MemberDaoImpl implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public User findAccount(String email) {
+		User user = null;
+		
+		try {
+			user = sqlSession.selectOne(namespace+"findAccount",email);
+		} catch (Exception e) {
+			System.out.println("");
+			e.printStackTrace();
+		}
+		return user;
+	}
+
+	@Override
+	public boolean pwchk(String username, String pw) {
+			MemberDto dto = null;
+		
+		try {
+			dto = sqlSession.selectOne(namespace+"login",username);
+		} catch (Exception e) {
+			System.out.println("PWCHK ERROR");
+			e.printStackTrace();
+		}
+		return passwordEncoder.matches(pw, dto.getPw());
+	
+	}
+
+	@Override
+	public int idChk(String id) {
+		int res = 0;
+				
+		try {
+			res = sqlSession.selectOne(namespace+"idChk",id); 
+		} catch (Exception e) {
+			System.out.println("IDCHK ERROR");
+		}
+		return res;
+	} 
 }

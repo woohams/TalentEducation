@@ -67,13 +67,26 @@ public class MemberBizImpl implements MemberBiz {
 		
 		return dto;
 	}
-	public User findAccount(String email) {
-		
-		return null;
-	}
+	
 
 	public void updateInfo(String username, String string, String password) {
 		
+	}
+
+	@Override
+	public int idChk(String id) {
+		return dao.idChk(id);
+	}
+
+	@Override
+	public boolean pwchk(String username, String pw) {
+		// TODO Auto-generated method stub
+		return dao.pwchk(username, pw);
+	}
+
+	@Override
+	public User findAccount(String email) {
+		return dao.findAccount(email);
 	}
 
 	
