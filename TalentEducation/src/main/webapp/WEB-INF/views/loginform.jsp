@@ -16,18 +16,12 @@
 <body>
 
 	<form action='./login' method="post">
-	<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-		<table border="1">
-			<col width="10">
-			<col width="10">
-			<tbody>
-				<tr>
-					<th>ID</th>
-					<td><input type="text" name="id" placeholder="ID" required autofocus></td>
-				</tr>
-				<tr>
-					<th>PASSWORD</th>
-					<td><input type="password" name="pw"  placeholder="Password" required>
+		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+				<div class="login-form">
+					<input type="text" name="id" placeholder="ID" required autofocus>
+				</div>
+				<div class="login-form">
+					<input type="password" name="pw"  placeholder="Password" required>
 						<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
 				    <font color="red">
 				        <p>Your login attempt was not successful due to <br/>
@@ -35,19 +29,14 @@
 				        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
 				    </font>
 						</c:if>
-
-					</td>
-				</tr>
-				
-				<tr>
-					<td colspan="2">
-						<input type="submit" value="로그인">
-						<input type="button" onclick="location.href='./regist.do'" value="회원가입">
-						<input type="button" onclick="location.href='./'" value="홈으로">
-					</td>
-				</tr>
-			</tbody>
-		</table>
+				</div>
+				<div class="login-form">
+					<a href="./findidpage.do">ID찾기</a>	
+					<a href="./findpwpage.do">PW찾기</a>	
+					<input type="submit" value="로그인">
+					<input type="button" onclick="location.href='./regist.do'" value="회원가입">
+					<input type="button" onclick="location.href='./'" value="홈으로">
+				</div>
 	</form>
 	
 

@@ -54,4 +54,9 @@ public class MemberController {
 	public String emaillChk() {
 		return "emailchkpage";
 	}
+	@RequestMapping(value = "/findidpage.do")
+	public String findid() {
+		return "findid";
+	}
+	
 }
