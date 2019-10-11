@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script type="text/javascript" src="resources/js/clock.js"></script>
 <nav>
 	<div class="TE_mypage_nav">
 		<img alt="" src="resources/images/sample.jpg"/>
@@ -26,4 +28,5 @@
 		<a href="">공지 게시판</a>
 		<a href="">일반 게시판</a>
 	</div>
+	<div id="clock" style="padding: 10px;"></div>
 </nav>
