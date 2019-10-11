@@ -50,4 +50,8 @@ public class MemberController {
 		return Mbiz.idChk(id);
 		
 	}
+	@RequestMapping(value = "/emailchkP.do")
+	public String emaillChk() {
+		return "emailchkpage";
+	}
 }

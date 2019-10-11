@@ -1,13 +1,15 @@
 
 var token;
 var header;
-var pattern_Pw = /^(?=.*[a-zA-Z!@#$%^*+=-])(?=.*[0-9]).{6,10}$/;
-var pattern_Id = /^[a-z0-9]/;
+var pattern_Pw = /^(?=.*[a-zA-Z!@#$%^*+=-])([ㄱ-ㅎ|ㅏ-ㅣ|가-힣])(?=.*[0-9]).{2,10}$/;
+var pattern_Id = /^[a-z0-9]{4,10}$/;
 var pattern_gon = /\s/g;
 var pattern_num = /[0-9]/;	 
 var pattern_eng = /[a-zA-Z]/;	
 var pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/; 
 var pattern_kor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; 
+var pattern_email = /^[a-z0-9A-Z]{1,30}$/;
+var pattern_nic = /^[ㄱ-ㅎ가-힣A-Za-z0-9!@#$%^*+=-]{1,14}$/;
 
 window.onload=function(){
 	token = $('meta[name="_csrf"]').attr('th:content');
@@ -20,7 +22,7 @@ function idChk() {
 	
 	if(!pattern_Id.test(user_id)||(pattern_gon.test(user_id))){
 		$("#id_check").css('color', 'red');
-		$("#id_check").html("공백, 특수문자, 한글, 대문자는 사용불가능합니다.");
+		$("#id_check").html("ID : 4~10 공백,한글,특수기호 X");
 		$("input[name=id]").focus();
 		return false;
 	}
@@ -62,7 +64,7 @@ function pwChk(){
 	
 	if(!pattern_Pw.test(pw)){
 		$("#pw_check").css('color', 'red');
-		$("#pw_check").html("문자와 숫자를 혼합하여 6~10자로 입력하세요");
+		$("#pw_check").html("PW: 6~10 문자, 숫자 혼합");
 		$("input[name=pw]").focus();
 	
 		return false;
@@ -74,6 +76,51 @@ function pwChk(){
 		return false;			
 	}
 	
+}
+
+function nicChk(){
+	var nic = $("input[name=Nickname]").val();
+	
+	if(!pattern_nic.test(nic)){
+		$("#nic_check").css('color', 'red');
+		$("#nic_check").html(" 공백은 사용불가능합니다.");
+		$("input[name=Nickname]").focus();
+		return false;
+	}else{
+		$("#nic_check").css('color', 'blue');
+		$("#nic_check").html("사용가능한 닉네임 입니다.");
+		return false;
+	}
+	
+} 
+
+function emailSelect(){
+	$("#selectEmail option:selected").each(function(){
+		if($(this).val() == "write"){
+			$("#emailService").val("");
+			$("#emailService").attr("disabled", false);
+		}else{
+			$("#emailService").val($(this).text());
+			$("#emailService").attr("disabled", true);
+		}
+	});
+}
+
+function emailChk(){
+	
+	if($("#emailId").val() == ""){
+		alert("email을 입력해주세요!");
+		return false;
+	}
+	
+	if(!pattern_email.test($("#emailId").val())){
+		alert("email을 형식에 맞게 입력해주세요");
+		return false;
+	}else{
+		$("input[name=email]").val($("#emailId").val() + "@" + $("#emailService").val());
+		email = $("input[name=email]").val();
+		window.open("./emailchkP.do","emailChkPage","width=500, height=150, left=500, top=250", "resizeble=no", "alwaysReised=yes");			
+	}
 }
 
 	

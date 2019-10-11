@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class MailController {
 	
 	private MemberBizImpl userService;
 	
+	@Autowired
     private MailService mailService;
  
    
@@ -29,17 +31,18 @@ public class MailController {
     }
  
     // 회원가입 이메일 인증
-    @RequestMapping(value = "/sendMail/auth", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/emailchk.do", method = RequestMethod.POST)
     @ResponseBody
-    public boolean sendMailAuth(HttpSession session, @RequestParam String email) {
-        int ran = new Random().nextInt(100000) + 10000; // 10000 ~ 99999
-        String joinCode = String.valueOf(ran);
+    public String sendMailAuth(HttpSession session, String email) {
+        int ranCode = new Random().nextInt(100000) + 10000; // 10000 ~ 99999
+        String joinCode = String.valueOf(ranCode);
         session.setAttribute("joinCode", joinCode);
- 
         String subject = "회원가입 인증 코드 발급 안내 입니다.";
         StringBuilder sb = new StringBuilder();
         sb.append("귀하의 인증 코드는 " + joinCode + " 입니다.");
-        return mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
+        System.out.println(email);
+        mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
+        return joinCode;
     }
  
     // 아이디 찾기

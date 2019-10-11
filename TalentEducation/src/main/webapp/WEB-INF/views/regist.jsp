@@ -26,11 +26,22 @@
 						<span id="pw_check"></span>
 					</div>	
 					<div class="form-group">
-						<input type="text" name="email"placeholder="Email" >
-						<input type="button" onclick="" >인증</input>
+						<label></label>
+		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요">@
+		                <input type="text"  id="emailService" value="gmail.com" disabled="disabled">
+               		<select id="selectEmail" onchange="emailSelect();">
+	                	<option value="write">직접입력</option>
+						<option value="gmail.com" selected="selected">gmail.com</option>
+						<option value="naver.com">naver.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+               		 </select>
+               			<input type="hidden" name="email"> 
+               			<a id="emailBtn" onclick="emailChk();">인증</a> <br>
+              			<span id="emailck"></span>
 					</div>
 					<div class="form-group">	
-						<input type="text" name="nickname" placeholder="Nickname">
+						<input type="text" name="nickname" onchange="nicChk();" placeholder="Nickname"><br>
+						<span id="nic_check"></span>
 					</div>
 					<div>
 						<input type="submit" value="회원가입!">
