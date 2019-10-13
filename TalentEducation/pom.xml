@@ -50,7 +50,13 @@
 		    <artifactId>mail</artifactId>
 		    <version>1.4</version>
 		</dependency>
-		
+		<!-- naver api -->
+		<dependency>
+			<groupId>com.github.scribejava</groupId>
+			<artifactId>scribejava-core</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+
 		<!-- Seucrity -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -71,6 +77,14 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>${spring.security.version}</version>
+		</dependency>
+		<!-- captcha -->
+		<dependency>
+		    <groupId>nl.captcha</groupId>
+		    <artifactId>simplecaptcha</artifactId>
+		    <version>1.2.1</version>
+		    <scope>system</scope>
+		    <systemPath>${basedir}\src\main\webapp\WEB-INF\lib\simplecaptcha-1.2.1.jar</systemPath>
 		</dependency>
 
 		<!-- AspectJ -->

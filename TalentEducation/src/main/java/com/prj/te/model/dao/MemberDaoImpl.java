@@ -1,6 +1,8 @@
 package com.prj.te.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +63,6 @@ public class MemberDaoImpl implements MemberDao {
 	@Transactional
 	public int insert(MemberDto dto) {
 		int res = 0;
-		System.out.println("insert 들어 왔다");
 		
 		try {
 			res = sqlSession.insert(namespace+"insert",dto);
@@ -104,16 +105,36 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public User findAccount(String email) {
-		User user = null;
-		
+	public MemberDto findAccount(String email) {
+		MemberDto user = null;
 		try {
 			user = sqlSession.selectOne(namespace+"findAccount",email);
 		} catch (Exception e) {
-			System.out.println("");
+			System.out.println("FINDACCOUNT ERROR");
 			e.printStackTrace();
 		}
 		return user;
+	}
+	@Override
+	public int updateInfo(String id, String pw) {
+		//int String
+		MemberDto dto = new MemberDto();
+		if(pw!=null && pw!="") {
+			dto.setPw(passwordEncoder.encode(pw));
+		}
+		
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pw", dto.getPassword());
+		
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace+"updateInfo", map);
+		} catch (Exception e) {
+			System.out.println("FINDACCOUNT ERROR");
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 	@Override

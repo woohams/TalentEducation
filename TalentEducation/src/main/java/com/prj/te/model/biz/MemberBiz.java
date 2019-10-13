@@ -1,6 +1,7 @@
 package com.prj.te.model.biz;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,5 +18,6 @@ public interface MemberBiz extends UserDetailsService{
 	public int delete(int member_seq);
 	public int idChk(String id);
 	public boolean pwchk(String username, String pw);
-	public User findAccount(String email);
+	public MemberDto findAccount(String email);
+	public int updateInfo(String id,String pw);
 }

@@ -1,8 +1,9 @@
 
 var token;
 var header;
-var pattern_Pw = /^(?=.*[a-zA-Z!@#$%^*+=-])([ㄱ-ㅎ|ㅏ-ㅣ|가-힣])(?=.*[0-9]).{2,10}$/;
+var pattern_Pw = /^(?=.*[a-zA-Z!@#$%^*+=-])([ㄱ-ㅎ|ㅏ-ㅣ|가-힣])(?=.*[0-9]).{6,10}$/;
 var pattern_Id = /^[a-z0-9]{4,10}$/;
+var pattern_get=/(?=.*[0-9]).{6,10}$/;
 var pattern_gon = /\s/g;
 var pattern_num = /[0-9]/;	 
 var pattern_eng = /[a-zA-Z]/;	
@@ -62,9 +63,9 @@ function pwChk(){
 	var pw = $("input[name=pw]").val();
 	
 	
-	if(!pattern_Pw.test(pw)){
+	if((pattern_gon.test(pw))&&(pattern_spc.test(pw))&&(pattern_kor.test(pw))&&(pattern_get.test(pw))){
 		$("#pw_check").css('color', 'red');
-		$("#pw_check").html("PW: 6~10 문자, 숫자 혼합");
+		$("#pw_check").html("PW: 6~10자 써주새요");
 		$("input[name=pw]").focus();
 	
 		return false;

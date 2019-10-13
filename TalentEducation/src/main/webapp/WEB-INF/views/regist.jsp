@@ -27,7 +27,7 @@
 					</div>	
 					<div class="form-group">
 						<label></label>
-		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요">@
+		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요"><br>
 		                <input type="text"  id="emailService" value="gmail.com" disabled="disabled">
                		<select id="selectEmail" onchange="emailSelect();">
 	                	<option value="write">직접입력</option>
@@ -35,7 +35,7 @@
 						<option value="naver.com">naver.com</option>
 						<option value="hanmail.net">hanmail.net</option>
                		 </select>
-               			<input type="hidden" name="email"> 
+               			<input type="hidden" name="email" > 
                			<a id="emailBtn" onclick="emailChk();">인증</a> <br>
               			<span id="emailck"></span>
 					</div>

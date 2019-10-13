@@ -22,7 +22,7 @@ $("#findForm .box.captcha img").click(function() {
 </head>
 <body>
 	가입시 인증받은 이메일 주소를 입력해주세요<br/>
-<form action="./sendMailid.do" id="findForm" method="post">
+<form action="./sendMailpw.do" id="findForm" method="post">
    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
         <div class="box email">
             <!-- <label for="email">이메일</label>

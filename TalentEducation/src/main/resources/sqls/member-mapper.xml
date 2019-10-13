@@ -60,15 +60,20 @@
 	
 	<update id="delete" parameterType="int">
 		UPDATE MEMBER SET
-		MEMBER_ENABLE = 0
+		ENABLE = 0
 		WHERE MEMBER_SEQ = #{member_seq}
 	</update>
-	<select id="findAccount" parameterType="String">
+	<select id="findAccount" parameterType="String" resultType="MemberDto">
 		SELECT
-		ID
+		MEMBER_SEQ, ID
 		FROM MEMBER 
 		WHERE EMAIL = #{email}
 	</select>
+	<update id="updateInfo" parameterType="map"  >
+	UPDATE MEMBER SET
+		PW = #{pw}
+		WHERE ID = #{id}
+	</update>
 	<select id="idChk" parameterType="String" resultType="int">
 		SELECT COUNT(*)
 		FROM MEMBER

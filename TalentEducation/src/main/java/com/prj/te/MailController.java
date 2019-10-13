@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.prj.te.dto.MemberDto;
 import com.prj.te.model.biz.MailService;
 import com.prj.te.model.biz.MemberBizImpl;
 
 @Controller
 public class MailController {
-	
+	@Autowired
 	private MemberBizImpl userService;
 	
 	@Autowired
@@ -46,11 +47,14 @@ public class MailController {
     }
  
     // 아이디 찾기
-    @RequestMapping(value = "/sendMail/id", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendMailid.do", method = RequestMethod.POST)
     public String sendMailId(HttpSession session, @RequestParam String email, @RequestParam String captcha, RedirectAttributes ra) {
-        
- 
-        User user = userService.findAccount(email);
+    	String captchaValue = (String) session.getAttribute("captcha");
+    	if (captchaValue == null || !captchaValue.equals(captcha)) {
+            ra.addFlashAttribute("resultMsg", "자동 방지 코드가 일치하지 않습니다.");
+            return "redirect:./findid.do";
+        } 
+    	MemberDto user = userService.findAccount(email);
         if (user != null) {
             String subject = "아이디 찾기 안내 입니다.";
             StringBuilder sb = new StringBuilder();
@@ -60,36 +64,30 @@ public class MailController {
         } else {
             ra.addFlashAttribute("resultMsg", "귀하의 이메일로 가입된 아이디가 존재하지 않습니다.");
         }
-        return "redirect:/findid";
+        return "redirect:./home.do";
     }
  
     // 비밀번호 찾기
-    @RequestMapping(value = "/sendMail/password", method = RequestMethod.POST)
-    public String sendMailPassword(HttpSession session, @RequestParam String id, @RequestParam String email, @RequestParam String captcha, RedirectAttributes ra) {
+    @RequestMapping(value = "/sendMailpw.do", method = RequestMethod.POST)
+    public String sendMailPassword(HttpSession session, @RequestParam String email, @RequestParam String captcha, RedirectAttributes ra) {
         String captchaValue = (String) session.getAttribute("captcha");
         if (captchaValue == null || !captchaValue.equals(captcha)) {
             ra.addFlashAttribute("resultMsg", "자동 방지 코드가 일치하지 않습니다.");
             return "redirect:/findpw";
         }
  
-        User user = userService.findAccount(email);
-        if (user != null) {
-            if (!user.getUsername().equals(id)) {
-                ra.addFlashAttribute("resultMsg", "입력하신 이메일의 회원정보와 가입된 아이디가 일치하지 않습니다.");
-                return "redirect:/findpw";
-            }
+        MemberDto user = userService.findAccount(email);
+       
             int ran = new Random().nextInt(100000) + 10000; // 10000 ~ 99999
-            String password = String.valueOf(ran);
-            userService.updateInfo(user.getUsername(), "password", password); // 해당 유저의 DB정보 변경
+            String pw = String.valueOf(ran);
+            userService.updateInfo(user.getId(), pw); // 해당 유저의 DB정보 변경
  
             String subject = "임시 비밀번호 발급 안내 입니다.";
             StringBuilder sb = new StringBuilder();
-            sb.append("귀하의 임시 비밀번호는 " + password + " 입니다.");
-            mailService.send(subject, sb.toString(), "아이디@gmail.com", email, null);
+            sb.append("귀하의 임시 비밀번호는 " + pw + " 입니다.");
+            mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
             ra.addFlashAttribute("resultMsg", "귀하의 이메일 주소로 새로운 임시 비밀번호를 발송 하였습니다.");
-        } else {
-            ra.addFlashAttribute("resultMsg", "귀하의 이메일로 가입된 아이디가 존재하지 않습니다.");
-        }
-        return "redirect:/findpw";
+        
+        return "redirect:./home.do";
     }
 }

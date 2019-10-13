@@ -3,15 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<script language="javascript" type="text/javascript">
-    setTimeout(function() {
-    opener.location.reload(); //부모창 리프레쉬
-    self.close(); //현재창 닫기
-    }, 20000); // 2초후 실행 1000당 1초
-</script>
 <head>
 <meta charset="UTF-8">
+<meta name="_csrf" th:content="${_csrf.token}"/>
+<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 <title>login</title>
+
 </head>
 <body>
 
@@ -31,14 +28,19 @@
 						</c:if>
 				</div>
 				<div class="login-form">
-					<a href="./findidpage.do">ID찾기</a>	
-					<a href="./findpwpage.do">PW찾기</a>	
+					<a href="./findidpage.do">ID찾기</a>
+					<a href="./findpwpage.do">PW찾기</a><br>
 					<input type="submit" value="로그인">
 					<input type="button" onclick="location.href='./regist.do'" value="회원가입">
 					<input type="button" onclick="location.href='./'" value="홈으로">
 				</div>
+				<div id="naver_id_login">
+				
+				</div>
 	</form>
 	
+<script src="resources/js/loginform.js"></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
 </body>
 </html>

@@ -61,7 +61,8 @@ function emailConfirm(){
 </head>
 <body style="text-align: center;">
 <br/>
-인증 코드를 입력해주세요<br/><br/>
+인증 코드가 발송되었습니다. <br>
+인증 코드를 입력해주세요.<br/><br/>
 <input type="text" id="emailCode" /> &nbsp;
 <input type="button" value="인증" onclick="emailConfirm();" /> 
 </body>

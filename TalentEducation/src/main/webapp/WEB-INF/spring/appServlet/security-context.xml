@@ -18,6 +18,7 @@
 	    <security:intercept-url pattern="/login" access="isAnonymous()"/>
 	    <security:intercept-url pattern="/logout" access="isAuthenticated()"/>
 	    <security:intercept-url pattern="/resources/**" access="permitAll()"/>
+	    <security:intercept-url pattern="/captcha" access="permitAll()"/>
 	    <security:intercept-url pattern="/css/**" access="permitAll()"/>
 	    <security:intercept-url pattern="/js/**" access="permitAll()"/>
 	    <security:intercept-url pattern="/images/**" access="permitAll()"/>
