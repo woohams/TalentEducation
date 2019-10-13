@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
 <mapper namespace="calendar">
 
+	<select id="calendarList" resultType="calendarDto">
+		SELECT CALENDAR_SEQ, CALENDAR_CATEGORY,
+		CALENDAR_TITLE, CALENDAR_DESCRIPTION,CALENDAR_START, CALENDAR_END 
+		FROM CALENDAR 
+	</select>
+
+	<update id="calendarDragUpdate" parameterType="calendarDto">
+		UPDATE CALENDAR SET
+		CALENDAR_START = #{calendar_start}, CALENDAR_END = #{calendar_end}
+		WHERE CALENDAR_SEQ = #{CALENDAR_SEQ} 
+	</update>
+	
+	<insert id="calendarInsert" parameterType="calendarDto">
+		INSERT INTO CALENDAR
+		VALUES(CALENDAR_SEQ.NEXTVAL, #{calendar_title}, #{calendar_category},
+		#{calendar_start}, #{calendar_end}, #{calendar_description})
+		WHERE ID = #{id}
+	</insert>
+	
+	<select id="calendarDetail" resultType="calendarDto">
+ 		SELECT CALENDAR_SEQ, ID, CALENDAR_CATEGORY,
+		CALENDAR_TITLE, CALENDAR_DESCRIPTION,CALENDAR_START, CALENDAR_END 
+ 		FROM CALENDAR
+ 		WHERE CALENDAR_SEQ = #{calendar_seq}
+ 	</select>
+ 	
+ 	<update id="calendarUpdate" parameterType="calendarDto">
+ 		UPDATE CALENDAR SET CALENDAR_TITLE = #{calendar_title}, 
+ 		CALENDAR_CATEGORY = #{calendar_category}, CALENDAR_START = #{calendar_start}, 
+ 		CALENDAR_END = #{calendar_end}, CALENDAR_DESCRIPTION = #{calendar_description}
+ 		WHERE CALENDAR_SEQ = #{calendar_seq}
+ 	</update>
+
+	<delete id="calendarDelete" parameterType="int">
+ 		DELETE FROM CALENDAR
+ 		WHERE CALENDAR_SEQ = #{calendar_seq}
+ 	</delete>
+	
 </mapper>
