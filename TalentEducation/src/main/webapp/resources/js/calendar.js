@@ -147,3 +147,22 @@ $(function () {
         
     });	//fullcalendar end
 });	//$(function) end
+
+function viewClose(){
+    opener.location.reload();		//오프너 새로고침
+    close();						//self.close();
+}
+
+function eventDel(){
+    location.href='calendarDelete.do?id=${calendarDto.calendar_seq}';
+    alert("삭제 되었습니다.");
+    opener.location.reload();
+    self.close();
+}
+
+
+
+
+
+
+

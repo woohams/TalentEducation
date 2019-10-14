@@ -9,16 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-
- function viewClose(){
-	 opener.location.reload();		//오프너 새로고침
-	 close();						//self.close();
- }
- 
- </script>
+<%@ include file="/resources/template/head.jsp" %>
+<script type="text/javascript" src="resources/js/calendar.js"></script>
 
 </head>
 <body>
@@ -36,7 +28,7 @@
 			</tr>
 			<tr>
 				<th>시작</th>
-				<td><input type="date" name="calendar_start" value="editStart"></td>
+				<td><input type="date" name="calendar_start" value="editStart.val()"></td>
 			</tr>
 			<tr>
 				<th>끝</th>
