@@ -34,13 +34,18 @@
 					<input type="button" onclick="location.href='./regist.do'" value="회원가입">
 					<input type="button" onclick="location.href='./'" value="홈으로">
 				</div>
-				<div id="naver_id_login">
-				
-				</div>
-	</form>
+				<div id="kakao-login-btn"></div>
+				<div id="naver_id_login"></div>
+			</form>
+				<form id="snsLogin" action='./login' method="post">
+			      <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+			      <input type="hidden" id="snsId" name="id" />
+			      <input type="hidden" id="snsPw" name="pw" />	
+				</form>
 	
-<script src="resources/js/loginform.js"></script>
-<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-
+	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+  	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+ 	<script src="resources/js/loginform.js"></script>						
 </body>
 </html>

@@ -55,6 +55,17 @@ public class MemberController {
 		return Mbiz.idChk(id);
 		
 	}
+	@RequestMapping(value="/snslogin.do", method = {RequestMethod.POST})
+	@ResponseBody
+	public boolean snslogin(MemberDto dto) {
+		
+		if(Mbiz.idChk(dto.getId()) == 0) {
+			Mbiz.insert(dto);
+			return true;
+		}else {
+			return true;
+		}
+	}
 	@RequestMapping(value = "/emailchkP.do")
 	public String emaillChk() {
 		return "emailchkpage";
