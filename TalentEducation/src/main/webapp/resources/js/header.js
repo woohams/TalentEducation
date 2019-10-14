@@ -37,4 +37,15 @@ $(function() {
 			didScroll = false;
 		}
 	}, 250);
+	
+	
+	$(window).ajaxStart(function() { 
+		$("#loading").css("display", "block");
+		$("#loading").css("opacity", "1");
+	}).ajaxStop(function() {
+		$("#loading").css("opacity", "0");
+		$("#loading").one("transitionend", function() {
+			$("#loading").css("display", "none");
+		});
+	});
 });

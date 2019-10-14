@@ -8,6 +8,7 @@
 		<script type="text/javascript" src="resources/js/boardlist.js"></script>
 	</head>
 	<body>
+	<img id="loading" src="resources/images/loading.gif">
 	<%@ include file="/resources/template/header.jsp" %>
 	<%@ include file="/resources/template/category_head.jsp" %>
 	<div id="boardlist_form">
