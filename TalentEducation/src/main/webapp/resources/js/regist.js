@@ -1,6 +1,10 @@
 
 var token;
 var header;
+var idConfirm = false;
+var pwConfirm = false;
+var emailConfirm = false;
+var nickConfirm = false;
 var pattern_Pw = /^(?=.*[a-zA-Z!@#$%^*+=-])([ㄱ-ㅎ|ㅏ-ㅣ|가-힣])(?=.*[0-9]).{6,10}$/;
 var pattern_Id = /^[a-z0-9]{4,10}$/;
 var pattern_get=/(?=.*[0-9]).{6,10}$/;
@@ -25,6 +29,7 @@ function idChk() {
 		$("#id_check").css('color', 'red');
 		$("#id_check").html("ID : 4~10 공백,한글,특수기호 X");
 		$("input[name=id]").focus();
+		idConfirm = false;
 		return false;
 	}
 	
@@ -43,13 +48,13 @@ function idChk() {
 					$("#id_check").css("color", "red");
 					$("#id_check").html("사용중인 ID 입니다 ");
 					$("input[name=id]").focus();
-					
+					idConfirm = false;
 					return false;
 				} else {
 					$("#id_check").css('color', 'blue');
 					$("#id_check").html("사용가능한 ID 입니다");
 					$("input[name=pw]").focus();
-					
+					idConfirm = false;
 					return false;
 					
 				}
@@ -67,13 +72,13 @@ function pwChk(){
 		$("#pw_check").css('color', 'red');
 		$("#pw_check").html("PW: 6~10자 써주새요");
 		$("input[name=pw]").focus();
-	
+		pwConfirm = false;
 		return false;
 	}else{
 		$("#pw_check").css('color', 'blue');
 		$("#pw_check").html("사용가능한 password 입니다.");
 		$("input[name=email]").focus();
-		
+		pwConfirm = false;
 		return false;			
 	}
 	
@@ -81,15 +86,17 @@ function pwChk(){
 
 function nicChk(){
 	var nic = $("input[name=Nickname]").val();
-	
+	nickConfirm = false;
 	if(!pattern_nic.test(nic)){
 		$("#nic_check").css('color', 'red');
 		$("#nic_check").html(" 공백은 사용불가능합니다.");
 		$("input[name=Nickname]").focus();
+		nickConfirm = false;
 		return false;
 	}else{
 		$("#nic_check").css('color', 'blue');
 		$("#nic_check").html("사용가능한 닉네임 입니다.");
+		nickConfirm = false;
 		return false;
 	}
 	
@@ -122,6 +129,30 @@ function emailChk(){
 		email = $("input[name=email]").val();
 		window.open("./emailchkP.do","emailChkPage","width=500, height=150, left=500, top=250", "resizeble=no", "alwaysReised=yes");			
 	}
+}
+function submitChk(){
+	if(!idConfirm){
+		alert("id를 형식에 맞게 입력해주세요");
+		$("input[name=member_id]").focus();
+		return false;
+	}
+	if(!pwConfirm){
+		alert("pw를 형식에 맞게 입력해주세요");
+		$("input[name=member_pw]").focus();
+		return false;
+	}
+	if(!nickConfirm){
+		alert("닉네임을 형식에 맞게 입력해주세요");
+		$("input[name=member_nickname]").focus();
+		return false;
+	}
+	if(!emailConfirm){
+		alert("email 인증을 완료해주세요");
+		return false;
+	}
+	
+	alert("회원가입 성공!");
+	return true;
 }
 
 	

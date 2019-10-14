@@ -38,7 +38,7 @@
 				<div id="naver_id_login"></div>
 			</form>
 				<form id="snsLogin" action='./login' method="post">
-			      <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+			      <input type="hidden"  name="${_csrf.parameterName}"value="${_csrf.token}"/>
 			      <input type="hidden" id="snsId" name="id" />
 			      <input type="hidden" id="snsPw" name="pw" />	
 				</form>

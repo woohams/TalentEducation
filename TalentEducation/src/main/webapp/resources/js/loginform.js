@@ -1,5 +1,5 @@
   	 // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('808a4ad14575a8270f3f0148a670dc9c');
+    Kakao.init('6044ab6365d9aad695e70b97c4b85a0d');
     // 카카오 로그인 버튼을 생성합니다.
     Kakao.Auth.createLoginButton({
    container: '#kakao-login-btn',
@@ -15,16 +15,20 @@
              
              $.ajax({
             	type: "POST",
-            	url: "snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname,
-            	dataType : "Json",
+            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname,
+            	dataType : "JSON",
             	beforeSend : function(xhr){
     				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
     			},
     			success : function(data){
-    				$("#snsId").val(id);
-    				$("#snsPw").val(pw);
+    				alert(data)
+    				$("#snsId").val(member_id);
+    				$("#snsPw").val(member_pw);
     				$("#snsLogin").submit();
-    			}
+    			},
+    			error : function() {
+					console.log("실패");
+			}
              });
            }
          });

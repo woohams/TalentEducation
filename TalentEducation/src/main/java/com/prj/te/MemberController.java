@@ -58,7 +58,7 @@ public class MemberController {
 	@RequestMapping(value="/snslogin.do", method = {RequestMethod.POST})
 	@ResponseBody
 	public boolean snslogin(MemberDto dto) {
-		
+		System.out.println("들어옴");
 		if(Mbiz.idChk(dto.getId()) == 0) {
 			Mbiz.insert(dto);
 			return true;
@@ -79,8 +79,12 @@ public class MemberController {
 		return "findpw";
 	}
 	@RequestMapping(value="/naverlogin")
-	public String logoutpage() {
+	public String naverlogoutpage() {
 		return "naverlogin";
+	}
+	@RequestMapping(value="/logoutpage.do")
+	public String logoutpage() {
+		return "logoutpage";
 	}
 	
 }
