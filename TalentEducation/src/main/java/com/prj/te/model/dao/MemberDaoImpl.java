@@ -1,9 +1,13 @@
 package com.prj.te.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +18,9 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
+	@Autowired 
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Override
 	public MemberDto login(String id) {
@@ -56,7 +63,6 @@ public class MemberDaoImpl implements MemberDao {
 	@Transactional
 	public int insert(MemberDto dto) {
 		int res = 0;
-		System.out.println("insert 들어 왔다");
 		
 		try {
 			res = sqlSession.insert(namespace+"insert",dto);
@@ -98,4 +104,62 @@ public class MemberDaoImpl implements MemberDao {
 		return res;
 	}
 
+	@Override
+	public MemberDto findAccount(String email) {
+		MemberDto user = null;
+		try {
+			user = sqlSession.selectOne(namespace+"findAccount",email);
+		} catch (Exception e) {
+			System.out.println("FINDACCOUNT ERROR");
+			e.printStackTrace();
+		}
+		return user;
+	}
+	@Override
+	public int updateInfo(String id, String pw) {
+		//int String
+		MemberDto dto = new MemberDto();
+		if(pw!=null && pw!="") {
+			dto.setPw(passwordEncoder.encode(pw));
+		}
+		
+		Map<String,String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("pw", dto.getPassword());
+		
+		int res = 0;
+		try {
+			res = sqlSession.update(namespace+"updateInfo", map);
+		} catch (Exception e) {
+			System.out.println("FINDACCOUNT ERROR");
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public boolean pwchk(String username, String pw) {
+			MemberDto dto = null;
+		
+		try {
+			dto = sqlSession.selectOne(namespace+"login",username);
+		} catch (Exception e) {
+			System.out.println("PWCHK ERROR");
+			e.printStackTrace();
+		}
+		return passwordEncoder.matches(pw, dto.getPw());
+	
+	}
+
+	@Override
+	public int idChk(String id) {
+		int res = 0;
+				
+		try {
+			res = sqlSession.selectOne(namespace+"idChk",id); 
+		} catch (Exception e) {
+			System.out.println("IDCHK ERROR");
+		}
+		return res;
+	} 
 }

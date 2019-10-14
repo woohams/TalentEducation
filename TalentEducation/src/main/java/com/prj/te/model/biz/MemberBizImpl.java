@@ -1,6 +1,7 @@
 package com.prj.te.model.biz;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -38,7 +39,6 @@ public class MemberBizImpl implements MemberBiz {
 
 	@Override
 	public int insert(MemberDto dto) {
-	System.out.println(dto+"비즈입니다");
 		dto.setPw(passwordEncoder.encode(dto.getPassword()));
 		return dao.insert(dto);
 	}
@@ -67,14 +67,35 @@ public class MemberBizImpl implements MemberBiz {
 		
 		return dto;
 	}
-	public User findAccount(String email) {
-		
-		return null;
+	
+	@Override
+	public int idChk(String id) {
+		return dao.idChk(id);
 	}
 
-	public void updateInfo(String username, String string, String password) {
-		
+	@Override
+	public boolean pwchk(String username, String pw) {
+		return dao.pwchk(username, pw);
 	}
+
+	@Override
+	public MemberDto findAccount(String email) {
+		return dao.findAccount(email);
+	}
+	
+	@Override
+	public int updateInfo(String id, String pw) {
+		
+		MemberDto dto = new MemberDto();
+		
+		
+		if(pw!=null && pw!="") {
+			dto.setPw(passwordEncoder.encode(pw));
+		}
+		return dao.updateInfo(id, pw);
+	}
+
+	
 
 	
 }

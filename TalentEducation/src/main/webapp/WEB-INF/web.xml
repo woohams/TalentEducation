@@ -24,13 +24,19 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
 			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
-		
-		
-		
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	    <servlet-name>captcha</servlet-name>
+	    <servlet-class>com.prj.te.model.biz.CaptchaServlet</servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>captcha</servlet-name>
+	    <url-pattern>/captcha</url-pattern>
 	</servlet-mapping>
 	<!-- encoding -->
 	<filter>
