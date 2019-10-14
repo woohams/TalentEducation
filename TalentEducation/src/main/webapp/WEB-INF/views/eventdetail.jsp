@@ -11,6 +11,7 @@
 <title>Insert title here</title>
 
 <script type="text/javascript" src="resources/js/calendar.js"></script>
+<script type="text/javascript" src="resources/css/eventdetail.css"></script>
 
 </head>
 <body>
@@ -37,8 +38,8 @@
 				<td>${calendarDto.calendar_description }</td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="button" value="수정" onclick="location.href='calendarUpdate.do?id=${calendarDto.calendar_seq}'">
+				<td colspan="2" align="right">
+					<input type="button" value="수정" id="updateEvent" onclick="location.href='calendarUpdate.do?id=${calendarDto.calendar_seq}'">
 					<input type="button" value="삭제" onclick="eventDel();">
 					<input type="button" value="취소" onclick="viewClose();">
 				</td>

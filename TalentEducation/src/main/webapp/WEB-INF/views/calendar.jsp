@@ -18,7 +18,6 @@
 	</head>
 	
 	
-	
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
 	<div id="mypage_form">

@@ -62,7 +62,7 @@ $(function () {
     ,
     dayClick: function(date, jsEvent, view, resourceObj) {						//날짜 눌렀을 때 펑션. 여기서는 일정 추가 창이 뜨도록 했음.
         
-        let editStart = date.format();
+        var editStart = date.format();
         alert(editStart);
         window.open("eventuploadform.jsp","","left=600px,top=50px,width=600px,height=300px");
         
@@ -98,7 +98,10 @@ $(function () {
     }
     ,
     // resize 
-    eventResize: function(event , delta , revertFunc , jsEvent , ui , view){			
+    eventResize: function(event , delta , revertFunc , jsEvent , ui , view){		
+
+      
+
         $.ajax({
             url:"calendarDragUpdate.do",
             data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format(),
@@ -113,6 +116,7 @@ $(function () {
         });
     }
     ,
+    // 값 받아오기
     events: function(start, end, timezone, callback) {
         $.ajax({
             url: 'calendarlist.do',
@@ -126,9 +130,10 @@ $(function () {
                     events.push({	
                         id: $(this).attr('id'),
                         title: $(this).attr('title'),
+                        color: $(this).attr('color'),
                         className: $(this).attr('className'),
-                         description: $(this).attr('description'),
-                         start: $(this).attr('start'),
+                        description: $(this).attr('description'),
+                        start: $(this).attr('start'),
                         end: $(this).attr('end')
                     });
                 });
@@ -153,13 +158,13 @@ function viewClose(){
     close();						//self.close();
 }
 
+// delete
 function eventDel(){
     location.href='calendarDelete.do?id=${calendarDto.calendar_seq}';
     alert("삭제 되었습니다.");
     opener.location.reload();
     self.close();
 }
-
 
 
 
