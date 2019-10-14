@@ -45,7 +45,7 @@ public class CalendarController {
 			
 			hm = new HashMap<String, Object>();
 			hm.put("id", list.get(i).getCalendar_seq());
-//			hm.put("category", list.get(i).getCalendar_category());
+			hm.put("className", list.get(i).getCalendar_category());
 			hm.put("title", list.get(i).getCalendar_title());
 			hm.put("description", list.get(i).getCalendar_description());
 			hm.put("start", list.get(i).getCalendar_start());
@@ -94,11 +94,12 @@ public class CalendarController {
 	}
 	
 	@RequestMapping(value="/calendarInsert.do")
-	public void insert(CalendarDto calendarDto, HttpServletResponse response) {
+	public void insert(CalendarDto calendarDto, HttpServletRequest request, HttpServletResponse response) {
 		
-		response.setContentType("text/html; charset=UTF-8");
 		
 		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
 			
 			PrintWriter out = response.getWriter();
 			

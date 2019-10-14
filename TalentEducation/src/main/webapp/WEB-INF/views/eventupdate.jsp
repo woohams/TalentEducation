@@ -22,7 +22,8 @@
 <body>
 	
 		<form action="calendarUpdateRes.do" method="post">
-		<input type="hidden" name="calendar_seq" value="${calendarDto.fullid }">
+		<input type="hidden" name="calendar_seq" value="${calendarDto.calendar_seq }">
+		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 		<table border="1">
 			<tr>
 				<th>제목</th>
@@ -45,7 +46,7 @@
 				<td><textarea rows="10" cols="60" name="calendar_description">${calendarDto.calendar_description }</textarea></td>
 			</tr>
 			<tr>
-				<td>
+				<td colspan="2">
 					<input type="submit" value="수정">
 					<input type="button" value="취소" onclick="viewClose();">
 				</td>

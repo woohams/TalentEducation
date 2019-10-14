@@ -36,7 +36,7 @@
 			</tr>
 			<tr>
 				<th>시작</th>
-				<td><input type="date" name="calendar_start" value="editStart"></td>
+				<td><input type="date" name="calendar_start"></td>
 			</tr>
 			<tr>
 				<th>끝</th>

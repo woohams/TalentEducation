@@ -12,19 +12,18 @@
 	<update id="calendarDragUpdate" parameterType="calendarDto">
 		UPDATE CALENDAR SET
 		CALENDAR_START = #{calendar_start}, CALENDAR_END = #{calendar_end}
-		WHERE CALENDAR_SEQ = #{CALENDAR_SEQ} 
+		WHERE CALENDAR_SEQ = #{calendar_seq} 
 	</update>
 	
 	<insert id="calendarInsert" parameterType="calendarDto">
 		INSERT INTO CALENDAR
-		VALUES(CALENDAR_SEQ.NEXTVAL, #{calendar_title}, #{calendar_category},
+		VALUES(CALENDAR_SEQ.NEXTVAL, 'ID', #{calendar_title}, #{calendar_category},
 		#{calendar_start}, #{calendar_end}, #{calendar_description})
-		WHERE ID = #{id}
 	</insert>
 	
 	<select id="calendarDetail" resultType="calendarDto">
- 		SELECT CALENDAR_SEQ, ID, CALENDAR_CATEGORY,
-		CALENDAR_TITLE, CALENDAR_DESCRIPTION,CALENDAR_START, CALENDAR_END 
+ 		SELECT CALENDAR_SEQ, CALENDAR_CATEGORY,
+		CALENDAR_TITLE, CALENDAR_DESCRIPTION, CALENDAR_START, CALENDAR_END 
  		FROM CALENDAR
  		WHERE CALENDAR_SEQ = #{calendar_seq}
  	</select>
