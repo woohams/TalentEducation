@@ -21,7 +21,7 @@
 			<sec:authorize access="isAnonymous()">
 				<p><a href="./loginform.do">LOGIN</a></p>
 			</sec:authorize>
-			<img id="TE_header_menu" alt="" src="resources/images/sample.jpg">
+			<img id="TE_header_menu" alt="" src="resources/images/menu.jpg">
 		</div>
 		
 	</div>
