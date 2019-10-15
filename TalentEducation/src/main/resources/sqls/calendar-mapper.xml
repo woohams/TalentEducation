@@ -4,8 +4,8 @@
 <mapper namespace="calendar">
 
 	<select id="calendarList" resultType="calendarDto">
-		SELECT CALENDAR_SEQ, CALENDAR_CATEGORY,
-		CALENDAR_TITLE, CALENDAR_DESCRIPTION,CALENDAR_START, CALENDAR_END 
+		SELECT CALENDAR_SEQ, CALENDAR_TITLE, CALENDAR_CATEGORY, 
+		CALENDAR_COLOR, CALENDAR_START, CALENDAR_END, CALENDAR_DESCRIPTION 
 		FROM CALENDAR 
 	</select>
 
@@ -18,7 +18,7 @@
 	<insert id="calendarInsert" parameterType="calendarDto">
 		INSERT INTO CALENDAR
 		VALUES(CALENDAR_SEQ.NEXTVAL, 'ID', #{calendar_title}, #{calendar_category},
-		#{calendar_start}, #{calendar_end}, #{calendar_description})
+		#{calendar_color}, #{calendar_start}, #{calendar_end}, #{calendar_description})
 	</insert>
 	
 	<select id="calendarDetail" resultType="calendarDto">
@@ -30,8 +30,9 @@
  	
  	<update id="calendarUpdate" parameterType="calendarDto">
  		UPDATE CALENDAR SET CALENDAR_TITLE = #{calendar_title}, 
- 		CALENDAR_CATEGORY = #{calendar_category}, CALENDAR_START = #{calendar_start}, 
- 		CALENDAR_END = #{calendar_end}, CALENDAR_DESCRIPTION = #{calendar_description}
+ 		CALENDAR_CATEGORY = #{calendar_category}, CALENDAR_COLOR = #{calendar_color}, 
+ 		CALENDAR_START = #{calendar_start}, CALENDAR_END = #{calendar_end}, 
+ 		CALENDAR_DESCRIPTION = #{calendar_description}
  		WHERE CALENDAR_SEQ = #{calendar_seq}
  	</update>
 
