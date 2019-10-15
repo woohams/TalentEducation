@@ -58,13 +58,16 @@ $(function () {
     ,
     allDaySlot: false							//"하루 종일"슬롯이 표시되는지 여부를 결정. default는 false.
     ,
+    allDay: false								//하루 종일 효과 false
+	,
     contentHeight: 'auto'						//달력 의 보기 영역 높이를 설정
     ,
     dayClick: function(date, jsEvent, view, resourceObj) {						//날짜 눌렀을 때 펑션. 여기서는 일정 추가 창이 뜨도록 했음.
         
         var editStart = date.format();
-        alert(editStart);
-        window.open("eventuploadform.jsp","","left=600px,top=50px,width=600px,height=300px");
+        //alert(editStart);	// 클릭 날짜 alert
+        window.open("eventuploadform.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
+		
         
         //alert('Date: ' + date.format());
 
@@ -73,8 +76,8 @@ $(function () {
     
        }
     ,
-    eventClick: function(event) {				//일정 클릭하면 실행되는 펑션
-        window.open("calendarDetail.do?id="+event.id,"","left=600px,top=50px,width=600px,height=300px");
+    eventClick: function(event) {				//일정 클릭하면 실행되는 펑션 => 수정창이 뜨도록 설정함.
+        window.open("calendarDetail.do?id="+event.id,"","left=600px,top=50px,width=800px,height=400px");
     }
     ,
     
@@ -85,7 +88,9 @@ $(function () {
         }
         $.ajax({
             url:"calendarDragUpdate.do",
-            data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format(),		//뒤에 format() 안해주면 컨트롤러에 날짜 형식 이상하게 넘어감
+            data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format()+" T23:59:59",		
+            // java.lang.IllegalArgumentException: 요청 타겟에서 유효하지 않은 문자가 발견되었습니다. 유효한 문자들은 RFC 7230과 RFC 3986에 정의되어 있습니다.
+            
             dataType:"text",
             success:function(dropDate){
                 alert("일정 [ " + event.title + " ] 을(를) " + event.start.format() + " ~ " + event.end.format() + "일로 변경합니다.");
@@ -114,6 +119,25 @@ $(function () {
                   }
             }
         });
+        
+     // 리사이즈 하루 빼기
+        function calDateWhenResize(event) {
+
+      	  var newDates = {
+      	    startDate: '',
+      	    endDate: ''
+      	  };
+
+      	  if (event.allDay) {
+      	    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD');
+      	    newDates.endDate = moment(event.end._d).subtract(1, 'days').format('YYYY-MM-DD');
+      	  } else {
+      	    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD');
+      	    newDates.endDate = moment(event.end._d).format('YYYY-MM-DD');
+      	  }
+
+      	  return newDates;
+      	};
     }
     ,
     // 값 받아오기
@@ -158,16 +182,61 @@ function viewClose(){
     close();						//self.close();
 }
 
-// delete
-function eventDel(){
-    location.href='calendarDelete.do?id=${calendarDto.calendar_seq}';
-    alert("삭제 되었습니다.");
-    opener.location.reload();
-    self.close();
+function updateCheck(){
+	var result = confirm("수정 하시겠습니까?");
+	if(result){
+	    alert("수정이 성공적으로 완료되었습니다.");
+	}else{
+	    alert("수정이 취소되었습니다.");
+	}
 }
 
+// delete
+/*function eventDel(){
+	var result = confirm("삭제 하시겠습니까?");
+	location.href="calendarDelete.do?id=${calendarDto.calendar_seq}";
+	    if(result){
+		    alert("삭제가 성공적으로 완료되었습니다.");
+		}else{
+		    alert("삭제가 취소되었습니다.");
+		}
+}
+function eventDel(){
+	if(confirm("삭제 하시겠습니까?")){
+		location.href='calendarDelete.do?id=${calendarDto.calendar_seq}';		
+		alert("삭제 되었습니다.");
+		opener.location.reload();
+		self.close();
+	}
+}*/
 
 
+//selectbox 값 넣기
+$("#edit-category").change(function(){
+	var categoryVal = $(this).val();
+});
 
+$("#edit-color").change(function(){
+	var colorVal = $(this).val();
+});
 
+/*
+//추월 막기
+var editTitle = event.title.val();
+var editStart = event.start.format();
+var editEnd = event.start.format();
 
+$('#updateEvent').unbind();
+$('#updateEvent').on('click', function () {
+
+    if (editStart.val() > editEnd.val()) {
+        alert('끝나는 날짜가 앞설 수 없습니다.');
+        return false;
+    }
+
+    if (editTitle.val() === '') {
+        alert('일정명은 필수입니다.');
+        return false;
+    }
+}
+*/

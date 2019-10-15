@@ -10,8 +10,14 @@ html,body{
   th, td {
     border-bottom: 1px solid #444444;
     padding: 10px;
+  }
+  
+  .buttontd{
+  	border-bottom: 1px solid #444444;
+    padding: 10px;
     text-align: center;
   }
+  
   th:nth-child(2n), td:nth-child(2n) {
     background-color: #bbdefb;
   }

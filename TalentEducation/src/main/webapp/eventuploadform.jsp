@@ -3,6 +3,7 @@
     
      <% request.setCharacterEncoding("UTF-8"); %>
     <% response.setContentType("text/html; charset=UTF-8"); %>
+    <% String calendar_start = request.getParameter("calendar_start"); %>
     
 <!DOCTYPE html>
 <html>
@@ -10,19 +11,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <%@ include file="/resources/template/head.jsp" %>
-<script type="text/javascript" src="resources/js/calendar.js"></script>
-<script type="text/javascript" src="resources/js/ko.js"></script>
-<script type="text/javascript">
-
-//selectbox 값 넣기
-$("#edit-category").change(function(){
-	var categoryVal = $(this).val();
-});
-
-$("#edit-color").change(function(){
-	var colorVal = $(this).val();
-});
-</script>
+	<script type="text/javascript" src="resources/js/calendar.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+	<link rel="stylesheet" href="resources/css/eventinsert.css">
+	<script src="resources/js/fullcalendar.js"></script>
+	<script type="text/javascript" src="resources/js/ko.js"></script>
 </head>
 <body>
 	
@@ -72,7 +65,7 @@ $("#edit-color").change(function(){
 			</tr>
 			<tr>
 				<th>시작</th>
-				<td><input type="date" name="calendar_start" value="editStart"></td>
+				<td><input type="date" name="calendar_start" value="<%=calendar_start%>"></td>
 			</tr>
 			<tr>
 				<th>끝</th>
@@ -83,9 +76,9 @@ $("#edit-color").change(function(){
 				<td><textarea rows="10" cols="60" name="calendar_description"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="right">
-					<input type="submit" value="등록" onclick="viewClose();">
-					<input type="button" value="취소" onclick="viewClose();">
+				<td colspan="3" class="buttontd">
+					<button type="submit" onclick="viewClose();">등록</button>
+					<button  onclick="viewClose();">취소</button>
 				</td>
 			</tr>
 		</table>

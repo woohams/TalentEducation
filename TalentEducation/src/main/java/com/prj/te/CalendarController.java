@@ -105,6 +105,7 @@ public class CalendarController {
 			PrintWriter out = response.getWriter();
 			
 			int res = 0;
+			calendarDto.setCalendar_start(calendarDto.getCalendar_start());
 			res = calendarBiz.insert(calendarDto);
 			
 			if(res > 0) {
@@ -165,11 +166,13 @@ public class CalendarController {
 	}
 	
 	@RequestMapping(value="/calendarDelete.do")
-	public void fullDelete(@RequestParam("id")int calendar_seq, HttpServletResponse response, Model model) {
-		
-		response.setContentType("text/html; charset=UTF-8");
+	public void fullDelete(@RequestParam("id")int calendar_seq, HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		try {
+			
+			request.setCharacterEncoding("UTF-8");
+			response.setContentType("text/html; charset=UTF-8");
+			
 			PrintWriter out = response.getWriter();
 			
 			int res = 0;
@@ -177,13 +180,12 @@ public class CalendarController {
 			res = calendarBiz.delete(calendar_seq);
 			
 			if(res > 0) {
-				System.out.println("calendarDelete success");
+				out.println("삭제되었습니다.");
 				
 			}else {
-				System.out.println("calendarDelete fail");
+				out.println("calendarDelete fail");
 				
-				model.addAttribute("id", calendar_seq);
-				
+				model.addAttribute("id", calendar_seq);				
 				response.sendRedirect("calendarDetail.do");
 			}
 

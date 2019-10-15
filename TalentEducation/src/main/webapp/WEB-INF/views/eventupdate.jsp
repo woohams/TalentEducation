@@ -10,56 +10,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link rel="stylesheet" href="resources/css/eventupdate.css">
 <script type="text/javascript" src="resources/js/calendar.js"></script>
-<script type="text/javascript">
 
-//selectbox 값 넣기
-$("#edit-category").change(function(){
-	var categoryVal = $(this).val();
-});
-
-$("#edit-color").change(function(){
-	var colorVal = $(this).val();
-});
-
-
-//추월 막기
-var editTitle = event.title.val();
-var editStart = event.start.format();
-var editEnd = event.start.format();
-
-$('#updateEvent').unbind();
-$('#updateEvent').on('click', function () {
-
-    if (editStart.val() > editEnd.val()) {
-        alert('끝나는 날짜가 앞설 수 없습니다.');
-        return false;
-    }
-
-    if (editTitle.val() === '') {
-        alert('일정명은 필수입니다.')
-        return false;
-    }
-}
-// 리사이즈 하루 빼기
-function calDateWhenResize(event) {
-
-	  var newDates = {
-	    startDate: '',
-	    endDate: ''
-	  };
-
-	  if (event.allDay) {
-	    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD');
-	    newDates.endDate = moment(event.end._d).subtract(1, 'days').format('YYYY-MM-DD');
-	  } else {
-	    newDates.startDate = moment(event.start._d).format('YYYY-MM-DD HH:mm');
-	    newDates.endDate = moment(event.end._d).format('YYYY-MM-DD HH:mm');
-	  }
-
-	  return newDates;
-	}
-</script>
 
 
 </head>
@@ -124,9 +77,9 @@ function calDateWhenResize(event) {
 				<td><textarea rows="10" cols="60" name="calendar_description">${calendarDto.calendar_description }</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="3" align="right">
-					<input type="submit" value="수정">
-					<input type="button" value="취소" onclick="viewClose();">
+				<td colspan="3" class="buttontd">
+					<button type="submit" onclick="updateCheck();">수정</button>
+					<button onclick="viewClose();">취소</button>
 				</td>
 			</tr>
 		</table>

@@ -10,8 +10,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<link rel="stylesheet" href="resources/css/eventdetail.css">
+<script type="text/javascript" src="resources/js/event.js"></script>
 <script type="text/javascript" src="resources/js/calendar.js"></script>
-<script type="text/javascript" src="resources/css/eventdetail.css"></script>
+<script type="text/javascript">
+//delete
+function eventDel(){
+	var result = confirm("삭제 하시겠습니까?");
+	location.href="calendarDelete.do?id=${calendarDto.calendar_seq}";
+	    if(result){
+		    alert("삭제가 성공적으로 완료되었습니다.");
+		}else{
+		    alert("삭제가 취소되었습니다.");
+		}
+	    opener.location.reload();
+		self.close();
+}
+</script>
 
 </head>
 <body>
@@ -39,9 +54,9 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="button" value="수정" id="updateEvent" onclick="location.href='calendarUpdate.do?id=${calendarDto.calendar_seq}'">
-					<input type="button" value="삭제" onclick="eventDel();">
-					<input type="button" value="취소" onclick="viewClose();">
+					<button onclick="location.href='calendarUpdate.do?id=${calendarDto.calendar_seq}'">수정</button>
+					<button onclick="eventDel();">삭제</button>
+					<button onclick="viewClose();">취소</button>
 				</td>
 			</tr>
 		</table>
