@@ -67,7 +67,6 @@ public class MemberDaoImpl implements MemberDao {
 		try {
 			res = sqlSession.insert(namespace+"insert",dto);
 			
-			System.out.println(res);
 		} catch (Exception e) {
 			System.out.println("INSERT ERROR");
 			e.printStackTrace();
@@ -117,7 +116,6 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	@Override
 	public int updateInfo(String id, String pw) {
-		//int String
 		MemberDto dto = new MemberDto();
 		if(pw!=null && pw!="") {
 			dto.setPw(passwordEncoder.encode(pw));

@@ -41,7 +41,6 @@ public class MailController {
         String subject = "회원가입 인증 코드 발급 안내 입니다.";
         StringBuilder sb = new StringBuilder();
         sb.append("귀하의 인증 코드는 " + joinCode + " 입니다.");
-        System.out.println(email);
         mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
         return joinCode;
     }
@@ -73,7 +72,7 @@ public class MailController {
         String captchaValue = (String) session.getAttribute("captcha");
         if (captchaValue == null || !captchaValue.equals(captcha)) {
             ra.addFlashAttribute("resultMsg", "자동 방지 코드가 일치하지 않습니다.");
-            return "redirect:/findpw";
+            return "redirect:./findpw.do";
         }
  
         MemberDto user = userService.findAccount(email);
@@ -81,7 +80,6 @@ public class MailController {
             int ran = new Random().nextInt(100000) + 10000; // 10000 ~ 99999
             String pw = String.valueOf(ran);
             userService.updateInfo(user.getId(), pw); // 해당 유저의 DB정보 변경
- 
             String subject = "임시 비밀번호 발급 안내 입니다.";
             StringBuilder sb = new StringBuilder();
             sb.append("귀하의 임시 비밀번호는 " + pw + " 입니다.");
