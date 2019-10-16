@@ -45,7 +45,6 @@
 					</div>
 					<div>
 						<input type="submit" value="회원가입!">
-						<input type="button" onclick="location.href='./'" value="홈으로">
 					</div>
 	</form>
 

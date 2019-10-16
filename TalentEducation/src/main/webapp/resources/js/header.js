@@ -64,6 +64,7 @@ $(function() {
 	});
 	
 	$("#allback").click(function() {
+		$("#TE_header_loginform").empty();
 		$("#TE_header_loginform").css("display", "none");
 		$("#allback").css("display", "none");
 	});

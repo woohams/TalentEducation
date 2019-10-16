@@ -28,11 +28,10 @@
 						</c:if>
 				</div>
 				<div class="login-form">
-					<a href="./findidpage.do">ID찾기</a>
-					<a href="./findpwpage.do">PW찾기</a><br>
+					<a onclick="ajaxLoad('./findidpage.do')">ID찾기</a>
+					<a onclick="ajaxLoad('./findpwpage.do')">PW찾기</a><br>
 					<input type="submit" value="로그인">
-					<input type="button" onclick="location.href='./regist.do'" value="회원가입">
-					<input type="button" onclick="location.href='./'" value="홈으로">
+					<input type="button" onclick="ajaxLoad('./regist.do')" value="회원가입">
 				</div>
 				<div id="kakao-login-btn"></div>
 				<div id="naver_id_login"></div>
@@ -95,6 +94,12 @@
  	  	naver_id_login1.setState(state);
  	  	naver_id_login1.init_naver_id_login();
  		
+ 	  	
+ 	  	function ajaxLoad(page) {
+ 	  		$("#TE_header_loginform").empty();
+ 	  		$("#TE_header_loginform").load(page);
+ 	  	}
+ 	  	
  	</script>
  	
  							
