@@ -19,7 +19,7 @@
 				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">
-				<p><a href="./loginform.do">LOGIN</a></p>
+				<p><a id="TE_header_login">LOGIN</a></p>
 			</sec:authorize>
 			<img id="TE_header_menu" alt="" src="resources/images/menu.jpg">
 		</div>
@@ -79,3 +79,5 @@
 		</div>
 	</div>
 </header>
+<div id="TE_header_loginform"></div>
+<div id="allback"></div>

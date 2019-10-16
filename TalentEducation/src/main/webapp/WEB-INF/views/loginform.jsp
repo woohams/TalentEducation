@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<form action='./login' method="post">
+	<form action='./login' method="post" id="testform">
 		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 				<div class="login-form">
 					<input type="text" name="id" placeholder="ID" required autofocus>
@@ -43,19 +43,10 @@
 			      <input type="hidden" id="snsPw" name="pw" />	
 				</form>
 	
-	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
-	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-  	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
  	<script type="text/javascript">
  	
- 	var token;
- 	var header;
- 	window.onload=function(){
- 		token = $('meta[name="_csrf"]').attr('th:content');
- 		header = $('meta[name="_csrf_header"]').attr('th:content');
- 	}
 
-
+ 	
  	// 사용할 앱의 JavaScript 키를 설정해 주세요.
  	    Kakao.init('6044ab6365d9aad695e70b97c4b85a0d');
  	    // 카카오 로그인 버튼을 생성합니다.
@@ -96,14 +87,14 @@
  	     });
 
  	    
- 		var naver_id_login = new naver_id_login("CQCVSo1bGXvj408kAJib", "http://localhost:8787/te/naverlogin.do");
- 	  	var state = naver_id_login.getUniqState();
- 	  	naver_id_login.setPopup();
- 	  	naver_id_login.setButton("green", 3, 49);
- 	  	naver_id_login.setDomain("http://localhost:8787/te/naverlogin.do");
- 	  	naver_id_login.setState(state);
- 	  	naver_id_login.init_naver_id_login();
- 	    
+ 		var naver_id_login1 = new naver_id_login("CQCVSo1bGXvj408kAJib", "http://localhost:8787/te/naverlogin.do");
+ 	  	var state = naver_id_login1.getUniqState();
+ 	  	naver_id_login1.setPopup();
+ 	  	naver_id_login1.setButton("green", 3, 49);
+ 	  	naver_id_login1.setDomain("http://localhost:8787/te/naverlogin.do");
+ 	  	naver_id_login1.setState(state);
+ 	  	naver_id_login1.init_naver_id_login();
+ 		
  	</script>
  	
  							
