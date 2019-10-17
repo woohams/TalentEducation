@@ -19,7 +19,7 @@
 				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">
-				<p><a id="TE_header_login">LOGIN</a></p>
+				<p><a href="./loginform.do">LOGIN</a></p>
 			</sec:authorize>
 			<img id="TE_header_menu" alt="" src="resources/images/menu.jpg">
 		</div>
@@ -29,8 +29,9 @@
 		<div class="TE_header_slider_menus">
 			<div class="TE_header_slider_menu">
 				<h3>마이 홈</h3>
+				<a href="./mypagehome.do">홈</a>
 				<a href="./mypageinfo.do">내 정보</a>
-				<a href="">게시판</a>
+				<a href="./calendar.do">스케쥴</a>
 				<a href="">VOD</a>
 				<a href="">도서구매</a>
 			</div>
@@ -79,5 +80,3 @@
 		</div>
 	</div>
 </header>
-<div id="TE_header_loginform"></div>
-<div id="allback"></div>
