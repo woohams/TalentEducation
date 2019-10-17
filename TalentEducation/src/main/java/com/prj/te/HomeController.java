@@ -29,12 +29,19 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+
+	@RequestMapping(value = "/mypagehome.do")
+	public String myPageHome() {
+		
+		return "mypagehome";
+	}
 	@RequestMapping(value = "/mypageinfo.do")
-	public String myPage() {
+	public String myPageInfo() {
 		
 		return "mypageinfo";
 	}
+	
+	
 	@RequestMapping(value = "/boardlist.do")
 	public String boardList() {
 		
