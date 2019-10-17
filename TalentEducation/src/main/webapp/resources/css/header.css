@@ -87,7 +87,14 @@ header {
 		}
 
 
-
+#loading {
+	position: fixed;
+	display: none;
+	top: 35%;
+	left: 50%;
+	z-index: 110;
+	transition: 1s;
+}
 
 
 
