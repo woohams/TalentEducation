@@ -28,19 +28,18 @@ section {
 	
 	.TE_mypage_nav img { width: 200px; height: 200px; border-radius: 50%; }
 	
-	.TE_mypage_nav h3 { margin: 0px; font-size: 28px; }
-	.TE_mypage_nav:nth-child(1) h3 { text-align: center; }
-	.TE_mypage_nav:nth-child(n+2) h3{ margin: 0px 0px 15px 5px; }
+	.TE_mypage_nav h3 { margin: 0px; font-size: 28px; text-align: center; }
 	
 	.TE_mypage_nav a {
 		display: block;
+		text-align: center;
 		text-decoration: none;
 		color: rgb(60,60,60);
-		font-size: 15px;
+		font-size: 30px;
 		font-weight: bold;
 	}
 	.TE_mypage_nav:nth-child(1) a { text-align: center; font-size: 20px; color: rgb(120,120,120); }
-	.TE_mypage_nav:nth-child(n+2) a{ margin: 0px 0px 5px 20px; }
+	.TE_mypage_nav:nth-child(n+2) a{ margin: 45px 0px; }
 
 
 
