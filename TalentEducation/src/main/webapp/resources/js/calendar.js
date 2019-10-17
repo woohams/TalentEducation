@@ -66,7 +66,7 @@ $(function () {
         
         var editStart = date.format();
         //alert(editStart);	// 클릭 날짜 alert
-        window.open("eventuploadform.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
+        window.open("resources/template/eventuploadform2.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
 		
         
         //alert('Date: ' + date.format());
