@@ -49,23 +49,4 @@ $(function() {
 		});
 	});
 	
-	$("#TE_header_login").click(function() {
-		$.when(
-			$.getScript("//developers.kakao.com/sdk/js/kakao.min.js"),
-			$.getScript("https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"),
-			$.Deferred(function( deferred ) {
-				$( deferred.resolve );
-			})
-		).done(function() {			
-			$("#TE_header_loginform").load("loginform.do");
-			$("#TE_header_loginform").css("display", "block");
-			$("#allback").css("display", "block");
-		});
-	});
-	
-	$("#allback").click(function() {
-		$("#TE_header_loginform").empty();
-		$("#TE_header_loginform").css("display", "none");
-		$("#allback").css("display", "none");
-	});
 });
