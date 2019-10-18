@@ -2,4 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="boardLecture">
 
+	<select id="selectOne" resultType="boardLectureDto">
+		SELECT * 
+		FROM BOARD_LECTURE
+		WHERE BOARD_LECTURE_SEQ = #{seq} 
+	</select>
+	<select id="selectOneLive" resultType="boardLectureDto">
+		SELECT * 
+		FROM BOARD_LECTURE
+		WHERE TUTER_ID = #{id} AND BOARD_LECTURE_ENABLE = 'Y'
+	</select>
+	
 </mapper>

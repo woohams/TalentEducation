@@ -5,8 +5,11 @@ import java.util.Date;
 public class BoardLectureDto {
 	
 	private int board_lecture_seq;
+	private String board_lecture_title;
 	private String category_code;
 	private String tuter_id;
+	private String tutees;
+	private String board_lecture_enable;
 	private String board_lecture_content;
 	private Date board_lecture_regdate;
 	private String board_lecture_tag;
@@ -14,16 +17,18 @@ public class BoardLectureDto {
 	private double board_lecture_star_total;
 	private int board_lecture_star_count;
 	
-	public BoardLectureDto() {
-		
-	}
+	public BoardLectureDto() {}
 
-	public BoardLectureDto(int board_lecture_seq, String category_code, String tuter_id, String board_lecture_content,
-			Date board_lecture_regdate, String board_lecture_tag, String board_lecture_image,
-			double board_lecture_star_total, int board_lecture_star_count) {
+	public BoardLectureDto(int board_lecture_seq, String board_lecture_title, String category_code, String tuter_id,
+			String tutees, String board_lecture_enable, String board_lecture_content, Date board_lecture_regdate,
+			String board_lecture_tag, String board_lecture_image, double board_lecture_star_total,
+			int board_lecture_star_count) {
 		this.board_lecture_seq = board_lecture_seq;
+		this.board_lecture_title = board_lecture_title;
 		this.category_code = category_code;
 		this.tuter_id = tuter_id;
+		this.tutees = tutees;
+		this.board_lecture_enable = board_lecture_enable;
 		this.board_lecture_content = board_lecture_content;
 		this.board_lecture_regdate = board_lecture_regdate;
 		this.board_lecture_tag = board_lecture_tag;
@@ -40,6 +45,14 @@ public class BoardLectureDto {
 		this.board_lecture_seq = board_lecture_seq;
 	}
 
+	public String getBoard_lecture_title() {
+		return board_lecture_title;
+	}
+
+	public void setBoard_lecture_title(String board_lecture_title) {
+		this.board_lecture_title = board_lecture_title;
+	}
+
 	public String getCategory_code() {
 		return category_code;
 	}
@@ -54,6 +67,22 @@ public class BoardLectureDto {
 
 	public void setTuter_id(String tuter_id) {
 		this.tuter_id = tuter_id;
+	}
+
+	public String getTutees() {
+		return tutees;
+	}
+
+	public void setTutees(String tutees) {
+		this.tutees = tutees;
+	}
+
+	public String getBoard_lecture_enable() {
+		return board_lecture_enable;
+	}
+
+	public void setBoard_lecture_enable(String board_lecture_enable) {
+		this.board_lecture_enable = board_lecture_enable;
 	}
 
 	public String getBoard_lecture_content() {
@@ -103,5 +132,7 @@ public class BoardLectureDto {
 	public void setBoard_lecture_star_count(int board_lecture_star_count) {
 		this.board_lecture_star_count = board_lecture_star_count;
 	}
+	
+	
 	
 }
