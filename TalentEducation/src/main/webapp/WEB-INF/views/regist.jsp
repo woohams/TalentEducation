@@ -8,26 +8,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
+<%@ include file="/resources/template/head.jsp" %>
+<link rel="stylesheet" href="resources/css/regist.css">
 <script type="text/javascript" src="resources/js/regist.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
 </head>
+<%@ include file="/resources/template/header.jsp" %>
 <body>
-<h1>임시 회원가입</h1>
-
-<form action="./insert.do" method="post">
+<div id="regist_form">
+	<div id = "regist">
+<form action="./insert.do" method="post" id="registF" onsubmit="return submitChk();">
 	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					<div class="form-group">
-						<label></label>
-						<input type="text"  name="id" onchange="idChk();" placeholder="ID"><br>
+						<input type="text"  name="id" onchange="idChk();" placeholder="ID" autofocus autocomplete="off" required >
 						<span id="id_check"></span>
 					</div>
 					<div class="form-group">
-						<input type="password" name="pw" onchange="pwChk();" placeholder="Password"><br>
+						<input type="password" name="pw" onchange="pwChk();" placeholder="Password" autofocus autocomplete="off" required >
 						<span id="pw_check"></span>
 					</div>	
 					<div class="form-group">
-						<label></label>
-		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요"><br>
+		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요" autofocus autocomplete="off" required >
+		                <span id="email_check"></span><br>
 		                <input type="text"  id="emailService" value="gmail.com" disabled="disabled">
                		<select id="selectEmail" onchange="emailSelect();">
 	                	<option value="write">직접입력</option>
@@ -37,16 +39,18 @@
                		 </select>
                			<input type="hidden" name="email" > 
                			<a id="emailBtn" onclick="emailChk();">인증</a> <br>
-              			<span id="emailck"></span>
-					</div>
+              			
+					</div> <br>
 					<div class="form-group">	
-						<input type="text" name="nickname" onchange="nicChk();" placeholder="Nickname"><br>
+						<input type="text" name="nickname" onchange="nicChk();" placeholder="Nickname" autofocus autocomplete="off" required >
 						<span id="nic_check"></span>
 					</div>
 					<div>
-						<input type="submit" value="회원가입!">
+						<input type="submit" id="submit" value="가입" >
 					</div>
 	</form>
-
+	</div>
+</div>	
+ 	<%@ include file="/resources/template/footer.jsp" %>
 </body>
 </html>

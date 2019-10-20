@@ -39,7 +39,7 @@ function emailConfirm(){
 		return false;
 	}
 	if($("#emailCode").val() == emailCode){
-		window.opener.emailConfirm = true;
+		window.opener.emailConfirm = 1;
 		$("#emailId",opener.document).attr("disabled", true);
 		$("#emailService",opener.document).attr("disabled", true);
 		$("#selectEmail",opener.document).css("display", "none");

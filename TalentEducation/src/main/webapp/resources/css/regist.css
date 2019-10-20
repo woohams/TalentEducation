@@ -1,0 +1,43 @@
+body{
+	background-image: url('../images/backIMG2.jpg');
+	background-size: 100% 100%;
+	
+}
+body::-webkit-scrollbar { 
+
+    display: none; 
+
+}
+#regist_form{
+	
+	width: 1280px;
+	height: 1100px;
+	
+}
+#regist{
+    background-image: url(../images/loginform.png);
+    background-size: 100% 100%;
+    width: 35%;
+    height: 50%;
+    position: absolute;
+    left: 42%;
+    top: 53%;
+    opacity: 0.9;
+}
+#registF{
+	position: relative;
+    left: 23%;
+    top: 23%;
+}
+.form-group{
+	font-size:15px;
+	height: 40px
+}
+#emailBtn {
+	cursor:pointer;
+	color: white;
+}
+input{
+	background: cornsilk;
+	
+}
