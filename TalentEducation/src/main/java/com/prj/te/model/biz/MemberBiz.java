@@ -18,6 +18,6 @@ public interface MemberBiz extends UserDetailsService{
 	public int delete(int member_seq);
 	public int idChk(String id);
 	public boolean pwchk(String username, String pw);
-	public MemberDto findAccount(String email);
-	public int updateInfo(String id,String pw);
+	MemberDto findAccount(String email, String id);
+	int updateInfo(String id, String pw, String email);
 }

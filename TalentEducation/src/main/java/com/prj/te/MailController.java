@@ -47,45 +47,47 @@ public class MailController {
  
     // 아이디 찾기
     @RequestMapping(value = "/sendMailid.do", method = RequestMethod.POST)
-    public String sendMailId(HttpSession session, @RequestParam String email, @RequestParam String captcha, RedirectAttributes ra) {
+    public String sendMailId(HttpSession session, @RequestParam String email, @RequestParam String id,@RequestParam String captcha, RedirectAttributes ra) {
     	String captchaValue = (String) session.getAttribute("captcha");
     	if (captchaValue == null || !captchaValue.equals(captcha)) {
             ra.addFlashAttribute("resultMsg", "자동 방지 코드가 일치하지 않습니다.");
-            return "redirect:./findid.do";
+            return "redirect:./findidpage.do";
         } 
-    	MemberDto user = userService.findAccount(email);
+    	MemberDto user = userService.findAccount(email,id);
         if (user != null) {
             String subject = "아이디 찾기 안내 입니다.";
             StringBuilder sb = new StringBuilder();
             sb.append("귀하의 아이디는 " + user.getUsername() + " 입니다.");
             mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
-            ra.addFlashAttribute("resultMsg", "귀하의 이메일 주소로 해당 이메일로 가입된 아이디를 발송 하였습니다.");
+            ra.addFlashAttribute("resultMsg", "이메일 주소로 해당 이메일로 가입된 아이디를 발송 하였습니다.");
         } else {
-            ra.addFlashAttribute("resultMsg", "귀하의 이메일로 가입된 아이디가 존재하지 않습니다.");
+            ra.addFlashAttribute("resultMsg", "이메일로 가입된 아이디가 존재하지 않습니다.");
         }
-        return "redirect:./home.do";
+        return "redirect::./findidpage.do";
     }
  
     // 비밀번호 찾기
     @RequestMapping(value = "/sendMailpw.do", method = RequestMethod.POST)
-    public String sendMailPassword(HttpSession session, @RequestParam String email, @RequestParam String captcha, RedirectAttributes ra) {
+    public String sendMailPassword(HttpSession session, @RequestParam String email,@RequestParam String id, @RequestParam String captcha, RedirectAttributes ra) {
         String captchaValue = (String) session.getAttribute("captcha");
         if (captchaValue == null || !captchaValue.equals(captcha)) {
             ra.addFlashAttribute("resultMsg", "자동 방지 코드가 일치하지 않습니다.");
-            return "redirect:./findpw.do";
+            return "redirect:./findpwpage.do";
         }
  
-        MemberDto user = userService.findAccount(email);
-       
+        MemberDto user = userService.findAccount(email,id);
+        if (user != null) {
             int ran = new Random().nextInt(100000) + 10000; // 10000 ~ 99999
             String pw = String.valueOf(ran);
-            userService.updateInfo(user.getId(), pw); // 해당 유저의 DB정보 변경
+            userService.updateInfo(user.getId(), pw, user.getEmail()); // 해당 유저의 DB정보 변경
             String subject = "임시 비밀번호 발급 안내 입니다.";
             StringBuilder sb = new StringBuilder();
             sb.append("귀하의 임시 비밀번호는 " + pw + " 입니다.");
             mailService.send(subject, sb.toString(), "versamche@gmail.com", email, null);
-            ra.addFlashAttribute("resultMsg", "귀하의 이메일 주소로 새로운 임시 비밀번호를 발송 하였습니다.");
-        
-        return "redirect:./home.do";
+            ra.addFlashAttribute("resultMsg", "이메일 주소로 새로운 임시 비밀번호를 발송 하였습니다.");
+        } else {
+            ra.addFlashAttribute("resultMsg", "이메일 & 아이디가 존제하지 않거나 다릅니다.");
+        }
+        return "redirect:./findpwpage.do";
     }
 }

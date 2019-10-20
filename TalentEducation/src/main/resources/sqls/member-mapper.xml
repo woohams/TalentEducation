@@ -63,16 +63,18 @@
 		ENABLE = 0
 		WHERE MEMBER_SEQ = #{member_seq}
 	</update>
-	<select id="findAccount" parameterType="String" resultType="MemberDto">
+	<select id="findAccount" parameterType="map" >
 		SELECT
 		MEMBER_SEQ, ID
 		FROM MEMBER 
 		WHERE EMAIL = #{email}
+		AND ID = #{id}
 	</select>
 	<update id="updateInfo" parameterType="map"  >
 	UPDATE MEMBER SET
 		PW = #{pw}
 		WHERE ID = #{id}
+		AND EMAIL = #{email}
 	</update>
 	<select id="idChk" parameterType="String" resultType="int">
 		SELECT COUNT(*)

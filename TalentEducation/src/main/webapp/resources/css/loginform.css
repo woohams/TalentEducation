@@ -1,0 +1,50 @@
+body{
+	background-image: url('../images/backIMG2.jpg');
+	background-size: 100% 100%;
+	
+}
+body::-webkit-scrollbar { 
+
+    display: none; 
+
+}
+#login_form{
+	
+	width: 1280px;
+	height: 1100px;
+	
+}
+#login{
+    background-image: url(../images/loginform.png);
+    background-size: 100% 100%;
+    width: 35%;
+    height: 50%;
+    position: absolute;
+    left: 42%;
+    top: 53%;
+    opacity: 0.9;
+}
+#loginF{
+	position: relative;
+    text-align: center;
+    top: 15%;
+}
+.login-text{
+	height: 40px;
+}
+#loginF a{
+	height: 55px;
+	text-decoration: none;
+	color: chocolate;
+}
+#login-button{
+	height: 30px;
+}
+#sns-button {
+	position: relative;
+    left: 35%;
+}
+#sns-button img{
+	padding-left: 11px;
+    float: left;
+}

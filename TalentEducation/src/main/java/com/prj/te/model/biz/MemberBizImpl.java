@@ -79,12 +79,12 @@ public class MemberBizImpl implements MemberBiz {
 	}
 
 	@Override
-	public MemberDto findAccount(String email) {
-		return dao.findAccount(email);
+	public MemberDto findAccount(String email, String id) {
+		return dao.findAccount(email,id);
 	}
 	
 	@Override
-	public int updateInfo(String id, String pw) {
+	public int updateInfo(String id, String pw, String email) {
 		
 		MemberDto dto = new MemberDto();
 		
@@ -92,7 +92,7 @@ public class MemberBizImpl implements MemberBiz {
 		if(pw!=null && pw!="") {
 			dto.setPw(passwordEncoder.encode(pw));
 		}
-		return dao.updateInfo(id, pw);
+		return dao.updateInfo(id, pw , email);
 	}
 
 	

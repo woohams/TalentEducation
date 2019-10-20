@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+    pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,37 +9,20 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js" ></script>
-<script type="text/javascript">
 
-// captcha 새로고침
-$("#findForm .box.captcha img").click(function() {
-	$("#findForm .box.captcha .loading").show();
-    $(this).attr("src", "./captcha?ran=" + Math.random());
-    $("#findForm .box.captcha .loading").fadeOut(500);
-});
-
-</script>
 </head>
-<body>
-	가입시 인증받은 이메일 주소를 입력해주세요<br/>
+<body  style="text-align: center;">
+	<h2 style="font-size: large;">가입시 인증받은 이메일 <br/>주소를 입력해주세요<br/></h2>
 <form action="./sendMailid.do" id="findForm" method="post">
    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
         <div class="box email">
-            <!-- <label for="email">이메일</label>
-             -->
-             
                <input type="text" id="email" name="email" placeholder="Email를 적어주세요." autofocus autocomplete="off" required />
         </div>
-        <!-- // .box.email -->
- 
         <div class="box captcha">
-          
-            <!-- // .loading   <div class="loading"></div> -->
- 
-            <input type="text" id="captcha" name="captcha" placeholder="자동 방지 코드" autocomplete="off" required />
+            <input type="text" id="captcha" name="captcha" placeholder="자동 방지 코드" autocomplete="off" required /><br>
+            <h3 style="color: red; font-size: 12px;">${resultMsg}</h3>
             <img class="loading" src="./captcha" alt="캡차 이미지" title="클릭시 새로고침" />
         </div>
-        <!-- // .box.captcha -->
  
         <div class="box btn">
             <button type="submit" class="btn join" >
@@ -47,7 +30,6 @@ $("#findForm .box.captcha img").click(function() {
                 이메일 전송
             </button>
         </div>
-        <!-- // .box.btn -->
     
 </form>
 </body>

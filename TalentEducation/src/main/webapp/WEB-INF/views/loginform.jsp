@@ -8,41 +8,58 @@
 <meta name="_csrf" th:content="${_csrf.token}"/>
 <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 <title>login</title>
-
+<%@ include file="/resources/template/head.jsp" %>
+<link rel="stylesheet" href="resources/css/loginform.css">
 </head>
+
+<%@ include file="/resources/template/header.jsp" %>
 <body>
 
-	<form action='./login' method="post">
+<div id="login_form">
+	<div id = "login">
+	<form action='./login' method="post" id="loginF">
 		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-				<div class="login-form">
+				<div class="login-text">
 					<input type="text" name="id" placeholder="ID" required autofocus>
 				</div>
-				<div class="login-form">
+				<div class="login-text">
 					<input type="password" name="pw"  placeholder="Password" required>
 						<c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
 				    <font color="red">
-				        <p>Your login attempt was not successful due to <br/>
-				            ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
+				        <p>${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</p>
 				        <c:remove var="SPRING_SECURITY_LAST_EXCEPTION" scope="session"/>
 				    </font>
 						</c:if>
+				</div><br>
+				
+					<a href="#" onclick="window.open('./findidpage.do', 'ID찾기', 'width=300, height=200,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">ID찾기</a>&nbsp&nbsp&nbsp
+					<a href="#" onclick="window.open('./findpwpage.do', 'PW찾기', 'width=300, height=300,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">PW찾기</a></br>
+				</br>
+					<input type="submit" value="로그인">&nbsp
+					<input type="button" onclick="location.href='./regist.do'" value="회원가입"><br>
+				</br>
+				<div id="sns-button">
+					<div id="kakaologo">
+						<a id="custom-login-btn" href="javascript:loginWithKakao()" >
+							<img src="resources/images/kakao.png" width="40"/>
+						</a>
+					</div>
+					<div id="naverlogo">
+						<img src="resources/images/naver.png" onclick="document.getElementById('naver_id_login_anchor').click();" width="40">
+					</div>
+					<div id="naver_id_login" style="display: none;"></div>
+					<div id="googlelogo">
+						<img alt="" src="resources/images/google.png" width="40">
+					</div>
 				</div>
-				<div class="login-form">
-					<a href="./findidpage.do">ID찾기</a>
-					<a href="./findpwpage.do">PW찾기</a><br>
-					<input type="submit" value="로그인">
-					<input type="button" onclick="location.href='./regist.do'" value="회원가입">
-					<input type="button" onclick="location.href='./'" value="홈으로">
-				</div>
-				<div id="kakao-login-btn"></div>
-				<div id="naver_id_login"></div>
 			</form>
 				<form id="snsLogin" action='./login' method="post">
 			      <input type="hidden"  name="${_csrf.parameterName}"value="${_csrf.token}"/>
 			      <input type="hidden" id="snsId" name="id" />
 			      <input type="hidden" id="snsPw" name="pw" />	
 				</form>
-	
+				</div>
+</div>
 	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
 	<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
@@ -55,12 +72,11 @@
  		header = $('meta[name="_csrf_header"]').attr('th:content');
  	}
 
-
  	// 사용할 앱의 JavaScript 키를 설정해 주세요.
  	    Kakao.init('6044ab6365d9aad695e70b97c4b85a0d');
- 	    // 카카오 로그인 버튼을 생성합니다.
- 	    Kakao.Auth.createLoginButton({
- 	   container: '#kakao-login-btn',
+ 	   function loginWithKakao() {
+ 	      // 로그인 창을 띄웁니다.
+ 	      Kakao.Auth.login({
  	   success: function(authObj) {
  	     Kakao.API.request({
  	       url: '/v1/user/me',
@@ -94,7 +110,7 @@
  	         alert(JSON.stringify(error));
  	       }
  	     });
-
+ 	   }
  	    
  		var naver_id_login = new naver_id_login("CQCVSo1bGXvj408kAJib", "http://localhost:8787/te/naverlogin.do");
  	  	var state = naver_id_login.getUniqState();
@@ -106,6 +122,6 @@
  	    
  	</script>
  	
- 							
+ 	<%@ include file="/resources/template/footer.jsp" %>						
 </body>
 </html>

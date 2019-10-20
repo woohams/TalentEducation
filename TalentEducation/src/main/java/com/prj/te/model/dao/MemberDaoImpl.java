@@ -104,8 +104,10 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public MemberDto findAccount(String email) {
+	public MemberDto findAccount(String email , String id) {
 		MemberDto user = null;
+		user.setId(id);
+		user.setEmail(email);
 		try {
 			user = sqlSession.selectOne(namespace+"findAccount",email);
 		} catch (Exception e) {
@@ -115,7 +117,7 @@ public class MemberDaoImpl implements MemberDao {
 		return user;
 	}
 	@Override
-	public int updateInfo(String id, String pw) {
+	public int updateInfo(String id, String pw, String email) {
 		MemberDto dto = new MemberDto();
 		if(pw!=null && pw!="") {
 			dto.setPw(passwordEncoder.encode(pw));
@@ -124,6 +126,7 @@ public class MemberDaoImpl implements MemberDao {
 		Map<String,String> map = new HashMap<String, String>();
 		map.put("id", id);
 		map.put("pw", dto.getPassword());
+		map.put("email", email);
 		
 		int res = 0;
 		try {
