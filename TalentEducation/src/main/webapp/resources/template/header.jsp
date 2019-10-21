@@ -16,6 +16,7 @@
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					
 				</form>
+				<p><a href="./lectureinsert.do">강의글 작성</a></p>
 				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">

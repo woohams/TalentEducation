@@ -132,6 +132,16 @@ public class BoardLectureDto {
 	public void setBoard_lecture_star_count(int board_lecture_star_count) {
 		this.board_lecture_star_count = board_lecture_star_count;
 	}
+
+	@Override
+	public String toString() {
+		return "BoardLectureDto [board_lecture_seq=" + board_lecture_seq + ", board_lecture_title="
+				+ board_lecture_title + ", category_code=" + category_code + ", tuter_id=" + tuter_id + ", tutees="
+				+ tutees + ", board_lecture_enable=" + board_lecture_enable + ", board_lecture_content="
+				+ board_lecture_content + ", board_lecture_regdate=" + board_lecture_regdate + ", board_lecture_tag="
+				+ board_lecture_tag + ", board_lecture_image=" + board_lecture_image + ", board_lecture_star_total="
+				+ board_lecture_star_total + ", board_lecture_star_count=" + board_lecture_star_count + "]";
+	}
 	
 	
 	

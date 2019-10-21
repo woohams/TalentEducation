@@ -1,0 +1,40 @@
+section {
+    margin: 120px auto;
+    width: 1280px;
+    overflow: hidden;
+}
+
+#board_main { float: left; width: 1280px; }
+
+
+#board_top {
+    border-bottom: 3px solid rgb(150,150,150);
+    padding-bottom: 27px;
+    height: 230px;
+}
+	.board_top_div { float: left; height: 100%; }
+		.board_top_div:nth-child(1) { width: 20%; padding-left: 3%}
+		.board_top_div:nth-child(1) img { width: 200px; border-radius: 50%; }
+		.board_top_div:nth-child(2) { margin: 0px 5%; width: 70%; }
+		.board_top_div:nth-child(2) h1 { margin: 20px 0px; height: 120px; font-size: 30px; }
+		.board_top_div:nth-child(2) input {
+			margin: 50px 0px;
+			border: 0px;
+			width: 100%;
+			height: 50%;
+
+		}
+
+#board_bottom > input {
+	float: right;
+	margin: 0px 30px;
+	width: 150px;
+	height: 40px;
+	font-weight: bold;
+	color: rgb(250,250,250);
+	background-color: tomato;
+	border-color: tomato;
+}
+
+
+#board_description { margin: 50px 30px; }
