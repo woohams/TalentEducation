@@ -43,16 +43,4 @@ public class HomeController {
 		return "mypageinfo";
 	}
 	
-	
-	@RequestMapping(value = "/boardlist.do")
-	public String boardList() {
-		
-		return "boardlist";
-	}
-	@RequestMapping(value = "/selectone.do")
-	public String selectOne() {
-		
-		return "boardselectone";
-	}
-	
 }

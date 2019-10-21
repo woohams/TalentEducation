@@ -15,8 +15,8 @@ public class BoardLectureBizImpl implements BoardLectureBiz {
 	BoardLectureDao lectureDao;
 
 	@Override
-	public List<BoardLectureDto> lectureList() {
-		return lectureDao.lectureList();
+	public List<BoardLectureDto> selectList() {
+		return lectureDao.selectList();
 	}
 	@Override
 	public BoardLectureDto selectOne(int seq) {

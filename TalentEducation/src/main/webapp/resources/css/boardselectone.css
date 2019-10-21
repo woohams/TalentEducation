@@ -55,7 +55,7 @@ section {
 		#board_bottom_menu a:nth-child(1) { border: 0px; width: 300.41px; }
 
 
-#board_description { padding: 50px 30px; }
+#board_description { padding: 50px 30px; min-height: 500px;}
 
 
 #board_pay {

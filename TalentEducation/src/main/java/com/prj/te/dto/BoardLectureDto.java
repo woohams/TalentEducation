@@ -8,6 +8,7 @@ public class BoardLectureDto {
 	private String board_lecture_title;
 	private String category_code;
 	private String tutor_id;
+	private String tutor_nik;
 	private String tutees;
 	private String board_lecture_enable;
 	private String board_lecture_content;
@@ -19,15 +20,17 @@ public class BoardLectureDto {
 	
 	public BoardLectureDto() {}
 
+	
+
 	public BoardLectureDto(int board_lecture_seq, String board_lecture_title, String category_code, String tutor_id,
-			String tutees, String board_lecture_enable, String board_lecture_content, Date board_lecture_regdate,
-			String board_lecture_tag, String board_lecture_image, double board_lecture_star_total,
-			int board_lecture_star_count) {
-		super();
+			String tutor_nik, String tutees, String board_lecture_enable, String board_lecture_content,
+			Date board_lecture_regdate, String board_lecture_tag, String board_lecture_image,
+			double board_lecture_star_total, int board_lecture_star_count) {
 		this.board_lecture_seq = board_lecture_seq;
 		this.board_lecture_title = board_lecture_title;
 		this.category_code = category_code;
 		this.tutor_id = tutor_id;
+		this.tutor_nik = tutor_nik;
 		this.tutees = tutees;
 		this.board_lecture_enable = board_lecture_enable;
 		this.board_lecture_content = board_lecture_content;
@@ -37,6 +40,8 @@ public class BoardLectureDto {
 		this.board_lecture_star_total = board_lecture_star_total;
 		this.board_lecture_star_count = board_lecture_star_count;
 	}
+
+
 
 	public int getBoard_lecture_seq() {
 		return board_lecture_seq;
@@ -134,14 +139,24 @@ public class BoardLectureDto {
 		this.board_lecture_star_count = board_lecture_star_count;
 	}
 
+	public String getTutor_nik() {
+		return tutor_nik;
+	}
+
+	public void setTutor_nik(String tutor_nik) {
+		this.tutor_nik = tutor_nik;
+	}
+
+
 	@Override
 	public String toString() {
 		return "BoardLectureDto [board_lecture_seq=" + board_lecture_seq + ", board_lecture_title="
-				+ board_lecture_title + ", category_code=" + category_code + ", tutor_id=" + tutor_id + ", tutees="
-				+ tutees + ", board_lecture_enable=" + board_lecture_enable + ", board_lecture_content="
-				+ board_lecture_content + ", board_lecture_regdate=" + board_lecture_regdate + ", board_lecture_tag="
-				+ board_lecture_tag + ", board_lecture_image=" + board_lecture_image + ", board_lecture_star_total="
-				+ board_lecture_star_total + ", board_lecture_star_count=" + board_lecture_star_count + "]";
+				+ board_lecture_title + ", category_code=" + category_code + ", tutor_id=" + tutor_id + ", tutor_nik="
+				+ tutor_nik + ", tutees=" + tutees + ", board_lecture_enable=" + board_lecture_enable
+				+ ", board_lecture_content=" + board_lecture_content + ", board_lecture_regdate="
+				+ board_lecture_regdate + ", board_lecture_tag=" + board_lecture_tag + ", board_lecture_image="
+				+ board_lecture_image + ", board_lecture_star_total=" + board_lecture_star_total
+				+ ", board_lecture_star_count=" + board_lecture_star_count + "]";
 	}
 
 	
