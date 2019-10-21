@@ -48,6 +48,7 @@ public class BoardLectureController {
 	public String lectureInsert(HttpServletRequest request) {
 		BoardLectureDto dto = new BoardLectureDto();
 		dto.setBoard_lecture_title(request.getParameter("title"));
+		dto.setTutor_id(request.getParameter("tutor_id"));
 		dto.setBoard_lecture_content(request.getParameter("content"));
 
 		int res = lectureBiz.insertLecture(dto);
@@ -58,6 +59,6 @@ public class BoardLectureController {
 		}
 		System.out.println(dto);
 		
-		return "boardlist";
+		return "redirect:./boardlist.do";
 	}
 }

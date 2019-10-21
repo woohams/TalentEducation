@@ -15,7 +15,7 @@
 	
 	<insert id="insert" parameterType="boardLectureDto">
 		INSERT INTO BOARD_LECTURE
-		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, #{board_lecture_title}, '0000', 'user', '', '-', #{board_lecture_content}, SYSDATE, 'tag', 'image', 0, 0);
+		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, #{board_lecture_title}, '0000', 'user', '', '-', #{board_lecture_content}, SYSDATE, 'tag', 'image', 0, 0)
 	</insert>
 	
 </mapper>

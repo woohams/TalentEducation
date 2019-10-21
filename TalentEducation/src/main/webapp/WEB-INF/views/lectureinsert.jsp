@@ -17,25 +17,30 @@
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
 	<section>
-		<form action="./lectureinsert.do" method="post">
-			<div id="board_main">
-				<div id="board_top">
-					<div class="board_top_div">
-						<img alt="" src="resources/images/sample.jpg">
+		<sec:authorize access="isAuthenticated()">
+		<sec:authentication property="principal" var="member" />
+			<form action="./lectureinsert.do" method="post">
+				<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+				<input type="hidden" name="tutor_id" value="${member.id }"/>
+				<div id="board_main">
+					<div id="board_top">
+						<div class="board_top_div">
+							<img alt="" src="resources/images/sample.jpg">
+						</div>
+						<div class="board_top_div">
+							<h1><input type="text" name="title" value="" placeholder="제목을 입력하세요"></h1>
+						</div>
 					</div>
-					<div class="board_top_div">
-						<h1><input type="text" name="title" value="" placeholder="제목을 입력하세요"></h1>
+					
+					<div id="board_bottom">
+						<div id="board_description">
+							<textarea name="content" id="summernote"></textarea>
+						</div>
+						<input type="submit" value="작성 완료">
 					</div>
 				</div>
-				
-				<div id="board_bottom">
-					<div id="board_description">
-						<textarea name="content" id="summernote"></textarea>
-					</div>
-					<input type="submit" value="작성 완료">
-				</div>
-			</div>
-		</form>
+			</form>
+		</sec:authorize>
 	</section>
 	<%@ include file="/resources/template/footer.jsp" %>
 	</body>
