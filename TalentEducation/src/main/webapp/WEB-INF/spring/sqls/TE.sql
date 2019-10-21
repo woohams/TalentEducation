@@ -27,8 +27,7 @@ CREATE TABLE CATEGORY(
 	CONSTRAINT CATEGORY_CODE_TE_PK PRIMARY KEY(CATEGORY_CODE)
 );
 
-INSERT INTO CATEGORY
-VALUES('0000', '테스트');
+INSERT INTO CATEGORY VALUES('0000', '테스트');
 
 --------------------------------------------------------------------------
 
@@ -60,6 +59,7 @@ VALUES(BOARD_LECTURE_SEQ.NEXTVAL, 'title', '0000', 'user', '', '-', 'content', S
 INSERT INTO BOARD_LECTURE
 VALUES(BOARD_LECTURE_SEQ.NEXTVAL, 'title2', '0000', 'user', '', 'Y', 'content', SYSDATE, 'tag', 'image', 0, 0);
 
+SELECT * FROM BOARD_LECTURE;
 --------------------------------------------------------------------------
 
 DROP SEQUENCE BOARD_VOD_SEQ;
