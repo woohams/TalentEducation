@@ -43,7 +43,9 @@ public class MemberController {
 		return "naverlogin";
 	}
 	@RequestMapping(value="/logoutpage.do")
-	public String logoutpage() {
+	public String logoutpage(Model model, String id, String pw) {
+		model.addAttribute("id", id);
+		model.addAttribute("pw", pw);		
 		return "logoutpage";
 	}
 	@RequestMapping(value ="/regist.do")
