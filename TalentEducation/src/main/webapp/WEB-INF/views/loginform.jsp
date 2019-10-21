@@ -4,10 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="_csrf" th:content="${_csrf.token}"/>
-<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
-<title>login</title>
 <%@ include file="/resources/template/head.jsp" %>
 <link rel="stylesheet" href="resources/css/loginform.css">
 </head>

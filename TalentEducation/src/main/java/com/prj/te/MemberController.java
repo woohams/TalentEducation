@@ -3,6 +3,7 @@ package com.prj.te;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -48,6 +49,21 @@ public class MemberController {
 	@RequestMapping(value ="/regist.do")
 	public String registf(MemberDto dto) {
 		return "regist";
+	}
+	@RequestMapping(value = "/member/myinfoupdateres.do" , method = RequestMethod.POST)
+	public String myinfoupdateres(Model model, MemberDto dto) {
+		String id = dto.getId();
+		String pw = dto.getPw();
+		int res = Mbiz.update(dto);
+		
+		
+		if(res > 0) {
+			model.addAttribute("id", id);
+			model.addAttribute("pw", pw);
+			return "sessionlogout";
+		}else {
+			return "mypageinfo";
+		}
 	}
 	@RequestMapping(value = "/idchk.do" , method = {RequestMethod.POST,RequestMethod.GET})
 	@ResponseBody
