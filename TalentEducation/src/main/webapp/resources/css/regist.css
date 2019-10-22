@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
 }
 #registF{
 	position: relative;
-    left: 13%;
+	left: 3%;
     top: 23%;
 }
 .form-group{
@@ -40,4 +40,14 @@ body::-webkit-scrollbar {
 input{
 	background: cornsilk;
 	
+}
+#h5s{
+	float: left;
+    color: white;
+    position: relative;
+    top: 15%;
+}
+h5{
+	margin-top: 30px;
+    margin-left: 70px;
 }

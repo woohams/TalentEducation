@@ -17,20 +17,25 @@
 <body>
 <div id="regist_form">
 	<div id = "regist">
+		<div id="h5s">
+			<h5>ID</h5>
+			<h5>PW</h5>
+			<h5>Email</h5>
+			<h5>NickName</h5>
+		</div>
 <form action="./insert.do" method="post" id="registF" onsubmit="return submitChk();">
 	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+				
+					
 					<div class="form-group">
-						<label>ID</label>&nbsp&nbsp&nbsp
 						<input type="text"  name="id" onchange="idChk();" placeholder="ID" autofocus autocomplete="off" required >
 						<span id="id_check"></span>
 					</div>
 					<div class="form-group">
-						<label>PW</label>&nbsp&nbsp
 						<input type="password" name="pw" onchange="pwChk();" placeholder="Password" autofocus autocomplete="off" required >
 						<span id="pw_check"></span>
 					</div>	
 					<div class="form-group">
-						<label>Email</label>
 		                <input type="text"  id="emailId" placeholder="Email을 입력해주세요" autofocus autocomplete="off" required >
 		                <span id="email_check"></span><br>
 		                <input type="text"  id="emailService" value="gmail.com" disabled="disabled">
@@ -45,7 +50,6 @@
               			
 					</div> <br>
 					<div class="form-group">
-						<label>Nick</label>	
 						<input type="text" name="nickname" onchange="nicChk();" placeholder="Nickname" autofocus autocomplete="off" required >
 						<span id="nic_check"></span>
 					</div>

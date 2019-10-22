@@ -22,9 +22,9 @@
 				pwConfirm = 0;
 				return false;
 			}else{
-				$("#pw_check").css('color', 'darkorange');
+				$("#pw_check").css('color', 'blue');
 				$("#pw_check").html("사용가능한 password 입니다.");
-				$("input[name=email]").focus();
+				$("input[name=nickname]").focus();
 				pwConfirm = 1;
 				return false;			
 			}
@@ -32,15 +32,16 @@
 		}
 
 		function nicChk(){
-			var nic = $("input[name=Nickname]").val();
-			if(!pattern_nic.test(nic)||pattern_gon.test(nic)){
+			var nic = $("input[name=nickname]").val();
+			
+			if(!pattern_nic.test(nic)){
 				$("#nic_check").css('color', 'red');
-				$("#nic_check").html(" 공백은 사용불가능합니다.");
-				$("input[name=Nickname]").focus();
+				$("#nic_check").html("1~14글자, 공백은 사용불가능합니다.");
+				$("input[name=nickname]").focus();
 				nickConfirm = 0;
 				return false;
 			}else{
-				$("#nic_check").css('color', 'darkorange');
+				$("#nic_check").css('color', 'blue');
 				$("#nic_check").html("사용가능한 닉네임 입니다.");
 				nickConfirm = 1;
 				return false;
@@ -72,37 +73,36 @@
 	<%@ include file="/resources/template/header.jsp" %>
 	<div id="mypage_form">
 		<%@ include file="/resources/template/mypage_nav.jsp" %>
-		<section>
-			<h1>내정보</h1>
+		<section id="myinfoS">
 	<sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="member" />
-		<form action="./member/myinfoupdateres.do" method="post">	
+		<form action="./myinfoupdateres.do" method="post" id="myinfoF" enctype="multipart/form-data">	
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 			<input type="hidden" name="member_seq" value="${member.member_seq }">
-					<div class="form-group">
-					<label>ID</label>
-						<input type="text"  name="id" value="${member.id }"  readonly="readonly" >
-						<span>아이디는 변경 할수 없습니다.</span>
-					</div>
 					<c:set var="pw" value="${member.pw}" />
 					<c:choose>
-					    <c:when test="${ pw eq 'SNS@PW'}">
-					        <input type="password" name="pw" value="SNS로그인 사용자는 홈페이지에 가셔서 변경가능합니다." readonly="readonly">
+					    <c:when test="${ pw eq '$2a$10$4lh6mwwpypf.2LVj0jLpW.Xqt2NBoUhDultMLX/uwAn.3hx8dq6fa'}">
+					       <h2>SNS로그인 사용자는 <br>Nickname & profile_image<br> 변경 가능합니다.</h2>
 					    </c:when>
 					    <c:otherwise>
+					    <div class="form-group">
+							<label>ID</label>
+							<input type="text"  name="id" value="${member.id }"  readonly="readonly" >
+							<span>아이디는 변경 할수 없습니다.</span>
+						</div>
 					    <div class="form-group">
 							<label>PASSWORD</label>
 							<input type="password" name="pw" onchange="pwChk();" autofocus>
 							<span id="pw_check"></span>
 						</div>
+						<div class="form-group">
+							<label>EMAIL</label>
+		               		<input type="text" name="email" value="${member.email }"  readonly="readonly">
+		               		<span>EMAIL은 변경 할수 없습니다.</span>
+               			</div>
 					    </c:otherwise>
 					</c:choose>
-					
-					<div class="form-group">
-					<label>EMAIL</label>
-               			<input type="text" name="email" value="${member.email }"  readonly="readonly">
-               			 <span>EMAIL은 변경 할수 없습니다.</span>
-               		</div>
+					</br>
 					<div class="form-group">
 					<label>NICKNAME</label>	
 						<input type="text" name="nickname" onchange="nicChk();" value="${member.nickname }" >
@@ -110,7 +110,7 @@
 					</div>
 					<div class="form-group">
 					<label>PROFILE_IMG</label>	
-						<input type="text" name="profile_img" value="${member.profile_img }" >
+						<input type="file" name="profile_img" value="${member.profile_img }" >
 					</div>
 					<div>
 						<input type="submit"  value="수정" >
