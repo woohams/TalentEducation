@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -32,8 +33,15 @@ public class HomeController {
 		return "home";
 	}
 
+	@RequestMapping(value = "/member/mypagehome.do")
+	public String myPageHomeMember(Model model, HttpServletRequest request) {
+		
+		return "mypagehome";
+	}
 	@RequestMapping(value = "/mypagehome.do")
-	public String myPageHome() {
+	public String myPageHome(Model model, HttpServletRequest request) {
+		
+		model.addAttribute("tutor", request.getParameter("tutor"));
 		
 		return "mypagehome";
 	}

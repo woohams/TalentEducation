@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<script type="text/javascript" src="resources/js/clock.js"></script>
+<script type="text/javascript" src="/te/resources/js/clock.js"></script>
 <script type="text/javascript">
 
 	function enterRoom(tuter_id, my_id, value) {
@@ -18,7 +18,7 @@
 </script>
 <nav>
 	<div class="TE_mypage_nav">
-		<img alt="" src="resources/images/sample.jpg"/>
+		<img alt="" src="/te/resources/images/sample.jpg"/>
 		<h3>닉네임</h3>
 		<a href="">id</a>
 		<div class="TE_mypage_nav_btn">
@@ -28,7 +28,15 @@
 		</div>
 	</div>
 	<div class="TE_mypage_nav">
-		<a href="./mypageinfo.do">내 정보</a>
+		<c:choose>
+			<c:when test="${member != 'anonymousUser'}">
+				<c:if test="${tutor == member.id }">
+					<a href="./mypageinfo.do">내 정보</a>
+				</c:if>
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
 		<a href="./calendar.do">스케쥴</a>
 		<a href="">VOD</a>
 	</div>

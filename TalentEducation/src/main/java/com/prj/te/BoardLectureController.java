@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -47,22 +48,15 @@ public class BoardLectureController {
 	}
 	
 	@RequestMapping(value = "/lectureinsert.do", method = RequestMethod.POST)
-	public String lectureInsert(HttpServletRequest request) {
-		BoardLectureDto dto = new BoardLectureDto();
-		dto.setBoard_lecture_title(request.getParameter("title"));
-		dto.setTutor_id(request.getParameter("tutor_id"));
-		dto.setTutor_nik(request.getParameter("tutor_nik"));
-		dto.setBoard_lecture_content(request.getParameter("content"));
+	public String lectureInsert(@ModelAttribute BoardLectureDto dto) {
 
 		int res = lectureBiz.insertLecture(dto);
 		if(res > 0) {
-			System.out.println("성공");
+			return "redirect:./boardlist.do";
 		}else {
-			System.out.println("실패");
+			return "redirect:./lectureinsert.do";
 		}
-		System.out.println(dto);
 		
-		return "redirect:./boardlist.do";
 	}
 
 	@RequestMapping(value = "/lectureupdate.do", method = RequestMethod.POST)
@@ -73,8 +67,39 @@ public class BoardLectureController {
 		
 		model.addAttribute("lecture", dto);
 		
-		return "lectureupdate.do";
+		return "lectureupdate";
 	}
+	@RequestMapping(value = "/lectureupdateres.do", method = RequestMethod.POST)
+	public String lectureUpdateRes(Model model, @ModelAttribute BoardLectureDto dto) {
+		
+		int res = lectureBiz.updateLecture(dto);
+		
+		if(res > 0) {
+			return "redirect:./selectone.do?boardseq=" + dto.getBoard_lecture_seq();
+		}else {
+			BoardLectureDto dto0 = lectureBiz.selectOne(dto.getBoard_lecture_seq());
+			
+			model.addAttribute("lecture", dto0);
+			return "lectureupdate";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/lecturedelete.do", method = RequestMethod.POST)
+	public String lectureDelete(HttpServletRequest request) {
+
+		int seq = Integer.parseInt(request.getParameter("boardseq"));
+		
+		int res = lectureBiz.deleteLecture(seq);
+		
+		if(res > 0) {
+			return "redirect:./boardlist.do";
+		}else {
+			return "redirect:./selectone.do?boardseq=" + seq;
+		}
+		
+	}
+
 
 	@RequestMapping(value = "/openroom.do")
 	public String openRoom(Model model, HttpServletRequest request) {

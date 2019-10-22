@@ -24,15 +24,15 @@
 			
 			<div id="boards">
 				<c:choose>
-					<c:when test="${lectureList == null }">
-						<div>강의가 존재하지 않습니다.</div>
+					<c:when test="${empty lectureList}">
+						<h2 style="margin: 200px 0px; text-align: center;">-강의가 존재하지 않습니다-</h2>
 					</c:when>
 					<c:otherwise>
 						<c:forEach var="lecture" items="${lectureList }">
 						
 							<div class="board">
 								<input type="hidden" name="boardseq" value="${lecture.board_lecture_seq }">
-								<div class="board_img">
+								<div class="board_img" style="background-image: url('/te/${lecture.board_lecture_image}')">
 									
 									<div class="tag_box vod">VOD</div>
 									<div class="tag_box onoff">온라인</div>
@@ -41,7 +41,7 @@
 									<p class="board_title">${lecture.board_lecture_title }</p>
 									<div>
 										<p>★★★☆☆</p>
-										<a href="">${lecture.tutor_nik }</a>
+										<a href="./mypagehome.do?tutor=${lecture.tutor_id }">${lecture.tutor_nik }</a>
 									</div>
 								</div>
 							</div>
