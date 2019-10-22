@@ -78,14 +78,15 @@
  	       url: '/v1/user/me',
  	       success: function(res) {
  	             
- 	             var member_id = "KAKAOSNSID"+res.id;
- 	             var member_pw = "KAKAOSNSID"+res.id;
- 	             var member_email = "KAKAOEMAIL"+res.kaccount_email;
- 	             var member_nickname = "KAKAONICK"+res.properties['nickname'];
- 	             
+ 	             var member_id = "KAKAO@"+res.id;
+ 	             var member_pw = "SNS@PW";
+ 	             var member_email = "KAKAO@"+res.kaccount_email;
+ 	             var member_nickname = "KAKAO@"+res.properties['nickname'];
+ 	             var member_profile_img= res.properties.profile_image;
+ 	             alert(member_profile_img);
  	             $.ajax({
  	            	type: "POST",
- 	            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname,
+ 	            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname+"&profile_img="+member_profile_img,
  	            	dataType : "JSON",
  	            	beforeSend : function(xhr){
  	    				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");

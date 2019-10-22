@@ -13,6 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.prj.te.dto.MemberDto;
+
 @Controller
 public class HomeController {
 	
@@ -39,7 +41,6 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/mypageinfo.do")
 	public String myPageInfo() {
-		
 		return "mypageinfo";
 	}
 	

@@ -50,6 +50,7 @@ public class MemberController {
 	}
 	@RequestMapping(value ="/regist.do")
 	public String registf(MemberDto dto) {
+	System.out.println(dto.getId());
 		return "regist";
 	}
 	@RequestMapping(value = "/member/myinfoupdateres.do" , method = RequestMethod.POST)
