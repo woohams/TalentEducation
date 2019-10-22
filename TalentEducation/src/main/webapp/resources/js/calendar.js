@@ -66,7 +66,7 @@ $(function () {
         
         var editStart = date.format();
         //alert(editStart);	// 클릭 날짜 alert
-        window.open("resources/template/eventuploadform2.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
+        window.open("resources/template/eventuploadform.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
 		
         
         //alert('Date: ' + date.format());
@@ -88,7 +88,7 @@ $(function () {
         }
         $.ajax({
             url:"calendarDragUpdate.do",
-            data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format()+" T23:59:59",		
+            data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format(),		
             // java.lang.IllegalArgumentException: 요청 타겟에서 유효하지 않은 문자가 발견되었습니다. 유효한 문자들은 RFC 7230과 RFC 3986에 정의되어 있습니다.
             
             dataType:"text",
