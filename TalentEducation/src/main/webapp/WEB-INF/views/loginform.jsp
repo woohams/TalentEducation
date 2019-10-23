@@ -13,7 +13,7 @@
 
 <div id="login_form">
 	<div id = "login">
-	<form action='./login' method="post" id="loginF">
+	<form action='/te/login' method="post" id="loginF">
 		<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
 				<div class="login-text">
 					<input type="text" name="id" placeholder="ID" required autofocus>
@@ -32,7 +32,7 @@
 					<a href="#" onclick="window.open('./findpwpage.do', 'PW찾기', 'width=300, height=350,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">PW찾기</a></br>
 				</br>
 					<input type="submit" value="로그인" class="myButton">&nbsp
-					<input type="button" onclick="location.href='./regist.do'" value="회원가입" class="myButton"><br>
+					<input type="button" onclick="location.href='/te/regist.do'" value="회원가입" class="myButton"><br>
 				</br>
 				<div id="sns-button">
 					<div id="kakaologo">

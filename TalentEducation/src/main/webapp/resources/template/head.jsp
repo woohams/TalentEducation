@@ -6,5 +6,5 @@
 <meta name="_csrf" th:content="${_csrf.token}"/>
 <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 <title>Talent Education</title>
-<link rel="icon" type="image/png" sizes="32x32" href="resources/images/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/te/resources/images/logo.png">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

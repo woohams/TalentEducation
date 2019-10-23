@@ -30,9 +30,9 @@
 		</div>
 	</div>
 	<div class="TE_mypage_nav">
-		<a href="./mypageinfo.do">내 정보</a>
-		<a href="./calendar.do">스케쥴</a>
-		<a href="">VOD</a>
+		<a href="/te/member/mypageinfo.do">내 정보</a>
+		<a href="/te/member/calendar.do">스케쥴</a>
+		<a href="#">VOD</a>
 	</div>
 	<div id="clock" style="padding: 10px;"></div>
 	</sec:authorize>

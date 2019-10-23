@@ -73,7 +73,7 @@ public class MemberController {
 	public int idChk(String id) {
 		return Mbiz.idChk(id);
 	}
-	@RequestMapping(value ="/insert.do" , method = RequestMethod.POST)
+	@RequestMapping(value ="/registinsert.do" , method = RequestMethod.POST)
 	public String memberJoin(MemberDto dto) {
 		int res = Mbiz.insert(dto);
 		if(res>0) {

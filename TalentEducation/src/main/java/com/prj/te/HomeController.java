@@ -34,12 +34,12 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/mypagehome.do")
+	@RequestMapping(value = "/member/mypagehome.do")
 	public String myPageHome() {
 		
 		return "mypagehome";
 	}
-	@RequestMapping(value = "/mypageinfo.do")
+	@RequestMapping(value = "/member/mypageinfo.do")
 	public String myPageInfo() {
 		return "mypageinfo";
 	}

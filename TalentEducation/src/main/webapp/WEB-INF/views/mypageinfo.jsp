@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
-		<link rel="stylesheet" href="resources/css/mypage.css">
+		<link rel="stylesheet" href="/te/resources/css/mypage.css">
 		<script type="text/javascript" >
 		var pwConfirm = 0;
 		var nickConfirm = 0;

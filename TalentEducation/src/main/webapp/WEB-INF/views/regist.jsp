@@ -23,7 +23,7 @@
 			<h5>Email</h5>
 			<h5>NickName</h5>
 		</div>
-<form action="./insert.do" method="post" id="registF" onsubmit="return submitChk();">
+<form action="./registinsert.do" method="post" id="registF" onsubmit="return submitChk();">
 	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 				
 					

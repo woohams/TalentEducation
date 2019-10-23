@@ -1,28 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link rel="stylesheet" href="resources/css/header.css">
-<script type="text/javascript" src="resources/js/header.js"></script>
+<link rel="stylesheet" href="/te/resources/css/header.css">
+<script type="text/javascript" src="/te/resources/js/header.js"></script>
 
 <header>
 	<div class="TE_header">
 		<div class="TE_header_left">
-			<p><a href="./home.do">Talent Education</a></p>
-			<img alt="" src="resources/images/logo.png">
+			<p><a href="/te/home.do">Talent Education</a></p>
+			<img alt="" src="/te/resources/images/logo.png">
 		</div>
 		
 		<div class="TE_header_right">
 			<sec:authorize access="isAuthenticated()">
-				<form id="logout" action='./logout' method="post">
+				<form id="logout" action='/te/logout' method="post">
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					
 				</form>
-				<p><a href="./lectureinsert.do">강의글 작성</a></p>
+				<p><a href="/te/lectureinsert.do">강의글 작성</a></p>
 				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
 			</sec:authorize>
 			<sec:authorize access="isAnonymous()">
-				<p><a href="./loginform.do">LOGIN</a></p>
+				<p><a href="/te/loginform.do">LOGIN</a></p>
 			</sec:authorize>
-			<img id="TE_header_menu" alt="" src="resources/images/menu.jpg">
+			<img id="TE_header_menu" alt="" src="/te/resources/images/menu.jpg">
 		</div>
 		
 	</div>
@@ -30,9 +30,9 @@
 		<div class="TE_header_slider_menus">
 			<div class="TE_header_slider_menu">
 				<h3>마이 홈</h3>
-				<a href="./mypagehome.do">홈</a>
-				<a href="./mypageinfo.do">내 정보</a>
-				<a href="./calendar.do">스케쥴</a>
+				<a href="/te/member/mypagehome.do">홈</a>
+				<a href="/te/member/mypageinfo.do">내 정보</a>
+				<a href="/te/member/calendar.do">스케쥴</a>
 				<a href="">VOD</a>
 				<a href="">도서구매</a>
 			</div>
