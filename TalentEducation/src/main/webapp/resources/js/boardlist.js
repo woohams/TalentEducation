@@ -1,6 +1,6 @@
 $(function() {
 	$(".board").bind("click", function(e) {
-		var no = ($(this).find("input[name=boardNo]").val());
-		location.href="./selectone.do?boardno=" + no;
+		var no = ($(this).find("input[name=boardseq]").val());
+		location.href="./selectone.do?boardseq=" + no;
 	});
 });

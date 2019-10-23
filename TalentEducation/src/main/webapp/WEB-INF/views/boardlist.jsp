@@ -23,65 +23,32 @@
 			</div>
 			
 			<div id="boards">
-				<div class="board">
-					<input type="hidden" name="boardNo" value="1">
-					<div class="board_img">
+				<c:choose>
+					<c:when test="${empty lectureList}">
+						<h2 style="margin: 200px 0px; text-align: center;">-강의가 존재하지 않습니다-</h2>
+					</c:when>
+					<c:otherwise>
+						<c:forEach var="lecture" items="${lectureList }">
 						
-						<div class="tag_box vod">VOD</div>
-					</div>
-					<div class="board_content">
-						<p class="board_title">대충맛</p>
-						<div>
-							<p>★★★☆☆</p>
-							<a href="">홍준성</a>
-						</div>
-					</div>
-				</div>
-				<div class="board">
-				
-					<div class="board_img">
-						
-						<div class="tag_box onoff">오프라인</div>
-					</div>
-					<div class="board_content">
-						<p class="board_title">대충맛</p>
-						<div>
-							<p>★★★☆☆</p>
-							<a href="">글쓴이</a>
-						</div>
-					</div>
-				</div>
-				<div class="board">
-				
-					<div class="board_img">
-						
-						<div class="tag_box vod">VOD</div>
-						<div class="tag_box onoff">오프라인</div>
-					</div>
-					<div class="board_content">
-						<p class="board_title">대충맛dddddddddddddddddd ddddsdㅇㅇㅇdddddddd</p>
-						<div>
-							<p>★★★☆☆</p>
-							<a href="">글쓴이</a>
-						</div>
-					</div>
-				</div>
-			
-				<div class="board">
-				
-					<div class="board_img">
-						
-						<div class="tag_box vod">VOD</div>
-						<div class="tag_box onoff">오프라인</div>
-					</div>
-					<div class="board_content">
-						<p class="board_title">대충맛</p>
-						<div>
-							<p>★★★☆☆</p>
-							<a href="">글쓴이</a>
-						</div>
-					</div>
-				</div>
+							<div class="board">
+								<input type="hidden" name="boardseq" value="${lecture.board_lecture_seq }">
+								<div class="board_img" style="background-image: url('/te/${lecture.board_lecture_image}')">
+									
+									<div class="tag_box vod">VOD</div>
+									<div class="tag_box onoff">온라인</div>
+								</div>
+								<div class="board_content">
+									<p class="board_title">${lecture.board_lecture_title }</p>
+									<div>
+										<p>★★★☆☆</p>
+										<a href="./mypagehome.do?tutor=${lecture.tutor_id }">${lecture.tutor_nik }</a>
+									</div>
+								</div>
+							</div>
+							
+						</c:forEach>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</section>
 	</div>

@@ -6,7 +6,7 @@ import com.prj.te.dto.BoardLectureDto;
 
 public interface BoardLectureBiz {
 
-	public List<BoardLectureDto> lectureList();
+	public List<BoardLectureDto> selectList();
 	public BoardLectureDto selectOne(int seq);
 	public int insertLecture(BoardLectureDto dto);
 	public int updateLecture(BoardLectureDto dto);

@@ -14,7 +14,7 @@ section {
 }
 	.board_top_div { float: left; height: 100%; }
 		.board_top_div:nth-child(1) { width: 20%; }
-		.board_top_div:nth-child(1) img { width: 200px; border-radius: 50%; }
+		.board_top_div:nth-child(1) img { width: 200px; height: 200px; border-radius: 50%; }
 		.board_top_div:nth-child(2) { margin: 0px 2.5%; width: 60%; }
 		.board_top_div:nth-child(2) h1 { margin: 20px 0px; height: 120px; font-size: 30px; }
 		.board_top_div:nth-child(2) input {
@@ -55,7 +55,7 @@ section {
 		#board_bottom_menu a:nth-child(1) { border: 0px; width: 300.41px; }
 
 
-#board_description { padding: 50px 30px; }
+#board_description { padding: 50px 30px; min-height: 500px;}
 
 
 #board_pay {

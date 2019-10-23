@@ -9,7 +9,7 @@ $(function() {
 	    .append("svg")
 	    .attr("width", 200)
 	    .attr("height", 200)
-	    .style("background-image", "url('resources/images/clock.jpg')")
+	    .style("background-image", "url('/te/resources/images/clock.jpg')")
 	    .style("background-size", "200px");
 	
 	var rect = svg.append("rect")

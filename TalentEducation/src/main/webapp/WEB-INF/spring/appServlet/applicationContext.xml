@@ -50,4 +50,13 @@
     <bean class="com.prj.te.MailController">
    	 <property name="mailService" ref="mailService" />
 	</bean>
+	
+	<bean id="filterMultipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="10485760"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg value="C:\Users\user2\git\TalentEducation\TalentEducation\src\main\webapp\resources\images\upload"/>
+	</bean>
+	
 </beans>

@@ -9,14 +9,15 @@
 	</head>
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
+	
 	<section>
 		<div id="board_main">
 			<div id="board_top">
 				<div class="board_top_div">
-					<img alt="" src="resources/images/sample.jpg">
+					<img alt="" src="${lecture.board_lecture_image }">
 				</div>
 				<div class="board_top_div">
-					<h1>대충 맛있는거 한다는 제목</h1>
+					<h1>${lecture.board_lecture_title }</h1>
 					<input type="button" value="ON AIR">
 				</div>
 				<div class="board_top_div">
@@ -26,7 +27,7 @@
 					</div>
 					<div id="board_top_writer">
 						<img alt="" src="resources/images/sample.jpg">
-						<p>글쓴이</p>
+						<p>${lecture.tutor_nik }</p>
 					</div>
 				</div>
 			</div>
@@ -38,19 +39,24 @@
 					<a href="">리뷰</a>
 				</div>
 				<div id="board_description">
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
-					내용내용내용내용내용내용내용내용내용<br/>내용내용내용내용내용내용내용내용내용내용<br/>
+					${lecture.board_lecture_content }
 				</div>
+				<c:choose>
+					<c:when test="${member != 'anonymousUser'}">
+						<c:if test="${lecture.tutor_id == member.id }">
+							<sec:authorize access="isAuthenticated()">
+								<form id="updel_form" action="" method="post">
+									<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+									<input type="hidden" name="boardseq" value="${lecture.board_lecture_seq }">
+									<input type="button" value="수정" onclick="updelSubmit(this.value);">
+									<input type="button" value="삭제" onclick="updelSubmit(this.value);">
+								</form>
+							</sec:authorize>
+						</c:if>
+					</c:when>
+					<c:otherwise>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		<div id="board_pay">

@@ -14,7 +14,7 @@ section {
 }
 	.board_top_div { float: left; height: 100%; }
 		.board_top_div:nth-child(1) { width: 20%; padding-left: 3%}
-		.board_top_div:nth-child(1) img { width: 200px; border-radius: 50%; }
+		.board_top_div:nth-child(1) img { width: 200px; height: 200px; border-radius: 50%; }
 		.board_top_div:nth-child(2) { margin: 0px 5%; width: 70%; }
 		.board_top_div:nth-child(2) h1 { margin: 20px 0px; height: 120px; font-size: 30px; }
 		.board_top_div:nth-child(2) input {
@@ -38,3 +38,8 @@ section {
 
 
 #board_description { margin: 50px 30px; }
+
+
+#img_upload {
+	display: none;
+}

@@ -107,7 +107,6 @@ ul {
     position: relative;
     width: 320px;
     height: 250px;
-    background-image: url("/te/resources/images/sample.jpg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

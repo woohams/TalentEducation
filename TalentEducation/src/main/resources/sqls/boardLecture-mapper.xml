@@ -2,6 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="boardLecture">
 
+	<select id="selectList" resultType="boardLectureDto">
+		SELECT * FROM BOARD_LECTURE ORDER BY BOARD_LECTURE_SEQ DESC
+	</select>
 	<select id="selectOne" resultType="boardLectureDto">
 		SELECT * 
 		FROM BOARD_LECTURE
@@ -15,7 +18,20 @@
 	
 	<insert id="insert" parameterType="boardLectureDto">
 		INSERT INTO BOARD_LECTURE
-		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, #{board_lecture_title}, '0000', 'user', '', '-', #{board_lecture_content}, SYSDATE, 'tag', 'image', 0, 0);
+		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, #{board_lecture_title}, '0000', #{tutor_id}, #{tutor_nik}, '', '-', #{board_lecture_content}, SYSDATE, 'tag', #{board_lecture_image}, 0, 0)
 	</insert>
 	
+	<update id="update" parameterType="boardLectureDto">
+		UPDATE BOARD_LECTURE
+		SET BOARD_LECTURE_TITLE = #{board_lecture_title},
+			TUTOR_NIK = #{tutor_nik},
+			BOARD_LECTURE_CONTENT = #{board_lecture_content},
+			BOARD_LECTURE_IMAGE = #{board_lecture_image}
+		WHERE BOARD_LECTURE_SEQ = #{board_lecture_seq}
+	</update>
+	
+	<delete id="delete">
+		DELETE BOARD_LECTURE
+		WHERE BOARD_LECTURE_SEQ = #{seq}
+	</delete>
 </mapper>

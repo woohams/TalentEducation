@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
-		<link rel="stylesheet" href="resources/css/mypage.css">
+		<link rel="stylesheet" href="/te/resources/css/mypage.css">
 	</head>
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>

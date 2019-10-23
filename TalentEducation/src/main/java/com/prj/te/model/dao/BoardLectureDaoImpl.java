@@ -15,7 +15,7 @@ public class BoardLectureDaoImpl implements BoardLectureDao {
 	SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<BoardLectureDto> lectureList() {
+	public List<BoardLectureDto> selectList() {
 		List<BoardLectureDto> list = null;
 		
 		try {
@@ -32,7 +32,7 @@ public class BoardLectureDaoImpl implements BoardLectureDao {
 		
 		BoardLectureDto dto = null;
 		try {
-			dto = sqlSession.selectOne(namespace + "selctOne", seq);
+			dto = sqlSession.selectOne(namespace + "selectOne", seq);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
