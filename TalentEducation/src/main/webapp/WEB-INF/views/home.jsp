@@ -44,14 +44,16 @@
 		
 		<section>
 			<div class="w3-container">
-			  <h2> ' </h2>
+			  <h2> 　 </h2>
 			  <h1>강   사   진   소   개</h1>
 			</div>
 
-			<div class="w3-content" style="max-width:800px;">
-			  	<img class="mySlides" src="resources/images/afreeca1.png" style="width:50%; display:none" />
-			  	<img class="mySlides" src="resources/images/afreeca2.png" style="width:50%; display:none" />
-			  	<img class="mySlides" src="resources/images/afreeca3.png" style="width:50%; display:none" />
+			<div class="w3-content" style="max-width: 800px;">
+				<div style = "width: 400px; margin: 0 auto;">
+				  	<img class="mySlides" src="resources/images/afreeca1.png" style="width:100%; display:block" />
+				  	<img class="mySlides" src="resources/images/afreeca2.png" style="width:100%; display:none" />
+				  	<img class="mySlides" src="resources/images/afreeca3.png" style="width:100%; display:none" />
+			  	</div>
 			
 			  	<div class="w3-row-padding w3-section">
 			    	<div class="w3-col s4">
@@ -68,7 +70,7 @@
 			
 		</section>
 		<section>
-			<div id="daumRoughmapContainer1571829518237" class="root_daum_roughmap root_daum_roughmap_landing" style="padding-top:100px; background:white;"></div>
+			<div id="daumRoughmapContainer1571829518237" class="root_daum_roughmap root_daum_roughmap_landing" style="padding-top:100px; background:white; margin: 0 auto;"></div>
 		</section>
 		<section>
 			<div style="position:relative; height:100%;">
