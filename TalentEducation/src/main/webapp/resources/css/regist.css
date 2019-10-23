@@ -1,5 +1,5 @@
 body{
-	background-image: url('../images/backIMG2.jpg');
+	background-image: url('../images/backIMG.jpg');
 	background-size: 100% 100%;
 	
 }
@@ -15,14 +15,13 @@ body::-webkit-scrollbar {
 	
 }
 #regist{
-    background-image: url(../images/loginform.png);
+    background-image: url(../images/border.png);
     background-size: 100% 100%;
-    width: 35%;
-    height: 50%;
+    width: 30%;
+    height: 43%;
     position: absolute;
-    left: 42%;
-    top: 53%;
-    opacity: 0.9;
+    left: 36%;
+    top: 35%;
 }
 #registF{
 	position: relative;
@@ -37,17 +36,33 @@ body::-webkit-scrollbar {
 	cursor:pointer;
 	color: white;
 }
-input{
-	background: cornsilk;
-	
-}
+
 #h5s{
 	float: left;
-    color: white;
+    color: aquamarine;
     position: relative;
     top: 15%;
+    font-size: 18px;
 }
 h5{
 	margin-top: 30px;
     margin-left: 70px;
+}
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px 19px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+    width: 93px;
+    text-align: center;
 }

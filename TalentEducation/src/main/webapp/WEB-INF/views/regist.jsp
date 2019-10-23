@@ -54,7 +54,7 @@
 						<span id="nic_check"></span>
 					</div>
 					<div>
-						<input type="submit" id="submit" value="가입" >
+						<input type="submit" id="submit" value="가입" class="myButton">
 					</div>
 	</form>
 	</div>

@@ -1,5 +1,5 @@
 body{
-	background-image: url('../images/backIMG2.jpg');
+	background-image: url('../images/backIMG.jpg');
 	background-size: 100% 100%;
 	
 }
@@ -15,14 +15,14 @@ body::-webkit-scrollbar {
 	
 }
 #login{
-    background-image: url(../images/loginform.png);
+    background-image: url(../images/border.png);
     background-size: 100% 100%;
-    width: 35%;
-    height: 50%;
+    width: 20%;
+    height: 45%;
     position: absolute;
-    left: 42%;
-    top: 53%;
-    opacity: 0.9;
+    left: 40%;
+    top: 32%;
+    background-color: rgba(255,255,255,0.3);
 }
 #loginF{
 	position: relative;
@@ -33,18 +33,38 @@ body::-webkit-scrollbar {
 	height: 45px;
 }
 #loginF a{
-	height: 55px;
-	text-decoration: none;
-	color: chocolate;
+    height: 55px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: darkred;
 }
 #login-button{
 	height: 30px;
 }
 #sns-button {
 	position: relative;
-    left: 35%;
+    left: 28%;
 }
 #sns-button img{
 	padding-left: 11px;
     float: left;
+}
+
+.myButton {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px 19px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+    width: 93px;
+    text-align: center;
 }

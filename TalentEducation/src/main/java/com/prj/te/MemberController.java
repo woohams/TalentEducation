@@ -1,16 +1,12 @@
 package com.prj.te;
 
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.prj.te.dto.MemberDto;
-import com.prj.te.model.biz.FileUploadService;
 import com.prj.te.model.biz.MemberBiz;
 
 @Controller
@@ -18,8 +14,6 @@ public class MemberController {
 	
 	@Autowired
 	private MemberBiz Mbiz;
-	@Autowired
-	FileUploadService fileUploadService;
 	
 	
 	@RequestMapping(value="/loginform.do")
@@ -58,12 +52,9 @@ public class MemberController {
 		return "regist";
 	}
 	@RequestMapping(value = "/myinfoupdateres.do" , method = RequestMethod.POST)
-	public String myinfoupdateres(Model model, MemberDto dto, @RequestParam("profile_img") MultipartFile file) {
+	public String myinfoupdateres(Model model, MemberDto dto) {
 			
-			String url = fileUploadService.restore(file);
-			model.addAttribute("url", url);
-		System.out.println(url);
-/*		String id = dto.getId();
+		String id = dto.getId();
 		String pw = dto.getPw();
 		int res = Mbiz.update(dto);
 		
@@ -75,8 +66,7 @@ public class MemberController {
 		}else {
 		
 			return "mypageinfo";
-		}*/
-		return "";
+		}
 	}
 	@RequestMapping(value = "/idchk.do" , method = {RequestMethod.POST,RequestMethod.GET})
 	@ResponseBody

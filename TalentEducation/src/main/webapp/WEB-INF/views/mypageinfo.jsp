@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -76,12 +77,12 @@
 		<section id="myinfoS">
 	<sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="member" />
-		<form action="./myinfoupdateres.do" method="post" id="myinfoF" enctype="multipart/form-data">	
+		<form action="./myinfoupdateres.do" method="post" id="myinfoF" >	
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 			<input type="hidden" name="member_seq" value="${member.member_seq }">
-					<c:set var="pw" value="${member.pw}" />
+					<c:set var="id" value="${member.id}" />
 					<c:choose>
-					    <c:when test="${ pw eq '$2a$10$4lh6mwwpypf.2LVj0jLpW.Xqt2NBoUhDultMLX/uwAn.3hx8dq6fa'}">
+					    <c:when test="${fn:length(id) > 10}">
 					       <h2>SNS로그인 사용자는 <br>Nickname & profile_image<br> 변경 가능합니다.</h2>
 					    </c:when>
 					    <c:otherwise>

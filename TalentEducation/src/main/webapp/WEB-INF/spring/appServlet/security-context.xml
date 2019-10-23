@@ -22,7 +22,6 @@
 	    <security:intercept-url pattern="/css/**" access="permitAll()"/>
 	    <security:intercept-url pattern="/js/**" access="permitAll()"/>
 	    <security:intercept-url pattern="/images/**" access="permitAll()"/>
-	    <security:intercept-url pattern="/upload/**" access="permitAll()"/>
 	    <security:intercept-url pattern="/**" access="permitAll()"/>
 		
 		<security:form-login 
