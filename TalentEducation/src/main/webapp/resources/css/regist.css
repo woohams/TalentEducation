@@ -17,6 +17,7 @@ body::-webkit-scrollbar {
 #regist{
     background-image: url(../images/border.png);
     background-size: 100% 100%;
+    background-color: rgba(255,255,255,0.3);
     width: 30%;
     height: 43%;
     position: absolute;
@@ -39,7 +40,7 @@ body::-webkit-scrollbar {
 
 #h5s{
 	float: left;
-    color: aquamarine;
+    color: brown;
     position: relative;
     top: 15%;
     font-size: 18px;

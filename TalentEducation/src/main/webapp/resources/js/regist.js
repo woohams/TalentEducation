@@ -26,8 +26,8 @@ function idChk() {
 	var user_id = $("input[name=id]").val();
 	
 	if(!pattern_Id.test(user_id)||(pattern_gon.test(user_id))){
-		$("#id_check").css('color', 'red');
-		$("#id_check").html("ID : 4~10 공백,한글,특수기호 X");
+		$("#id_check").css({"color": "darkred", "font-weight":"bolder"});
+		$("#id_check").html("4~10 공백,한글,특수기호 X");
 		$("input[name=id]").focus();
 		idConfirm = 0;
 		return false;
@@ -45,13 +45,13 @@ function idChk() {
 			
 			if (data == 1) {
 					// 1 : 아이디가 중복되는 문구
-					$("#id_check").css("color", "red");
+					$("#id_check").css({"color": "darkred", "font-weight":"bolder"});
 					$("#id_check").html("사용중인 ID 입니다 ");
 					$("input[name=id]").focus();
 					idConfirm = 0;
 					return false;
 				} else {
-					$("#id_check").css('color', 'darkorange');
+					$("#id_check").css({"color": "cornsilk", "font-weight":"bolder"});
 					$("#id_check").html("사용가능한 ID 입니다");
 					$("input[name=pw]").focus();
 					idConfirm = 1;
@@ -70,13 +70,13 @@ function pwChk(){
 	
 	
 	if(!pattern_Pw.test(pw)){
-		$("#pw_check").css('color', 'red');
-		$("#pw_check").html("PW : 6~15 문자,숫자 혼합");
+		$("#pw_check").css({"color": "darkred", "font-weight":"bolder"});
+		$("#pw_check").html("6~15 문자,숫자 혼합");
 		$("input[name=pw]").focus();
 		pwConfirm = 0;
 		return false;
 	}else{
-		$("#pw_check").css('color', 'darkorange');
+		$("#pw_check").css({"color": "cornsilk", "font-weight":"bolder"});
 		$("#pw_check").html("사용가능한 password 입니다.");
 		$("input[name=email]").focus();
 		pwConfirm = 1;
@@ -88,13 +88,13 @@ function pwChk(){
 function nicChk(){
 	var nic = $("input[name=nickname]").val();
 	if(!pattern_nic.test(nic)||pattern_gon.test(nic)){
-		$("#nic_check").css('color', 'red');
+		$("#nic_check").css({"color": "darkred", "font-weight":"bolder"});
 		$("#nic_check").html(" 공백은 사용불가능합니다.");
 		$("input[name=nickname]").focus();
 		nickConfirm = 0;
 		return false;
 	}else{
-		$("#nic_check").css('color', 'darkorange');
+		$("#nic_check").css({"color": "cornsilk", "font-weight":"bolder"});
 		$("#nic_check").html("사용가능한 닉네임 입니다.");
 		nickConfirm = 1;
 		return false;
@@ -117,13 +117,13 @@ function emailSelect(){
 function emailChk(){
 	
 	if($("#emailId").val() == ""){
-		$("#email_check").css('color', 'red');
+		$("#email_check").css({"color": "darkred", "font-weight":"bolder"});
 		$("#email_check").html("이메일을 입력해 주세요.");
 		return false;
 	}
 	
 	if(!pattern_email.test($("#emailId").val())){
-		$("#email_check").css('color', 'red');
+		$("#email_check").css({"color": "darkred", "font-weight":"bolder"});
 		$("#email_check").html("형식에 맞게 입력해 주세요.");
 		return false;
 	}else{
@@ -158,4 +158,3 @@ function submitChk(){
 	return true;
 }
 
-	
