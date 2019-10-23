@@ -23,8 +23,8 @@
 		<a href="">id</a>
 		<div class="TE_mypage_nav_btn">
 			<!-- enterRoom(튜터 아이디 , 자기 아이디, 로 바꿔야함) -->
-			<input type="button" value="강의" onclick="enterRoom('user', 'user', this.value);"/>
-			<input type="button" value="과외" onclick="enterRoom('user', 'dd1', this.value);"/>
+			<input type="button" value="강의" onclick="enterRoom('user', ${member.id}, this.value);"/>
+			<input type="button" value="과외" onclick="enterRoom('user', ${member.id}, this.value);"/>
 		</div>
 	</div>
 	<div class="TE_mypage_nav">

@@ -28,6 +28,18 @@ public class UploadController {
 		String root = request.getSession().getServletContext().getRealPath("/");
 		String imgPath = root + "resources\\images\\upload";
 		
+		System.out.println(imgPath);
+		
+		File folder = new File(imgPath);
+		
+		if(!folder.exists()) {
+			try {
+				folder.mkdir();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmss");
 		
