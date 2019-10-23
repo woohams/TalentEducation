@@ -103,15 +103,15 @@ public class BoardLectureController {
 
 	@RequestMapping(value = "/openroom.do")
 	public String openRoom(Model model, HttpServletRequest request) {
-		String isTuter = request.getParameter("isTuter");
-		String tuterId = request.getParameter("tuterId");
+		String isTutor = request.getParameter("isTutor");
+		String tutorId = request.getParameter("tutorId");
 		String myId = request.getParameter("myId");
 		
-		BoardLectureDto lectureDto = lectureBiz.selectOneLive(tuterId);
+		BoardLectureDto lectureDto = lectureBiz.selectOneLive(tutorId);
 		int roomNo = lectureDto.getBoard_lecture_seq();
 		
 		String url = "chatingroom";
-		if(isTuter.equals("true")) {
+		if(isTutor.equals("true")) {
 			url = "createroom";
 			roomNo = 0;
 		}

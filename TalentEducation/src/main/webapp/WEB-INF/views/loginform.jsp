@@ -28,11 +28,11 @@
 						</c:if>
 				</div><br>
 				
-					<a href="#" onclick="window.open('./findidpage.do', 'ID찾기', 'width=300, height=200,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">ID찾기</a>&nbsp&nbsp&nbsp
-					<a href="#" onclick="window.open('./findpwpage.do', 'PW찾기', 'width=300, height=300,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">PW찾기</a></br>
+					<a href="#" onclick="window.open('./findidpage.do', 'ID찾기', 'width=300, height=250,top=250,left=250,scrollbars= 0, toolbar=0, menubar=no,location=no');">ID찾기</a>&nbsp&nbsp&nbsp
+					<a href="#" onclick="window.open('./findpwpage.do', 'PW찾기', 'width=300, height=350,top=300,left=300,scrollbars= 0, toolbar=0, menubar=no,location=no');">PW찾기</a></br>
 				</br>
-					<input type="submit" value="로그인">&nbsp
-					<input type="button" onclick="location.href='./regist.do'" value="회원가입"><br>
+					<input type="submit" value="로그인" class="myButton">&nbsp
+					<input type="button" onclick="location.href='./regist.do'" value="회원가입" class="myButton"><br>
 				</br>
 				<div id="sns-button">
 					<div id="kakaologo">
@@ -78,14 +78,15 @@
  	       url: '/v1/user/me',
  	       success: function(res) {
  	             
- 	             var member_id = "KAKAOSNSID"+res.id;
- 	             var member_pw = "KAKAOSNSID"+res.id;
- 	             var member_email = "KAKAOEMAIL"+res.kaccount_email;
- 	             var member_nickname = "KAKAONICK"+res.properties['nickname'];
- 	             
+ 	             var member_id = "KAKAO@"+res.id;
+ 	             var member_pw = "SNS@PW";
+ 	             var member_email = "KAKAO@"+res.kaccount_email;
+ 	             var member_nickname = "KAKAO@"+res.properties['nickname'];
+ 	             var member_profile_img= res.properties.profile_image;
+ 	             alert(member_profile_img);
  	             $.ajax({
  	            	type: "POST",
- 	            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname,
+ 	            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname+"&profile_img="+member_profile_img,
  	            	dataType : "JSON",
  	            	beforeSend : function(xhr){
  	    				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");

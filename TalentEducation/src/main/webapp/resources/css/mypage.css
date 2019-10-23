@@ -56,3 +56,25 @@ section {
 	}
 	.TE_mypage_nav_btn input:nth-child(1) { border-color: red; background: red; }
 	.TE_mypage_nav_btn input:nth-child(2) { border-color: rgb(255, 196, 31); background: rgb(255, 196, 31); }
+	
+#myinfoS{
+	background-image: url('../images/myinfoB.png');
+	background-size: 100% 100%;
+}
+#myinfoF{
+	position: relative;
+    top: 40%;
+    left: 0%;
+    text-align: center;
+}
+.form-group{
+	height: 30px;
+}
+@keyframes circle {
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(-360deg)
+        }
+    }

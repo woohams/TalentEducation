@@ -86,11 +86,11 @@ function pwChk(){
 }
 
 function nicChk(){
-	var nic = $("input[name=Nickname]").val();
+	var nic = $("input[name=nickname]").val();
 	if(!pattern_nic.test(nic)||pattern_gon.test(nic)){
 		$("#nic_check").css('color', 'red');
 		$("#nic_check").html(" 공백은 사용불가능합니다.");
-		$("input[name=Nickname]").focus();
+		$("input[name=nickname]").focus();
 		nickConfirm = 0;
 		return false;
 	}else{

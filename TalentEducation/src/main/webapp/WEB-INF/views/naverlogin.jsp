@@ -16,14 +16,14 @@
 	
 	function naverSignInCallback() {
 	  
-	  var member_id = "NAVERSNSID"+naver_id_login.getProfileData('id');
-      var member_pw = "NAVERSNSID"+naver_id_login.getProfileData('id');
-      var member_email = "NAVEREMAIL"+naver_id_login.getProfileData('email');
-      var member_nickname = "NAVERNICK"+naver_id_login.getProfileData('nickname');
-      
+	  var member_id = "NAVER@"+naver_id_login.getProfileData('id');
+      var member_pw = "SNS@PW"
+      var member_email = "NAVER@"+naver_id_login.getProfileData('email');
+      var member_nickname = "NAVER@"+naver_id_login.getProfileData('nickname');
+      var member_profile_image = naver_id_login.getProfileData('profile_image')
       $.ajax({
      	type: "POST",
-     	url: "snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname,
+     	url: "snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname+"&profile_image="+member_profile_image,
      	dataType : "Json",
      	beforeSend : function(xhr){
 				xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
