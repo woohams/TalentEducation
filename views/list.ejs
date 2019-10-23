@@ -1,0 +1,24 @@
+<% include partials/header %>
+    
+<h1>방 목록</h1>
+
+<ul id=roomlist>
+    <%
+        for(let i = 0; i < Object.keys(rooms).length; i++){
+    %>
+            <li><a href="/chattingroom/<%=rooms[i][0]%>" onclick="aa(this); return false;"><%=rooms[i][1]%></a></li>
+    <%
+        }
+    %>
+</ul>
+
+<form action="/createRoom" method="POST" id="form">
+    <input type="text" name="userId" placeholder="Insert Your ID"/>
+    <input type="text" name="seq" placeholder="Insert SEQ">
+    <input type="submit" value="방 생성"/>
+</form>
+
+<script src="socket.io/socket.io.js"></script>
+<script src="js/list.js"></script>
+
+<% include partials/footer %>

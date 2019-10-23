@@ -1,0 +1,17 @@
+{
+  "socketURL": "/",
+  "dirPath": "",
+  "homePage": "/views/index.html",
+  "socketMessageEvent": "RTCMultiConnection-Message",
+  "socketCustomEvent": "RTCMultiConnection-Custom-Message",
+  "port": "3000",
+  "enableLogs": "false",
+  "autoRebootServerOnFailure": "false",
+  "isUseHTTPs": "true",
+  "sslKey": "./keys/private.pem",
+  "sslCert": "./keys/public.pem",
+  "sslCabundle": "",
+  "enableAdmin": "true",
+  "adminUserName": "TE",
+  "adminPassword": "password"
+}

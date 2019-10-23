@@ -1,0 +1,65 @@
+<% include partials/header %>
+
+<input type="hidden" id="userId" value=<%=id%>>
+<input type="hidden" id="isTutor" value=<%=isTutor%>>
+
+<div id="bodyDiv">
+    <div id="videoDiv">
+        <video id="video"></video>
+    </div>
+    <div id="chatDiv">
+        <div id="userList">
+        </div>
+        <div id="chatMessages">
+        </div>
+        <div id="chatInput">
+            <textarea id="message" onkeydown="enterkey()" value=""></textarea>
+            <button id="btn-send">send</button>
+        </div>
+    </div>
+    <div id="infoDiv">
+<%
+            if(isTutor){
+%>
+                <div id="buttons">
+                    <select id="lectures">
+<%              
+                    lectures.forEach(element => {
+%>
+                        <option value="<%=element[0]%>"><%=element[1]%></option>
+<%    
+                    });
+%>
+                    </select>
+                    <button id="btn-start">start</button>
+                    <button id="btn-end">end</button>
+                    <button id="btn-camera">Camera Pause</button>
+                    <button id="btn-mic">Mic Mute</button>
+                </div>
+<%
+            } else {
+%>
+                <input type="hidden" id="roomId" value=<%=room%>>
+<%
+            }
+%>
+        <div id="infomation">
+<%
+            if(content){
+%>
+                <%=content%>
+<%
+            }
+%>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="/css/chattingroom.css">
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/lib/RTCMultiConnection.js"></script>
+<script src="/webrtc-adapter/out/adapter.js"></script>
+<script src="https://www.webrtc-experiment.com/common.js"></script>
+<script src="/js/chattingroom.js"></script>
+
+<% include partials/footer %>
