@@ -19,8 +19,10 @@
 <nav>
 	<div class="TE_mypage_nav">
 		<img alt="" src="${member.profile_img }"/>
-		<h3>${member.nickname }</h3>
-		<a href="">id</a>
+		<h3>닉네임 </h3>
+		<h4>${member.nickname }</h4>
+		<h3>아이디</h3>
+		<h4>${member.id }</h4>
 		<div class="TE_mypage_nav_btn">
 			<!-- enterRoom(튜터 아이디 , 자기 아이디, 로 바꿔야함) -->
 			<input type="button" value="강의" onclick="enterRoom('${tutor }', '${member.id}', this.value);"/>

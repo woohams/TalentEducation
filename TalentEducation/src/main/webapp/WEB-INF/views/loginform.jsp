@@ -83,7 +83,6 @@
  	             var member_email = "KAKAO@"+res.kaccount_email;
  	             var member_nickname = "KAKAO@"+res.properties['nickname'];
  	             var member_profile_img= res.properties.profile_image;
- 	             alert(member_profile_img);
  	             $.ajax({
  	            	type: "POST",
  	            	url: "./snslogin.do?id="+member_id+"&pw="+member_pw+"&email="+member_email+"&nickname="+member_nickname+"&profile_img="+member_profile_img,
