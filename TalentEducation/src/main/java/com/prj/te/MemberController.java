@@ -1,9 +1,7 @@
 package com.prj.te;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,15 +41,19 @@ public class MemberController {
 		return "naverlogin";
 	}
 	@RequestMapping(value="/logoutpage.do")
-	public String logoutpage() {
+	public String logoutpage(Model model, String id, String pw) {
+		model.addAttribute("id", id);
+		model.addAttribute("pw", pw);		
 		return "logoutpage";
 	}
 	@RequestMapping(value ="/regist.do")
 	public String registf(MemberDto dto) {
+	System.out.println(dto.getId());
 		return "regist";
 	}
-	@RequestMapping(value = "/member/myinfoupdateres.do" , method = RequestMethod.POST)
+	@RequestMapping(value = "/myinfoupdateres.do" , method = RequestMethod.POST)
 	public String myinfoupdateres(Model model, MemberDto dto) {
+			
 		String id = dto.getId();
 		String pw = dto.getPw();
 		int res = Mbiz.update(dto);
@@ -62,6 +64,7 @@ public class MemberController {
 			model.addAttribute("pw", pw);
 			return "sessionlogout";
 		}else {
+		
 			return "mypageinfo";
 		}
 	}

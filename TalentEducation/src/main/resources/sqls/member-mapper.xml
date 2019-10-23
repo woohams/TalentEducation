@@ -38,7 +38,7 @@
 		 #{email},
 		 null,
 		 <choose>
-		 	<when test="profile_img != null and profile_img eq ''">
+		 	<when test="profile_img != null ">
 		 		#{profile_img},
 		 	</when>
 		 	<otherwise>
@@ -52,7 +52,7 @@
 		UPDATE MEMBER SET
 		PW = #{pw},
 		NICKNAME = #{nickname}
-		<if test="profile_img != null and profile_img eq ''">
+		<if test="profile_img != null">
 		,PROFILE_IMG = #{profile_img}
 		</if>
 		WHERE MEMBER_SEQ = #{member_seq}

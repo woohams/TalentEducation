@@ -17,8 +17,16 @@
 <body>
 <div id="regist_form">
 	<div id = "regist">
+		<div id="h5s">
+			<h5>ID</h5>
+			<h5>PW</h5>
+			<h5>Email</h5>
+			<h5>NickName</h5>
+		</div>
 <form action="./insert.do" method="post" id="registF" onsubmit="return submitChk();">
 	<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+				
+					
 					<div class="form-group">
 						<input type="text"  name="id" onchange="idChk();" placeholder="ID" autofocus autocomplete="off" required >
 						<span id="id_check"></span>
@@ -41,12 +49,12 @@
                			<a id="emailBtn" onclick="emailChk();">인증</a> <br>
               			
 					</div> <br>
-					<div class="form-group">	
+					<div class="form-group">
 						<input type="text" name="nickname" onchange="nicChk();" placeholder="Nickname" autofocus autocomplete="off" required >
 						<span id="nic_check"></span>
 					</div>
 					<div>
-						<input type="submit" id="submit" value="가입" >
+						<input type="submit" id="submit" value="가입" class="myButton">
 					</div>
 	</form>
 	</div>

@@ -17,9 +17,11 @@
 	}
 </script>
 <nav>
+	<sec:authorize access="isAuthenticated()">
+	<sec:authentication property="principal" var="member" />
 	<div class="TE_mypage_nav">
-		<img alt="" src="resources/images/sample.jpg"/>
-		<h3>닉네임</h3>
+		<img alt="" src="${member.profile_img }"/>
+		<h3>${member.nickname }</h3>
 		<a href="">id</a>
 		<div class="TE_mypage_nav_btn">
 			<!-- enterRoom(튜터 아이디 , 자기 아이디, 로 바꿔야함) -->
@@ -33,4 +35,5 @@
 		<a href="">VOD</a>
 	</div>
 	<div id="clock" style="padding: 10px;"></div>
+	</sec:authorize>
 </nav>
