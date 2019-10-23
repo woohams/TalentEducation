@@ -13,17 +13,17 @@
 	<%@ include file="/resources/template/header.jsp" %>
 	<div id="main" class="scroll-container">
 		<section>			
-			<div class="slide" style="padding-top:130px;">
+			<div class="slide">
 		    	<input type="radio" name="pos" id="pos1" checked>
 				<input type="radio" name="pos" id="pos2">
 				<input type="radio" name="pos" id="pos3">
 				<input type="radio" name="pos" id="pos4">
 				    
 			    <ul>
-			      <li><img alt="" src="resources/images/study1.jpg" class="section1" style="width:75%; height:90%; padding-top:55px;" /></li>
-			      <li><img alt="" src="resources/images/study2.jpg" class="section1" style="width:75%; height:90%; padding-top:55px;" /></li>
-			      <li><img alt="" src="resources/images/study3.jpg" class="section1" style="width:75%; height:90%; padding-top:55px;" /></li>
-			      <li><img alt="" src="resources/images/study4.jpg" class="section1" style="width:75%; height:90%; padding-top:55px;" /></li>
+			      <li><img alt="" src="resources/images/study1.jpg" class="section1" /></li>
+			      <li><img alt="" src="resources/images/study2.jpg" class="section1" /></li>
+			      <li><img alt="" src="resources/images/study3.jpg" class="section1" /></li>
+			      <li><img alt="" src="resources/images/study4.jpg" class="section1" /></li>
 		  	  	</ul>
 		  	  	
 			    <p class="bullet">
@@ -33,25 +33,18 @@
 			      <label for="pos4">4</label>
 			    </p>	    		    
  			</div>
- 			<div style="text-align: center; background-color:white;">
-				<a href="#"><img alt="" src="resources/images/music.png" class="section2" /></a>
-				<a href="#"><img alt="" src="resources/images/video.png" class="section2" /></a>
-				<a href="#"><img alt="" src="resources/images/beauty.png" class="section2" /></a>
-				<a href="#"><img alt="" src="resources/images/design.png" class="section2" /></a>
-				<a href="#"><img alt="" src="resources/images/workingcapacity.png" class="section2" /></a>
-			</div>
 		</section>
 		
 		<section>
 			<div class="w3-container">
-			  <h2> ' </h2>
-			  <h1>강   사   진   소   개</h1>
 			</div>
 
-			<div class="w3-content" style="max-width:800px;">
-			  	<img class="mySlides" src="resources/images/afreeca1.png" style="width:50%; display:none" />
-			  	<img class="mySlides" src="resources/images/afreeca2.png" style="width:50%; display:none" />
-			  	<img class="mySlides" src="resources/images/afreeca3.png" style="width:50%; display:none" />
+			<div class="w3-content" style="max-width: 800px;">
+				<div style = "width: 400px; margin: 0 auto; padding-top: 100px;">
+				  	<img class="mySlides" src="resources/images/afreeca1.png" style="width:100%; display:block" />
+				  	<img class="mySlides" src="resources/images/afreeca2.png" style="width:100%; display:none" />
+				  	<img class="mySlides" src="resources/images/afreeca3.png" style="width:100%; display:none" />
+			  	</div>
 			
 			  	<div class="w3-row-padding w3-section">
 			    	<div class="w3-col s4">
@@ -68,10 +61,10 @@
 			
 		</section>
 		<section>
-			<div id="daumRoughmapContainer1571829518237" class="root_daum_roughmap root_daum_roughmap_landing" style="padding-top:100px; background:white;"></div>
+			<div id="daumRoughmapContainer1571829518237" class="root_daum_roughmap root_daum_roughmap_landing" style="padding-top:100px; background:white; margin: 0 auto;"></div>
 		</section>
 		<section>
-			<div style="position:relative; height:100%;">
+			<div style="position:relative; height:100%; text-align: center;">
 			<img src="resources/images/book.jpg" style="padding-top: 200px; height: 600px; width:700px;" />
 				<div id="bookSite">
 					<a href="http://www.aladin.co.kr/home/welcome.aspx" >
