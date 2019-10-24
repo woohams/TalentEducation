@@ -24,7 +24,7 @@
 			},
 			success : function(data){
 				console.log("통신 성공");
-				location.href="../te/logoutpage?id=${id }&pw=${pw }";
+				location.href="../te/logoutpage.do?id=${id }&pw=${pw }";
 			},
 			error: function(){
 				console.log("통신 실패");

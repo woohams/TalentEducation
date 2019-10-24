@@ -18,7 +18,7 @@
 </script>
 <nav>
 	<div class="TE_mypage_nav">
-		<img alt="" src="${member.profile_img }"/>
+		<img id="mainImg" src="${member.profile_img }"/>
 		<h3>닉네임 </h3>
 		<h4>${member.nickname }</h4>
 		<h3>아이디</h3>

@@ -23,7 +23,7 @@ public class UploadController {
 	String uploadPath;
 	
 	@RequestMapping(value = "/uploadimage.do", method = RequestMethod.POST)
-	public String uploadForm(MultipartFile file, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String uploadForm(MultipartFile file, Model model, HttpServletRequest request) throws IOException {
 		
 		String root = request.getSession().getServletContext().getRealPath("/");
 		String imgPath = root + "resources\\images\\upload";
@@ -43,7 +43,7 @@ public class UploadController {
 		Date today = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyMMddHHmmss");
 		
-		String seq = request.getParameter("memberseq");
+		String seq = request.getParameter("member_seq");
 		String imgName = "lec_m" + seq + sdf.format(today) + ".jpg";
 		
 		File target = new File(imgPath, imgName);

@@ -28,7 +28,7 @@
 				<div id="board_main">
 					<div id="board_top">
 						<div class="board_top_div">
-							<img id="board_mainimg" alt="" src="resources/images/sample.jpg">
+							<img id="mainImg" alt="" src="resources/images/sample.jpg">
 						</div>
 						<div class="board_top_div">
 							<h1><input type="text" name="board_lecture_title" value="" placeholder="제목을 입력하세요"></h1>
@@ -44,9 +44,9 @@
 			</form>
 		</sec:authorize>
 			
-		<form id="img_upload" action="./uploadimage.do" method="post" enctype="multipart/form-data" target="img_target">
+		<form id="img_upload" action="/te/uploadimage.do" method="post" enctype="multipart/form-data" target="img_target">
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-			<input type="hidden" name="memberseq" value="${member.member_seq }">
+			<input type="hidden" name="member_seq" value="${member.member_seq }">
 			<input type="file" name="file" accept="image/*" onchange="imgUpload();">
 		</form>
 	</section>

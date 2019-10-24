@@ -12,7 +12,7 @@ $(document).ready(function() {
      });
      $('#summernote').summernote();
      
-     $("#board_mainimg").click(function() {
+     $("#mainImg").click(function() {
     	$("#img_upload").css("display", "block");
      });
 });

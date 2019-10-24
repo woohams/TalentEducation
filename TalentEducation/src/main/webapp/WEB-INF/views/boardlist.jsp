@@ -32,7 +32,7 @@
 						
 							<div class="board">
 								<input type="hidden" name="boardseq" value="${lecture.board_lecture_seq }">
-								<div class="board_img" style="background-image: url('/te/${lecture.board_lecture_image}')">
+								<div class="board_img" style="background-image: url('${lecture.board_lecture_image}')">
 									
 									<div class="tag_box vod">VOD</div>
 									<div class="tag_box onoff">온라인</div>

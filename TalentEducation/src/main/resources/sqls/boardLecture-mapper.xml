@@ -10,11 +10,6 @@
 		FROM BOARD_LECTURE
 		WHERE BOARD_LECTURE_SEQ = #{seq} 
 	</select>
-	<select id="selectOneLive" resultType="boardLectureDto">
-		SELECT * 
-		FROM BOARD_LECTURE
-		WHERE TUTER_ID = #{id} AND BOARD_LECTURE_ENABLE = 'Y'
-	</select>
 	
 	<insert id="insert" parameterType="boardLectureDto">
 		INSERT INTO BOARD_LECTURE
@@ -34,4 +29,11 @@
 		DELETE BOARD_LECTURE
 		WHERE BOARD_LECTURE_SEQ = #{seq}
 	</delete>
+	
+	
+	<select id="selectOneLive" resultType="boardLectureDto">
+		SELECT * 
+		FROM BOARD_LECTURE
+		WHERE TUTOR_ID = #{id} AND BOARD_LECTURE_ENABLE = 'Y'
+	</select>
 </mapper>
