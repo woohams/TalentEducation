@@ -13,18 +13,28 @@
 		</div>
 		
 		<div class="TE_header_right">
-			<sec:authorize access="isAuthenticated()">
-				<form id="logout" action='/te/logout' method="post">
-					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
-					
-				</form>
-				<p><a href="/te/lectureinsert.do">강의글 작성</a></p>
-				<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
-			</sec:authorize>
-			<sec:authorize access="isAnonymous()">
-				<p><a href="/te/loginform.do">LOGIN</a></p>
-			</sec:authorize>
-			<img id="TE_header_menu" alt="" src="/te/resources/images/menu.jpg">
+			<div style="float: left">
+				<sec:authorize access="isAuthenticated()">
+					<form id="logout" action='/te/logout' method="post">
+						<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+						
+					</form>
+					<p><a href="/te/lectureinsert.do">강의글 작성</a></p>
+					<p><a onclick="$('#logout').submit();">LOGOUT</a></p>
+				</sec:authorize>
+				<sec:authorize access="isAnonymous()">
+					<p><a href="/te/loginform.do">LOGIN</a></p>
+				</sec:authorize>
+			</div>
+			<div style="float: right; margin-top: 20px;">
+				<input type="checkbox" id="TE_header_menu">
+                    <label for="TE_header_menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+			</div>
+                  
 		</div>
 		
 	</div>
