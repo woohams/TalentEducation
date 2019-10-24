@@ -6,6 +6,11 @@
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
 		<link rel="stylesheet" href="resources/css/mypage.css">
+		<style type="text/css">
+		.mypage_form{
+		
+		}
+		</style>
 		<script type="text/javascript" >
 		var pwConfirm = 0;
 		var nickConfirm = 0;
@@ -17,13 +22,13 @@
 			
 			
 			if(!pattern_Pw.test(pw)){
-				$("#pw_check").css('color', 'red');
-				$("#pw_check").html("PW : 6~15 문자,숫자 혼합");
+				$("#pw_check").css("color", "red");
+				$("#pw_check").html(" 6~15 문자,숫자 혼합");
 				$("input[name=pw]").focus();
 				pwConfirm = 0;
 				return false;
 			}else{
-				$("#pw_check").css('color', 'blue');
+				$("#pw_check").css("color", "blue");
 				$("#pw_check").html("사용가능한 password 입니다.");
 				$("input[name=nickname]").focus();
 				pwConfirm = 1;
@@ -36,13 +41,13 @@
 			var nic = $("input[name=nickname]").val();
 			
 			if(!pattern_nic.test(nic)){
-				$("#nic_check").css('color', 'red');
-				$("#nic_check").html("1~14글자, 공백은 사용불가능합니다.");
+				$("#nic_check").css("color", "red");
+				$("#nic_check").html("1~14글자, 공백은 사용불가능");
 				$("input[name=nickname]").focus();
 				nickConfirm = 0;
 				return false;
 			}else{
-				$("#nic_check").css('color', 'blue');
+				$("#nic_check").css("color", "blue");
 				$("#nic_check").html("사용가능한 닉네임 입니다.");
 				nickConfirm = 1;
 				return false;
@@ -69,6 +74,7 @@
 		
 		
 		</script>
+		
 	</head>
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
@@ -83,27 +89,26 @@
 					<c:set var="id" value="${member.id}" />
 					<c:choose>
 					    <c:when test="${fn:length(id) > 10}">
-					       <h2>SNS로그인 사용자는 <br>Nickname & profile_image<br> 변경 가능합니다.</h2>
+					       <h2>SNS로그인 사용자는 <br>Nickname & profile_image<br> 변경 가능합니다.</h2><br>
 					    </c:when>
 					    <c:otherwise>
 					    <div class="form-group">
 							<label>ID</label>
-							<input type="text"  name="id" value="${member.id }"  readonly="readonly" >
-							<span>아이디는 변경 할수 없습니다.</span>
+							<input type="text"  name="id" value="${member.id }"  readonly="readonly" ><br>
 						</div>
+						<div class="form-group">
+							<label>EMAIL</label>
+		               		<input type="text" name="email" value="${member.email }"  readonly="readonly"><br>
+		               		<span style="color: hotpink;">아이디와 이메일은 변경 할수 없습니다.</span>
+               			</div><br><br>
 					    <div class="form-group">
 							<label>PASSWORD</label>
 							<input type="password" name="pw" onchange="pwChk();" autofocus>
 							<span id="pw_check"></span>
 						</div>
-						<div class="form-group">
-							<label>EMAIL</label>
-		               		<input type="text" name="email" value="${member.email }"  readonly="readonly">
-		               		<span>EMAIL은 변경 할수 없습니다.</span>
-               			</div>
+						
 					    </c:otherwise>
 					</c:choose>
-					</br>
 					<div class="form-group">
 					<label>NICKNAME</label>	
 						<input type="text" name="nickname" onchange="nicChk();" value="${member.nickname }" >
