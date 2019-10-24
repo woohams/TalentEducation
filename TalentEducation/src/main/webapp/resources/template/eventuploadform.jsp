@@ -11,13 +11,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<%@ include file="/resources/template/head.jsp" %>
-	<link rel="icon" type="image/png" sizes="32x32" href="../images/logo.png">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="../js/calendar.js"></script>
+	<script type="text/javascript" src="/te/resources/js/calendar.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
-	<link rel="stylesheet" href="../css/eventinsert.css">
-	<script src="../js/fullcalendar.js"></script>
-	<script type="text/javascript" src="../js/ko.js"></script>
+	<link rel="stylesheet" href="/te/resources/css/eventinsert.css">
+	<script src="/te/resources/js/fullcalendar.js"></script>
+	<script type="text/javascript" src="/te/resources/js/ko.js"></script>
 </head>
 <body>
 	

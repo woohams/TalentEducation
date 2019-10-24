@@ -27,7 +27,7 @@ public class CalendarController {
 	@Autowired
 	private CalendarBiz calendarBiz;
 	
-	@RequestMapping(value = "/calendar.do")
+	@RequestMapping(value = {"/calendar.do", "/member/calendar.do"})
 	public String calendar() {
 		
 		return "calendar";

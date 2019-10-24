@@ -66,7 +66,7 @@ $(function () {
         
         var editStart = date.format();
         //alert(editStart);	// 클릭 날짜 alert
-        window.open("resources/template/eventuploadform.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
+        window.open("/te/resources/template/eventuploadform.jsp?calendar_start="+date.format(),"","left=600px,top=50px,width=600px,height=500px");
 		
         
         //alert('Date: ' + date.format());
@@ -77,7 +77,7 @@ $(function () {
        }
     ,
     eventClick: function(event) {				//일정 클릭하면 실행되는 펑션 => 수정창이 뜨도록 설정함.
-        window.open("calendarDetail.do?id="+event.id,"","left=600px,top=50px,width=800px,height=400px");
+        window.open("/te/calendarDetail.do?id="+event.id,"","left=600px,top=50px,width=800px,height=400px");
     }
     ,
     
@@ -87,7 +87,7 @@ $(function () {
             event.end = event.start;		//start랑 동일한 날짜로 (null에는 밑에 format()적용이 안돼서 오류남!)
         }
         $.ajax({
-            url:"calendarDragUpdate.do",
+            url:"/te/calendarDragUpdate.do",
             data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format(),		
             // java.lang.IllegalArgumentException: 요청 타겟에서 유효하지 않은 문자가 발견되었습니다. 유효한 문자들은 RFC 7230과 RFC 3986에 정의되어 있습니다.
             
@@ -108,7 +108,7 @@ $(function () {
       
 
         $.ajax({
-            url:"calendarDragUpdate.do",
+            url:"/te/calendarDragUpdate.do",
             data:"id="+event.id+"&start="+event.start.format()+"&end="+event.end.format(),
             dataType:"text",
             success:function(dropDate){
@@ -143,7 +143,7 @@ $(function () {
     // 값 받아오기
     events: function(start, end, timezone, callback) {
         $.ajax({
-            url: 'calendarlist.do',
+            url: '/te/calendarlist.do',
             dataType:'text',
             success: function(data){
                 var parse = JSON.parse(data);

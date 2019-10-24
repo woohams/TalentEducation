@@ -5,10 +5,10 @@
 <html>
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
-		<link rel="stylesheet" href="resources/css/mypage.css">
+		<link rel="stylesheet" href="/te/resources/css/mypage.css">
 		
-		<link rel="stylesheet"  href="resources/css/fullcalendar.css"  />  
-		<link rel="stylesheet" href="resources/css/calendar.css">
+		<link rel="stylesheet"  href="/te/resources/css/fullcalendar.css"  />  
+		<link rel="stylesheet" href="/te/resources/css/calendar.css">
 		
 	</head>
 	
@@ -26,11 +26,11 @@
 	<%@ include file="/resources/template/footer.jsp" %>
 	</body>
 	
-	<script type="text/javascript" src="resources/js/calendar.js"></script>
+	<script type="text/javascript" src="/te/resources/js/calendar.js"></script>
 	<!-- fullcalendar-3.10.0 version used -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
-	<script src="resources/js/fullcalendar.js"></script>
-	<script type="text/javascript" src="resources/js/ko.js"></script>
+	<script src="/te/resources/js/fullcalendar.js"></script>
+	<script type="text/javascript" src="/te/resources/js/ko.js"></script>
 </html>
 
 
