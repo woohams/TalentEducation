@@ -102,3 +102,19 @@ header {
 .TE_header_slider_menu > a:hover {
     color: tomato;
 }
+
+input[id="TE_header_menu"] {display: none;}
+input[id="TE_header_menu"]+label {display: block;width: 50px;height: 25px;position: relative;cursor: pointer;}
+
+input[id="TE_header_menu"]+label span:nth-child(1):hover {background: black;}
+input[id="TE_header_menu"]+label span:nth-child(1):hover {background: black;}
+input[id="TE_header_menu"]+label span {display: block;position: absolute;width: 90%;height: 5px;border-radius: 30px;
+        background: #fff;transition: all .35s;}
+input[id="TE_header_menu"]+label span:nth-child(1) {top: 0;}
+input[id="TE_header_menu"]+label span:nth-child(2) {top: 50%;transform: translateY(-50%);}
+input[id="TE_header_menu"]+label span:nth-child(3) {bottom: 0;}
+input[id="TE_header_menu"]:checked+label {z-index: 11;}
+input[id="TE_header_menu"]:checked+label span {background: #fff;}
+input[id="TE_header_menu"]:checked+label span:nth-child(1) {top: 50%;transform: translateY(-50%) rotate(45deg);}
+input[id="TE_header_menu"]:checked+label span:nth-child(2) {opacity: 0;}
+input[id="TE_header_menu"]:checked+label span:nth-child(3) {bottom: 50%;transform: translateY(50%) rotate(-45deg);}

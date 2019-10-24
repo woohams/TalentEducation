@@ -36,28 +36,8 @@
 		</section>
 		
 		<section>
-			<div class="w3-container">
-			</div>
-
-			<div class="w3-content" style="max-width: 800px;">
-				<div style = "width: 400px; margin: 0 auto; padding-top: 100px;">
-				  	<img class="mySlides" src="resources/images/teacher1introduce.png" style="width:500px; height:550px; display:block" />
-				  	<img class="mySlides" src="resources/images/teacher2introduce.png" style="width:500px; height:550px; display:none" />
-				  	<img class="mySlides" src="resources/images/teacher3introduce.png" style="width:500px; height:550px; display:none" />
-			  	</div>
+			<div id="section2IMG"></div>
 			
-			  	<div class="w3-row-padding w3-section">
-			    	<div class="w3-col s4">
-			      		<img class="te w3-opacity w3-hover-opacity-off" src="resources/images/teacher1.PNG" style="width:50%; height:15%; cursor:pointer" onclick="currentDiv(1)" />
-			    	</div>
-			    	<div class="w3-col s4">
-			      		<img class="te w3-opacity w3-hover-opacity-off" src="resources/images/teacher2.PNG" style="width:50%; height:15%; cursor:pointer" onclick="currentDiv(2)" />
-			    	</div>
-			    	<div class="w3-col s4">
-			      		<img class="te w3-opacity w3-hover-opacity-off" src="resources/images/teacher3.PNG" style="width:50% ;height:15%; cursor:pointer" onclick="currentDiv(3)" />
-			    	</div>
-			  	</div>
-			</div>
 			
 		</section>
 		<section>

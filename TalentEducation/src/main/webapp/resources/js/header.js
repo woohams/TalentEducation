@@ -2,18 +2,22 @@ $(function() {
 	$("header").hover(function() {
 		$("header").css('background-color', 'white');
 		$(".TE_header a").css('color', 'rgb(50,50,50)');
+		$("input[id='TE_header_menu']+label span").css('background', 'rgb(50,50,50)');
 	},function() {
 		$("header").css('background-color', 'rgb(50,50,50)');
 		$(".TE_header a").css('color', 'white');
+		$("input[id='TE_header_menu']+label span").css('background', 'white');
 	});
-	$("#TE_header_menu").click(function() {
+	$("#TE_header_menu").change(function() {
 		var slider = $(".TE_header_slider");
 		var display = slider.css('display');
-		
-		if(display == 'none') {
-			slider.slideDown(400);
-		}else if(display == 'block') {
-			slider.slideUp(200);			
+		if($("#TE_header_menu").is(":checked")){
+       
+			
+				slider.slideDown(400);
+			
+		}else{
+			slider.slideUp(200);
 		}
 	});
 	
