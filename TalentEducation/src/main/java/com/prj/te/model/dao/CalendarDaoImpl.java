@@ -16,11 +16,11 @@ public class CalendarDaoImpl implements CalendarDao {
 	private SqlSessionTemplate sqlSession;
 
 	@Override
-	public List<CalendarDto> selectList() {
+	public List<CalendarDto> selectList(String id) {
 		List <CalendarDto> list = new ArrayList<CalendarDto>();
 		
 		try {
-			list = sqlSession.selectList(namespace + "calendarList");
+			list = sqlSession.selectList(namespace + "calendarList", id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("selectList error");

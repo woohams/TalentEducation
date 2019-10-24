@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<%@ include file="/resources/template/head.jsp" %>
-		<link rel="stylesheet" href="resources/css/mypage.css">
+		<link rel="stylesheet" href="/te/resources/css/mypage.css">
 		<script type="text/javascript" >
 		var pwConfirm = 0;
 		var nickConfirm = 0;
@@ -65,7 +65,11 @@
 			alert("수정 성공!");
 			return true;
 		}
-
+		function imgUpload() {
+			var imgOpen = window.open("", "img_target", "width= 10px; height= 10px; top= 10000px; left= 10000px;");
+			document.getElementById("img_upload").submit();
+			
+		}
 		
 		
 		</script>
@@ -77,9 +81,10 @@
 		<section id="myinfoS">
 	<sec:authorize access="isAuthenticated()">
 	<sec:authentication property="principal" var="member" />
-		<form action="./myinfoupdateres.do" method="post" id="myinfoF" >	
+		<form action="/te/myinfoupdateres.do" method="post" id="myinfoF" >	
 			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 			<input type="hidden" name="member_seq" value="${member.member_seq }">
+			<input id="hiddenImg" type="hidden" name="profile_img" value="${member.profile_img }">
 					<c:set var="id" value="${member.id}" />
 					<c:choose>
 					    <c:when test="${fn:length(id) > 10}">
@@ -109,13 +114,14 @@
 						<input type="text" name="nickname" onchange="nicChk();" value="${member.nickname }" >
 						<span id="nic_check"></span>
 					</div>
-					<div class="form-group">
-					<label>PROFILE_IMG</label>	
-						<input type="file" name="profile_img" value="${member.profile_img }" >
-					</div>
 					<div>
 						<input type="submit"  value="수정" >
 					</div>
+		</form>
+		<form id="img_upload" action="/te/uploadimage.do" method="post" enctype="multipart/form-data" target="img_target">
+			<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+			<input type="hidden" name="member_seq" value="${member.member_seq }">
+			<input type="file" name="file" accept="image/*" onchange="imgUpload();">
 		</form>
 		</sec:authorize>
 		</section>

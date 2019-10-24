@@ -6,7 +6,7 @@ import com.prj.te.dto.CalendarDto;
 
 public interface CalendarBiz {
 
-	public List<CalendarDto> selectList();
+	public List<CalendarDto> selectList(String id);
 	public CalendarDto selectOne(int calendar_seq);
 	public int insert(CalendarDto calendarDto);
 	public int dragNdropUpdate(CalendarDto calendarDto);

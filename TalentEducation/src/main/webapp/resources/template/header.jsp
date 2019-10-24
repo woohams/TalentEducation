@@ -31,19 +31,12 @@
 	<div class="TE_header_slider">
 		<div class="TE_header_slider_menus">
 			<div class="TE_header_slider_menu">
-				<c:choose>
-					<c:when test="${member != 'anonymousUser'}">
-						<h3>마이 홈</h3>
-						<a href="/te/member/mypagehome.do?tutor=${member.id }">홈</a>
-						<a href="/te/mypageinfo.do">내 정보</a>
-						<a href="/te/calendar.do">스케쥴</a>
-						<a href="">VOD</a>
-						<a href="">도서구매</a>
-					</c:when>
-					<c:otherwise>
-						<h3>로그인 해주세요</h3>
-					</c:otherwise>
-				</c:choose>
+				<h3>마이 홈</h3>
+				<a href="/te/member/mypagehome.do">홈</a>
+				<a href="/te/member/mypageinfo.do">내 정보</a>
+				<a href="/te/calendar.do">스케쥴</a>
+				<a href="">VOD</a>
+				<a href="">도서구매</a>
 			</div>
 			<div class="TE_header_slider_menu">
 				<h3>인기수업</h3>

@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj.te.dto.MemberDto;
 
@@ -35,13 +35,6 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/member/mypagehome.do")
-	public String myPageHomeMember(Model model, HttpServletRequest request) {
-
-		model.addAttribute("tutor", request.getParameter("tutor"));
-		
-		return "mypagehome";
-	}
 	@RequestMapping(value = "/mypagehome.do")
 	public String myPageHome(Model model, HttpServletRequest request) {
 		
@@ -51,6 +44,23 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/mypageinfo.do")
 	public String myPageInfo() {
+		return "mypageinfo";
+	}
+	
+	@RequestMapping(value = "/member/mypagehome.do")
+	public String myPageHomeMember(Model model, Authentication  authentication) {
+
+		MemberDto dto = (MemberDto)authentication.getPrincipal();
+		model.addAttribute("tutor", dto.getId());
+		
+		return "mypagehome";
+	}
+	@RequestMapping(value = "/member/mypageinfo.do")
+	public String myPageInfoMember(Model model, Authentication  authentication) {
+		
+		MemberDto dto = (MemberDto)authentication.getPrincipal();
+		model.addAttribute("tutor", dto.getId());
+		
 		return "mypageinfo";
 	}
 	

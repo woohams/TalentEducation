@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<%@ include file="/resources/template/head.jsp" %>
 	<link rel="icon" type="image/png" sizes="32x32" href="../images/logo.png">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../js/calendar.js"></script>
@@ -20,8 +21,10 @@
 </head>
 <body>
 	
-	<form action="calendarInsert.do" id="insertForm" method="post">
+	<sec:authentication property="principal" var="member" />
+	<form action="/te/calendarInsert.do" id="insertForm" method="post">
 	<input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
+	<input type="hidden"  name="id"   value="${member.id }"/>
 		<table border="1">
 			<tr>
 				<th>제목</th>

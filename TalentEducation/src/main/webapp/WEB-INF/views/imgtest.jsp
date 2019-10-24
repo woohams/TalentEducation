@@ -9,8 +9,8 @@
 <body>
 <script type="text/javascript">
 	onload = function() {
-		opener.document.getElementById("board_mainimg").setAttribute("src", "resources/images/upload/${imgName}");
-		opener.document.getElementById("hiddenImg").setAttribute("value", "resources/images/upload/${imgName}");
+		opener.document.getElementById("mainImg").setAttribute("src", "/te/resources/images/upload/${imgName}");
+		opener.document.getElementById("hiddenImg").setAttribute("value", "/te/resources/images/upload/${imgName}");
 		close();
 		
 	}

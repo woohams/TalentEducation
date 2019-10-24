@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.prj.te.dto.CalendarDto;
+import com.prj.te.dto.MemberDto;
 import com.prj.te.model.biz.CalendarBiz;
 
 
@@ -32,12 +34,15 @@ public class CalendarController {
 	}
 
 	@RequestMapping(value="/calendarlist.do")
-	public void selectList(HttpServletResponse response) {
+	public void selectList(HttpServletResponse response, Authentication  authentication) {
+
+		MemberDto dto = (MemberDto)authentication.getPrincipal();
 		
 		try {
 			PrintWriter out = response.getWriter();
 		
-		List<CalendarDto> list = calendarBiz.selectList();
+		List<CalendarDto> list = calendarBiz.selectList(dto.getId());
+		
 		
 		JSONArray jArr = new JSONArray();
 		HashMap<String, Object> hm = null;
@@ -62,7 +67,7 @@ public class CalendarController {
 	}
 	
 	@RequestMapping(value="/calendarDragUpdate.do")
-	public void selectList(HttpServletRequest request, HttpServletResponse response) {
+	public void selectListDrag(HttpServletRequest request, HttpServletResponse response) {
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -96,7 +101,6 @@ public class CalendarController {
 	
 	@RequestMapping(value="/calendarInsert.do")
 	public void insert(CalendarDto calendarDto, HttpServletRequest request, HttpServletResponse response) {
-		
 		
 		try {
 			request.setCharacterEncoding("UTF-8");

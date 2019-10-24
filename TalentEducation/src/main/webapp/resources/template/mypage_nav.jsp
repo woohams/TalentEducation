@@ -18,7 +18,7 @@
 </script>
 <nav>
 	<div class="TE_mypage_nav">
-		<img alt="" src="${member.profile_img }"/>
+		<img id="mainImg" src="${member.profile_img }"/>
 		<h3>${member.nickname }</h3>
 		<a href="">id</a>
 		<div class="TE_mypage_nav_btn">

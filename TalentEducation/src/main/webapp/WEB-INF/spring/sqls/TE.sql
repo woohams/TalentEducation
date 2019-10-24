@@ -63,6 +63,7 @@ INSERT INTO BOARD_LECTURE
 VALUES(BOARD_LECTURE_SEQ.NEXTVAL, 'title2', '0000', 'user', '', 'Y', 'content', SYSDATE, 'tag', 'image', 0, 0);
 
 SELECT * FROM BOARD_LECTURE;
+UPDATE BOARD_LECTURE SET TUTEES = 'user' WHERE BOARD_LECTURE_SEQ = 1;
 --------------------------------------------------------------------------
 
 DROP SEQUENCE BOARD_VOD_SEQ;

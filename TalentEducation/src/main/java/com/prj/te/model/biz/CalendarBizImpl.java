@@ -15,8 +15,8 @@ public class CalendarBizImpl implements CalendarBiz {
 	private CalendarDao calendarDao;
 	
 	@Override
-	public List<CalendarDto> selectList() {
-		return calendarDao.selectList();
+	public List<CalendarDto> selectList(String id) {
+		return calendarDao.selectList(id);
 	}
 
 	@Override

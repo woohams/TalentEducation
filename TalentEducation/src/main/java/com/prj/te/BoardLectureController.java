@@ -52,9 +52,9 @@ public class BoardLectureController {
 
 		int res = lectureBiz.insertLecture(dto);
 		if(res > 0) {
-			return "redirect:./boardlist.do";
+			return "redirect:/boardlist.do";
 		}else {
-			return "redirect:./lectureinsert.do";
+			return "redirect:/lectureinsert.do";
 		}
 		
 	}
@@ -75,7 +75,7 @@ public class BoardLectureController {
 		int res = lectureBiz.updateLecture(dto);
 		
 		if(res > 0) {
-			return "redirect:./selectone.do?boardseq=" + dto.getBoard_lecture_seq();
+			return "redirect:/selectone.do?boardseq=" + dto.getBoard_lecture_seq();
 		}else {
 			BoardLectureDto dto0 = lectureBiz.selectOne(dto.getBoard_lecture_seq());
 			
@@ -93,15 +93,15 @@ public class BoardLectureController {
 		int res = lectureBiz.deleteLecture(seq);
 		
 		if(res > 0) {
-			return "redirect:./boardlist.do";
+			return "redirect:/boardlist.do";
 		}else {
-			return "redirect:./selectone.do?boardseq=" + seq;
+			return "redirect:/selectone.do?boardseq=" + seq;
 		}
 		
 	}
 
 
-	@RequestMapping(value = "/openroom.do")
+	@RequestMapping(value = {"/openroom.do", "/member/openroom.do"})
 	public String openRoom(Model model, HttpServletRequest request) {
 		String isTutor = request.getParameter("isTutor");
 		String tutorId = request.getParameter("tutorId");
