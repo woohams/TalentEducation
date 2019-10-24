@@ -1,6 +1,7 @@
 
 let localStream;
 let roomid;
+let mirrorState = true;
 const userid = document.getElementById('userId').value;
 const isTutor = document.getElementById('isTutor').value == 'true';
 const btns = document.getElementById('buttons');
@@ -10,6 +11,7 @@ const endBtn = document.getElementById('btn-end');
 const cameraBtn = document.getElementById('btn-camera');
 const micBtn = document.getElementById('btn-mic');
 const sendBtn = document.getElementById('btn-send');
+const mirrorBtn = document.getElementById('btn-mirror');
 const userList = document.getElementById('userList');
 const message = document.getElementById('message');
 const chatMessages = document.getElementById('chatMessages');
@@ -103,6 +105,28 @@ if (startBtn != null) {
         $this.toggleClass('active');
         $this.hasClass('active') ? muteAudio() : unmuteAudio();
     };
+
+    mirrorBtn.onclick = () => {
+        mirror(mirrorState);
+        connection.send({
+            mirrormode: true,
+            state: mirrorState
+        });
+    }
+}
+
+function mirror(state){
+    if(state){
+        video.style.cssText = "-moz-transform: scale(-1, 1); \
+                                -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
+                                transform: scale(-1, 1);";
+        mirrorState = false;
+    } else {
+        video.style.cssText = "-moz-transform: scale(1, 1); \
+                                -webkit-transform: scale(1, 1); -o-transform: scale(1, 1); \
+                                transform: scale(1, 1);";
+        mirrorState = true;
+    }
 }
 
 // ......................................................
@@ -383,6 +407,11 @@ connection.onmessage = (event) => {
         userList.innerHTML = '';
         userList.appendChild(dl);
         userList.scrollTop = userList.scrollHeight;
+    }
+
+    if(event.data.mirrormode){
+        mirrorState = event.data.state;
+        mirror(!mirrorState);
     }
 }
 
