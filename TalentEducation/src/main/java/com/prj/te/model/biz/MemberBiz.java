@@ -13,6 +13,7 @@ public interface MemberBiz extends UserDetailsService{
 	public MemberDto login(String id);
 	public List<MemberDto> selectList();
 	public MemberDto selectone(int member_seq);
+	public MemberDto selectoneId(String id);
 	public int insert(MemberDto dto);
 	public int update(MemberDto dto);
 	public int delete(int member_seq);

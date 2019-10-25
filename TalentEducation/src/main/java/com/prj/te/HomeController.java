@@ -35,33 +35,6 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/mypagehome.do")
-	public String myPageHome(Model model, HttpServletRequest request) {
-		
-		model.addAttribute("tutor", request.getParameter("tutor"));
-		
-		return "mypagehome";
-	}
-	@RequestMapping(value = "/mypageinfo.do")
-	public String myPageInfo() {
-		return "mypageinfo";
-	}
 	
-	@RequestMapping(value = "/member/mypagehome.do")
-	public String myPageHomeMember(Model model, Authentication  authentication) {
-
-		MemberDto dto = (MemberDto)authentication.getPrincipal();
-		model.addAttribute("tutor", dto.getId());
-		
-		return "mypagehome";
-	}
-	@RequestMapping(value = "/member/mypageinfo.do")
-	public String myPageInfoMember(Model model, Authentication  authentication) {
-		
-		MemberDto dto = (MemberDto)authentication.getPrincipal();
-		model.addAttribute("tutor", dto.getId());
-		
-		return "mypageinfo";
-	}
 	
 }

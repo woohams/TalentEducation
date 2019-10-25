@@ -4,7 +4,7 @@
 <footer>
 	<div>
 		
-    	<h2><img alt="" src="/te/resources/images/sample.jpg" class="footer_img"/>Talent Education</h2>
+    	<h2><img alt="" src="/te/resources/images/logo.png" class="footer_img"/>Talent Education</h2>
     	<p> KH FINAL PROJECT </p>
     	<p>
     		COPYRIGHT &copy; 2019  〓 <span>어 만 인</span>〓 All rights reserved.

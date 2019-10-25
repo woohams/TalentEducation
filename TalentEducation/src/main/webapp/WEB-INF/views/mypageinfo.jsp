@@ -103,7 +103,7 @@
                			</div><br><br>
 					    <div class="form-group">
 							<label>PASSWORD</label>
-							<input type="password" name="pw" onchange="pwChk();" autofocus>
+							<input type="password" name="pw" onchange="pwChk();" required autofocus>
 							<span id="pw_check"></span>
 						</div>
 						

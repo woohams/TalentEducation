@@ -162,5 +162,17 @@ public class MemberDaoImpl implements MemberDao {
 			System.out.println("IDCHK ERROR");
 		}
 		return res;
+	}
+
+	@Override
+	public MemberDto selectoneId(String id) {
+		MemberDto dto = null;
+		try {
+			dto = sqlSession.selectOne(namespace+"selectOneId", id);
+		} catch (Exception e) {
+			System.out.println("SELECTONE ERROR");
+			e.printStackTrace();
+		}
+		return dto;
 	} 
 }

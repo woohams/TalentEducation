@@ -18,21 +18,26 @@
 </script>
 <nav>
 	<div class="TE_mypage_nav">
-		<img id="mainImg" src="${member.profile_img }"/>
+		<img id="mainImg" src="${tutor.profile_img }"/>
 		<h3>닉네임 </h3>
-		<h4>${member.nickname }</h4>
+		<h4>${tutor.nickname }</h4>
 		<h3>아이디</h3>
-		<h4>${member.id }</h4>
-		<div class="TE_mypage_nav_btn">
-			<!-- enterRoom(튜터 아이디 , 자기 아이디, 로 바꿔야함) -->
-			<input type="button" value="강의" onclick="enterRoom('${tutor }', '${member.id}', this.value);"/>
-			<input type="button" value="과외" onclick="enterRoom('${tutor }', '${member.id}', this.value);"/>
-		</div>
+		<h4>${tutor.id }</h4>
+		<c:choose>
+			<c:when test="${member != 'anonymousUser' }">
+				<div class="TE_mypage_nav_btn">
+					<input type="button" value="강의" onclick="enterRoom('${tutor.id }', '${member.id}', this.value);"/>
+					<input type="button" value="과외" onclick="enterRoom('${tutor.id }', '${member.id}', this.value);"/>
+				</div>
+			</c:when>
+			<c:otherwise>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<div class="TE_mypage_nav">
 		<c:choose>
 			<c:when test="${member != 'anonymousUser'}">
-				<c:if test="${tutor == member.id }">
+				<c:if test="${tutor.id == member.id }">
 					<a href="./mypageinfo.do">내 정보</a>
 				</c:if>
 			</c:when>

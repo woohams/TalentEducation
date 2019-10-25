@@ -26,6 +26,14 @@
 		FROM MEMBER 
 		WHERE MEMBER_SEQ = #{member_seq}
 	</select>
+	<select id="selectOneId" parameterType="String" resultType="MemberDto">
+		SELECT
+		MEMBER_SEQ, ID, PW, ENABLE, 
+		AUTHORITY, NICKNAME, EMAIL,
+		CATEGORYS, PROFILE_IMG, END_DATE
+		FROM MEMBER 
+		WHERE ID = #{id}
+	</select>
 	
 	<insert id="insert" parameterType="MemberDto">
 		 INSERT INTO MEMBER VALUES(

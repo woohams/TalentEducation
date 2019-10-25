@@ -1,7 +1,11 @@
 package com.prj.te;
 
 
-import org.springframework.beans.factory.annotation.Autowired;import org.springframework.stereotype.Controller;import org.springframework.ui.Model;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -90,6 +94,42 @@ public class MemberController {
 		}else {
 			return true;
 		}
+	}
+	
+	@RequestMapping(value = "/mypagehome.do")
+	public String myPageHome(Model model, HttpServletRequest request) {
+		
+		System.out.println(request.getParameter("tutor"));
+		MemberDto dto = Mbiz.selectoneId(request.getParameter("tutor"));
+		System.out.println(dto);
+		model.addAttribute("tutor", dto);
+		
+		return "mypagehome";
+	}
+	@RequestMapping(value = "/mypageinfo.do")
+	public String myPageInfo(Model model, HttpServletRequest request) {
+
+		MemberDto dto = Mbiz.selectoneId(request.getParameter("tutor"));
+		model.addAttribute("tutor", dto);
+		
+		return "mypageinfo";
+	}
+	
+	@RequestMapping(value = "/member/mypagehome.do")
+	public String myPageHomeMember(Model model, Authentication  authentication) {
+
+		MemberDto dto = (MemberDto)authentication.getPrincipal();
+		model.addAttribute("tutor", dto);
+		
+		return "mypagehome";
+	}
+	@RequestMapping(value = "/member/mypageinfo.do")
+	public String myPageInfoMember(Model model, Authentication  authentication) {
+		
+		MemberDto dto = (MemberDto)authentication.getPrincipal();
+		model.addAttribute("tutor", dto);
+		
+		return "mypageinfo";
 	}
 	
 }

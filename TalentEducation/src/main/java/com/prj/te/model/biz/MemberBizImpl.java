@@ -95,6 +95,11 @@ public class MemberBizImpl implements MemberBiz {
 		return dao.updateInfo(id, pw , email);
 	}
 
+	@Override
+	public MemberDto selectoneId(String id) {
+		return dao.selectoneId(id);
+	}
+
 	
 
 	

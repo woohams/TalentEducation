@@ -79,10 +79,9 @@ public class MemberDto implements UserDetails{
 
 	@Override
 	public String toString() {
-		return "MemberDto [seq"+member_seq+ ",id=" + id + ", pw=" + pw + ", enable=" + enable +  ", authority="
-				+ authority + ", nickname=" + nickname + ", email=" + email
-				+ ", categorys=" + categorys + ", profile_img=" + profile_img + ", end_date="
-				+ end_date + "]";
+		return "MemberDto [member_seq=" + member_seq + ", id=" + id + ", pw=" + pw + ", enable=" + enable
+				+ ", authority=" + authority + ", nickname=" + nickname + ", email=" + email + ", categorys="
+				+ categorys + ", profile_img=" + profile_img + ", end_date=" + end_date + "]";
 	}
 	
 	public String getId() {
