@@ -46,7 +46,7 @@
 				<a href="/te/member/mypageinfo.do">내 정보</a>
 				<a href="/te/calendar.do">스케쥴</a>
 				<a href="">VOD</a>
-				<a href="">도서구매</a>
+				<a href="/te/home.do#3">도서구매</a>
 			</div>
 			<div class="TE_header_slider_menu">
 				<h3>인기수업</h3>
