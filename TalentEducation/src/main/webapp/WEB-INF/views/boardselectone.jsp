@@ -43,7 +43,7 @@
 				</div>
 				<c:choose>
 					<c:when test="${member != 'anonymousUser'}">
-						<c:if test="${lecture.tutor_id == member.id }">
+						<c:if test="${lecture.tutor_id == member.id || member.authority == 'ROLE_ADMIN'}">
 							<sec:authorize access="isAuthenticated()">
 								<form id="updel_form" action="" method="post">
 									<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">

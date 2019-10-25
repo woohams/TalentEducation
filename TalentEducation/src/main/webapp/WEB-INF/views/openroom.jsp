@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<img alt="" src="resources/images/loading.gif" style="position: absolute; top: 30%; left: 40%; width: 300px;"/>
-		<form action="https://192.168.110.242:3000/${url }" id="aa" method="post">
+		<form action="https://192.168.10.12:3000/${url }" id="aa" method="post">
 			<input type="hidden" name="userId" value="${myId }">
 			<input type="hidden" name="seq" value="${roomNo }">
 		</form>

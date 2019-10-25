@@ -106,14 +106,14 @@ public class BoardLectureController {
 		String isTutor = request.getParameter("isTutor");
 		String tutorId = request.getParameter("tutorId");
 		String myId = request.getParameter("myId");
+		int roomNo = 0;
 		
-		BoardLectureDto lectureDto = lectureBiz.selectOneLive(tutorId);
-		int roomNo = lectureDto.getBoard_lecture_seq();
-		
-		String url = "chatingroom";
+		String url = "chattingroom";
 		if(isTutor.equals("true")) {
 			url = "createroom";
-			roomNo = 0;
+		}else {
+			BoardLectureDto lectureDto = lectureBiz.selectOneLive(tutorId);
+			roomNo = lectureDto.getBoard_lecture_seq();
 		}
 
 		model.addAttribute("url", url);
