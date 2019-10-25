@@ -9,13 +9,72 @@
 		<script type="text/javascript" src="resources/js/lectureinsert.js"></script>
 		
 		<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
-		
-		<!-- include summernote css/js-->
-		<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+<!-- include summernote css/js -->
+<link href="summernote/dist/summernote.css" rel="stylesheet">
+<link rel="stylesheet" href="static/base.css" />
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+<script src="summernote/dist/summernote.js"></script>
+<script src="summernote/dist/lang/summernote-ko-KR.js"></script>
 		
 	</head>
+	<script type="text/javascript">
+		$(function() {
+		
+	 	 $('#summernote').summernote({
+		  height: 300,                 
+         minHeight: null,           
+         maxHeight: null,            
+         focus: true,               
+         lang : 'ko-KR',
+         toolbar: [
+       	    ['style', ['bold', 'italic', 'underline', 'clear']],
+       	    ['font', ['strikethrough', 'superscript', 'subscript']],
+       	    ['fontsize', ['fontsize']],
+       	    ['color', ['color']],
+       	    ['para', ['ul', 'ol', 'paragraph']],
+       	    ['height', ['height']],
+       	    ['insert', ['link', 'picture']],
+       	  ],
+        callbacks: {
+          onImageUpload: function(files, editor, welEditable) {
+        	 
+       	   console.log(files);
+	        	  console.log(editor);
+	        	  console.log(welEditable);
+          	for (var i = files.length - 1; i >= 0; i--) {
+             sendFile(files[i], this);
+           }
+         }
+       }
+	  });
+	});
+
+	function sendFile(file, editor) {
+		
+		data = new FormData();
+	    data.append("uploadFile", file);
+	    console.log(file+data+editor)
+	    $.ajax({
+	        data : data,
+	        type : "POST",
+	        url : "/te/summerImgUpload.do",
+	        cache : false, 
+	        contentType : false,
+	        enctype: 'multipart/form-data',
+	        processData : false,
+		beforeSend : function(xhr){
+			xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+       		 },
+	        success : function(data) {
+	        	console.log(data)
+	        	$(editor).summernote('editor.insertImage', data.url);
+	        	console.log(data.url)
+	        }
+	    });
+	}
+	</script>
 	<body>
 	<%@ include file="/resources/template/header.jsp" %>
 	<section>
