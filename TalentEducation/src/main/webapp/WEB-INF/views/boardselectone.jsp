@@ -11,6 +11,7 @@
 	<%@ include file="/resources/template/header.jsp" %>
 	
 	<section>
+	
 		<div id="board_main">
 			<div id="board_top">
 				<div class="board_top_div">
@@ -59,9 +60,19 @@
 				</c:choose>
 			</div>
 		</div>
+		<form method="get" action="./kakaopay.do">
 		<div id="board_pay">
-			<input type="button" value="결제하기">
+		
+			<p>가격 : 1000원</p>
+			<input type="hidden" name="partner_order_id" value="aaa"/>
+			<input type="hidden" name="partner_user_id" value="bbb"/>
+			<input type="hidden" name="item_name" value="ccc"/>
+			<input type="hidden" name="quantity" value="1"/>
+			<input type="hidden" name="total_amount" value="1"/>
+			
+			<input type="submit" value="결제하기">
 		</div>
+		</form>
 	</section>
 	<%@ include file="/resources/template/footer.jsp" %>
 	</body>

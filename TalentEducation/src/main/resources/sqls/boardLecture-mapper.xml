@@ -18,7 +18,19 @@
 	
 	<insert id="insert" parameterType="boardLectureDto">
 		INSERT INTO BOARD_LECTURE
-		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, #{board_lecture_title}, '0000', #{tutor_id}, #{tutor_nik}, '', '-', #{board_lecture_content}, SYSDATE, 'tag', #{board_lecture_image}, 0, 0)
+		VALUES(BOARD_LECTURE_SEQ.NEXTVAL, 
+			   #{board_lecture_title}, 
+			   '0000', 
+			   #{tutor_id}, 
+			   #{tutor_nik}, 
+			   '', 
+			   '-', 
+			   #{board_lecture_content}, 
+			   SYSDATE, 
+			   'tag', 
+			   #{board_lecture_image}, 
+			   0, 
+			   0)
 	</insert>
 	
 	<update id="update" parameterType="boardLectureDto">
